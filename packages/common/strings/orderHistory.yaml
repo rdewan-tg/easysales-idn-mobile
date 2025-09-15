@@ -1,0 +1,9 @@
+title: Sales Order
+sales: Sales Order
+order: Order
+createOrder: Create Order
+cancelOrder: Cancel Order
+draft: Draft
+synced: Synced
+cancelled: Cancelled
+orderDeleted: Order Deleted Successfully

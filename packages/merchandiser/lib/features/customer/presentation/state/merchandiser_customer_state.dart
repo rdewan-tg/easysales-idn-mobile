@@ -1,0 +1,24 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:core/data/local/db/app_database.dart';
+import 'package:merchandiser/features/customer/domain/model/merchandiser_customer_address.dart';
+
+part 'merchandiser_customer_state.freezed.dart';
+
+@freezed
+abstract class MerchandiserCustomerState with _$MerchandiserCustomerState {
+  factory MerchandiserCustomerState({
+    @Default(false) bool isLoading,
+    @Default(false) bool isCustomerImported,
+    @Default(false) bool isSearchHistoryCleared,
+    int? totalSearchHistoryCleared,
+    @Default(0) int totalCustomerCount,
+    @Default([]) List<MerchandiserCustomerEntityData> customers,
+    @Default([]) List<MerchandiserCustomerAddress> addresses,
+    String? errorMsg,
+    @Default([]) List<String> searchHistory,
+    @Default('') String searchQuery,
+    @Default('') String lastSearchQuery,
+    @Default({}) Map<String, String> settings,
+  }) = _MerchandiserCustomerState;
+  
+}

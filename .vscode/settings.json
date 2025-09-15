@@ -1,0 +1,30 @@
+{
+  "dart.flutterSdkPath": ".fvm/versions/3.35.3",
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  "cSpell.words": [
+    "gorouter",
+    "isecure",
+    "com.tonggarden.easysales",
+    "getenv",
+    "riverpod",
+    "armeabi",
+    "Packsize",
+    "customre",
+    "Botton",
+    "Culculate",
+    "dimens",
+    "sitevisit",
+    "easysales",
+    "tonggarden",
+    "proguard",
+    "androidx",
+    "shorebirdtech",
+    "camerawesome",
+  ],
+  "yaml.schemaStore.enable": false
+}
