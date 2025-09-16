@@ -24,7 +24,12 @@
     "proguard",
     "androidx",
     "shorebirdtech",
-    "camerawesome"
+    "camerawesome",
+    "whatsnew",
+    "r0adkll",
+    "playservice",
+    "subosito",
+    "kuhnroyal",
   ],
   "yaml.schemaStore.enable": false
 }
