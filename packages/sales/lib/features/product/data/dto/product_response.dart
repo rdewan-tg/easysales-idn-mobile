@@ -34,7 +34,7 @@ abstract class ProductData with _$ProductData {
     required String unitPrice,
     required String image,
     required String itemDiscountGroup,
-    required String itemFocGroup,
+    required String itemFOCGroup,
     required String inventDimId,
     required String status,
     required String companyCode,
