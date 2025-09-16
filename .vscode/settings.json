@@ -24,7 +24,7 @@
     "proguard",
     "androidx",
     "shorebirdtech",
-    "camerawesome",
+    "camerawesome"
   ],
   "yaml.schemaStore.enable": false
 }

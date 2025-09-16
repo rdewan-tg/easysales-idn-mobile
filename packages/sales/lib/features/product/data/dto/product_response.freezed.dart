@@ -290,7 +290,7 @@ as List<ProductData>,
 /// @nodoc
 mixin _$ProductData {
 
- int get id; String get productId; String get itemId; String get productName; String get description; String get category; String get barcode; String get itemGroup; String? get packSize; String get salesUnit; String get unitPrice; String get image; String get itemDiscountGroup; String get itemFocGroup; String get inventDimId; String get status; String get companyCode; int get companyId; DateTime get createAt; DateTime get updatedAt;
+ int get id; String get productId; String get itemId; String get productName; String get description; String get category; String get barcode; String get itemGroup; String? get packSize; String get salesUnit; String get unitPrice; String get image; String get itemDiscountGroup; String get itemFOCGroup; String get inventDimId; String get status; String get companyCode; int get companyId; DateTime get createAt; DateTime get updatedAt;
 /// Create a copy of ProductData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -303,16 +303,16 @@ $ProductDataCopyWith<ProductData> get copyWith => _$ProductDataCopyWithImpl<Prod
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductData&&(identical(other.id, id) || other.id == id)&&(identical(other.productId, productId) || other.productId == productId)&&(identical(other.itemId, itemId) || other.itemId == itemId)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.description, description) || other.description == description)&&(identical(other.category, category) || other.category == category)&&(identical(other.barcode, barcode) || other.barcode == barcode)&&(identical(other.itemGroup, itemGroup) || other.itemGroup == itemGroup)&&(identical(other.packSize, packSize) || other.packSize == packSize)&&(identical(other.salesUnit, salesUnit) || other.salesUnit == salesUnit)&&(identical(other.unitPrice, unitPrice) || other.unitPrice == unitPrice)&&(identical(other.image, image) || other.image == image)&&(identical(other.itemDiscountGroup, itemDiscountGroup) || other.itemDiscountGroup == itemDiscountGroup)&&(identical(other.itemFocGroup, itemFocGroup) || other.itemFocGroup == itemFocGroup)&&(identical(other.inventDimId, inventDimId) || other.inventDimId == inventDimId)&&(identical(other.status, status) || other.status == status)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.companyId, companyId) || other.companyId == companyId)&&(identical(other.createAt, createAt) || other.createAt == createAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductData&&(identical(other.id, id) || other.id == id)&&(identical(other.productId, productId) || other.productId == productId)&&(identical(other.itemId, itemId) || other.itemId == itemId)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.description, description) || other.description == description)&&(identical(other.category, category) || other.category == category)&&(identical(other.barcode, barcode) || other.barcode == barcode)&&(identical(other.itemGroup, itemGroup) || other.itemGroup == itemGroup)&&(identical(other.packSize, packSize) || other.packSize == packSize)&&(identical(other.salesUnit, salesUnit) || other.salesUnit == salesUnit)&&(identical(other.unitPrice, unitPrice) || other.unitPrice == unitPrice)&&(identical(other.image, image) || other.image == image)&&(identical(other.itemDiscountGroup, itemDiscountGroup) || other.itemDiscountGroup == itemDiscountGroup)&&(identical(other.itemFOCGroup, itemFOCGroup) || other.itemFOCGroup == itemFOCGroup)&&(identical(other.inventDimId, inventDimId) || other.inventDimId == inventDimId)&&(identical(other.status, status) || other.status == status)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.companyId, companyId) || other.companyId == companyId)&&(identical(other.createAt, createAt) || other.createAt == createAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,id,productId,itemId,productName,description,category,barcode,itemGroup,packSize,salesUnit,unitPrice,image,itemDiscountGroup,itemFocGroup,inventDimId,status,companyCode,companyId,createAt,updatedAt]);
+int get hashCode => Object.hashAll([runtimeType,id,productId,itemId,productName,description,category,barcode,itemGroup,packSize,salesUnit,unitPrice,image,itemDiscountGroup,itemFOCGroup,inventDimId,status,companyCode,companyId,createAt,updatedAt]);
 
 @override
 String toString() {
-  return 'ProductData(id: $id, productId: $productId, itemId: $itemId, productName: $productName, description: $description, category: $category, barcode: $barcode, itemGroup: $itemGroup, packSize: $packSize, salesUnit: $salesUnit, unitPrice: $unitPrice, image: $image, itemDiscountGroup: $itemDiscountGroup, itemFocGroup: $itemFocGroup, inventDimId: $inventDimId, status: $status, companyCode: $companyCode, companyId: $companyId, createAt: $createAt, updatedAt: $updatedAt)';
+  return 'ProductData(id: $id, productId: $productId, itemId: $itemId, productName: $productName, description: $description, category: $category, barcode: $barcode, itemGroup: $itemGroup, packSize: $packSize, salesUnit: $salesUnit, unitPrice: $unitPrice, image: $image, itemDiscountGroup: $itemDiscountGroup, itemFOCGroup: $itemFOCGroup, inventDimId: $inventDimId, status: $status, companyCode: $companyCode, companyId: $companyId, createAt: $createAt, updatedAt: $updatedAt)';
 }
 
 
@@ -323,7 +323,7 @@ abstract mixin class $ProductDataCopyWith<$Res>  {
   factory $ProductDataCopyWith(ProductData value, $Res Function(ProductData) _then) = _$ProductDataCopyWithImpl;
 @useResult
 $Res call({
- int id, String productId, String itemId, String productName, String description, String category, String barcode, String itemGroup, String? packSize, String salesUnit, String unitPrice, String image, String itemDiscountGroup, String itemFocGroup, String inventDimId, String status, String companyCode, int companyId, DateTime createAt, DateTime updatedAt
+ int id, String productId, String itemId, String productName, String description, String category, String barcode, String itemGroup, String? packSize, String salesUnit, String unitPrice, String image, String itemDiscountGroup, String itemFOCGroup, String inventDimId, String status, String companyCode, int companyId, DateTime createAt, DateTime updatedAt
 });
 
 
@@ -340,7 +340,7 @@ class _$ProductDataCopyWithImpl<$Res>
 
 /// Create a copy of ProductData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? productId = null,Object? itemId = null,Object? productName = null,Object? description = null,Object? category = null,Object? barcode = null,Object? itemGroup = null,Object? packSize = freezed,Object? salesUnit = null,Object? unitPrice = null,Object? image = null,Object? itemDiscountGroup = null,Object? itemFocGroup = null,Object? inventDimId = null,Object? status = null,Object? companyCode = null,Object? companyId = null,Object? createAt = null,Object? updatedAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? productId = null,Object? itemId = null,Object? productName = null,Object? description = null,Object? category = null,Object? barcode = null,Object? itemGroup = null,Object? packSize = freezed,Object? salesUnit = null,Object? unitPrice = null,Object? image = null,Object? itemDiscountGroup = null,Object? itemFOCGroup = null,Object? inventDimId = null,Object? status = null,Object? companyCode = null,Object? companyId = null,Object? createAt = null,Object? updatedAt = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,productId: null == productId ? _self.productId : productId // ignore: cast_nullable_to_non_nullable
@@ -355,7 +355,7 @@ as String?,salesUnit: null == salesUnit ? _self.salesUnit : salesUnit // ignore:
 as String,unitPrice: null == unitPrice ? _self.unitPrice : unitPrice // ignore: cast_nullable_to_non_nullable
 as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String,itemDiscountGroup: null == itemDiscountGroup ? _self.itemDiscountGroup : itemDiscountGroup // ignore: cast_nullable_to_non_nullable
-as String,itemFocGroup: null == itemFocGroup ? _self.itemFocGroup : itemFocGroup // ignore: cast_nullable_to_non_nullable
+as String,itemFOCGroup: null == itemFOCGroup ? _self.itemFOCGroup : itemFOCGroup // ignore: cast_nullable_to_non_nullable
 as String,inventDimId: null == inventDimId ? _self.inventDimId : inventDimId // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,companyCode: null == companyCode ? _self.companyCode : companyCode // ignore: cast_nullable_to_non_nullable
@@ -447,10 +447,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String productId,  String itemId,  String productName,  String description,  String category,  String barcode,  String itemGroup,  String? packSize,  String salesUnit,  String unitPrice,  String image,  String itemDiscountGroup,  String itemFocGroup,  String inventDimId,  String status,  String companyCode,  int companyId,  DateTime createAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String productId,  String itemId,  String productName,  String description,  String category,  String barcode,  String itemGroup,  String? packSize,  String salesUnit,  String unitPrice,  String image,  String itemDiscountGroup,  String itemFOCGroup,  String inventDimId,  String status,  String companyCode,  int companyId,  DateTime createAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProductData() when $default != null:
-return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.description,_that.category,_that.barcode,_that.itemGroup,_that.packSize,_that.salesUnit,_that.unitPrice,_that.image,_that.itemDiscountGroup,_that.itemFocGroup,_that.inventDimId,_that.status,_that.companyCode,_that.companyId,_that.createAt,_that.updatedAt);case _:
+return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.description,_that.category,_that.barcode,_that.itemGroup,_that.packSize,_that.salesUnit,_that.unitPrice,_that.image,_that.itemDiscountGroup,_that.itemFOCGroup,_that.inventDimId,_that.status,_that.companyCode,_that.companyId,_that.createAt,_that.updatedAt);case _:
   return orElse();
 
 }
@@ -468,10 +468,10 @@ return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.de
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String productId,  String itemId,  String productName,  String description,  String category,  String barcode,  String itemGroup,  String? packSize,  String salesUnit,  String unitPrice,  String image,  String itemDiscountGroup,  String itemFocGroup,  String inventDimId,  String status,  String companyCode,  int companyId,  DateTime createAt,  DateTime updatedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String productId,  String itemId,  String productName,  String description,  String category,  String barcode,  String itemGroup,  String? packSize,  String salesUnit,  String unitPrice,  String image,  String itemDiscountGroup,  String itemFOCGroup,  String inventDimId,  String status,  String companyCode,  int companyId,  DateTime createAt,  DateTime updatedAt)  $default,) {final _that = this;
 switch (_that) {
 case _ProductData():
-return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.description,_that.category,_that.barcode,_that.itemGroup,_that.packSize,_that.salesUnit,_that.unitPrice,_that.image,_that.itemDiscountGroup,_that.itemFocGroup,_that.inventDimId,_that.status,_that.companyCode,_that.companyId,_that.createAt,_that.updatedAt);case _:
+return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.description,_that.category,_that.barcode,_that.itemGroup,_that.packSize,_that.salesUnit,_that.unitPrice,_that.image,_that.itemDiscountGroup,_that.itemFOCGroup,_that.inventDimId,_that.status,_that.companyCode,_that.companyId,_that.createAt,_that.updatedAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -488,10 +488,10 @@ return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.de
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String productId,  String itemId,  String productName,  String description,  String category,  String barcode,  String itemGroup,  String? packSize,  String salesUnit,  String unitPrice,  String image,  String itemDiscountGroup,  String itemFocGroup,  String inventDimId,  String status,  String companyCode,  int companyId,  DateTime createAt,  DateTime updatedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String productId,  String itemId,  String productName,  String description,  String category,  String barcode,  String itemGroup,  String? packSize,  String salesUnit,  String unitPrice,  String image,  String itemDiscountGroup,  String itemFOCGroup,  String inventDimId,  String status,  String companyCode,  int companyId,  DateTime createAt,  DateTime updatedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _ProductData() when $default != null:
-return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.description,_that.category,_that.barcode,_that.itemGroup,_that.packSize,_that.salesUnit,_that.unitPrice,_that.image,_that.itemDiscountGroup,_that.itemFocGroup,_that.inventDimId,_that.status,_that.companyCode,_that.companyId,_that.createAt,_that.updatedAt);case _:
+return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.description,_that.category,_that.barcode,_that.itemGroup,_that.packSize,_that.salesUnit,_that.unitPrice,_that.image,_that.itemDiscountGroup,_that.itemFOCGroup,_that.inventDimId,_that.status,_that.companyCode,_that.companyId,_that.createAt,_that.updatedAt);case _:
   return null;
 
 }
@@ -503,7 +503,7 @@ return $default(_that.id,_that.productId,_that.itemId,_that.productName,_that.de
 @JsonSerializable()
 
 class _ProductData implements ProductData {
-  const _ProductData({required this.id, required this.productId, required this.itemId, required this.productName, required this.description, required this.category, required this.barcode, required this.itemGroup, this.packSize, required this.salesUnit, required this.unitPrice, required this.image, required this.itemDiscountGroup, required this.itemFocGroup, required this.inventDimId, required this.status, required this.companyCode, required this.companyId, required this.createAt, required this.updatedAt});
+  const _ProductData({required this.id, required this.productId, required this.itemId, required this.productName, required this.description, required this.category, required this.barcode, required this.itemGroup, this.packSize, required this.salesUnit, required this.unitPrice, required this.image, required this.itemDiscountGroup, required this.itemFOCGroup, required this.inventDimId, required this.status, required this.companyCode, required this.companyId, required this.createAt, required this.updatedAt});
   factory _ProductData.fromJson(Map<String, dynamic> json) => _$ProductDataFromJson(json);
 
 @override final  int id;
@@ -519,7 +519,7 @@ class _ProductData implements ProductData {
 @override final  String unitPrice;
 @override final  String image;
 @override final  String itemDiscountGroup;
-@override final  String itemFocGroup;
+@override final  String itemFOCGroup;
 @override final  String inventDimId;
 @override final  String status;
 @override final  String companyCode;
@@ -540,16 +540,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductData&&(identical(other.id, id) || other.id == id)&&(identical(other.productId, productId) || other.productId == productId)&&(identical(other.itemId, itemId) || other.itemId == itemId)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.description, description) || other.description == description)&&(identical(other.category, category) || other.category == category)&&(identical(other.barcode, barcode) || other.barcode == barcode)&&(identical(other.itemGroup, itemGroup) || other.itemGroup == itemGroup)&&(identical(other.packSize, packSize) || other.packSize == packSize)&&(identical(other.salesUnit, salesUnit) || other.salesUnit == salesUnit)&&(identical(other.unitPrice, unitPrice) || other.unitPrice == unitPrice)&&(identical(other.image, image) || other.image == image)&&(identical(other.itemDiscountGroup, itemDiscountGroup) || other.itemDiscountGroup == itemDiscountGroup)&&(identical(other.itemFocGroup, itemFocGroup) || other.itemFocGroup == itemFocGroup)&&(identical(other.inventDimId, inventDimId) || other.inventDimId == inventDimId)&&(identical(other.status, status) || other.status == status)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.companyId, companyId) || other.companyId == companyId)&&(identical(other.createAt, createAt) || other.createAt == createAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductData&&(identical(other.id, id) || other.id == id)&&(identical(other.productId, productId) || other.productId == productId)&&(identical(other.itemId, itemId) || other.itemId == itemId)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.description, description) || other.description == description)&&(identical(other.category, category) || other.category == category)&&(identical(other.barcode, barcode) || other.barcode == barcode)&&(identical(other.itemGroup, itemGroup) || other.itemGroup == itemGroup)&&(identical(other.packSize, packSize) || other.packSize == packSize)&&(identical(other.salesUnit, salesUnit) || other.salesUnit == salesUnit)&&(identical(other.unitPrice, unitPrice) || other.unitPrice == unitPrice)&&(identical(other.image, image) || other.image == image)&&(identical(other.itemDiscountGroup, itemDiscountGroup) || other.itemDiscountGroup == itemDiscountGroup)&&(identical(other.itemFOCGroup, itemFOCGroup) || other.itemFOCGroup == itemFOCGroup)&&(identical(other.inventDimId, inventDimId) || other.inventDimId == inventDimId)&&(identical(other.status, status) || other.status == status)&&(identical(other.companyCode, companyCode) || other.companyCode == companyCode)&&(identical(other.companyId, companyId) || other.companyId == companyId)&&(identical(other.createAt, createAt) || other.createAt == createAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,id,productId,itemId,productName,description,category,barcode,itemGroup,packSize,salesUnit,unitPrice,image,itemDiscountGroup,itemFocGroup,inventDimId,status,companyCode,companyId,createAt,updatedAt]);
+int get hashCode => Object.hashAll([runtimeType,id,productId,itemId,productName,description,category,barcode,itemGroup,packSize,salesUnit,unitPrice,image,itemDiscountGroup,itemFOCGroup,inventDimId,status,companyCode,companyId,createAt,updatedAt]);
 
 @override
 String toString() {
-  return 'ProductData(id: $id, productId: $productId, itemId: $itemId, productName: $productName, description: $description, category: $category, barcode: $barcode, itemGroup: $itemGroup, packSize: $packSize, salesUnit: $salesUnit, unitPrice: $unitPrice, image: $image, itemDiscountGroup: $itemDiscountGroup, itemFocGroup: $itemFocGroup, inventDimId: $inventDimId, status: $status, companyCode: $companyCode, companyId: $companyId, createAt: $createAt, updatedAt: $updatedAt)';
+  return 'ProductData(id: $id, productId: $productId, itemId: $itemId, productName: $productName, description: $description, category: $category, barcode: $barcode, itemGroup: $itemGroup, packSize: $packSize, salesUnit: $salesUnit, unitPrice: $unitPrice, image: $image, itemDiscountGroup: $itemDiscountGroup, itemFOCGroup: $itemFOCGroup, inventDimId: $inventDimId, status: $status, companyCode: $companyCode, companyId: $companyId, createAt: $createAt, updatedAt: $updatedAt)';
 }
 
 
@@ -560,7 +560,7 @@ abstract mixin class _$ProductDataCopyWith<$Res> implements $ProductDataCopyWith
   factory _$ProductDataCopyWith(_ProductData value, $Res Function(_ProductData) _then) = __$ProductDataCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String productId, String itemId, String productName, String description, String category, String barcode, String itemGroup, String? packSize, String salesUnit, String unitPrice, String image, String itemDiscountGroup, String itemFocGroup, String inventDimId, String status, String companyCode, int companyId, DateTime createAt, DateTime updatedAt
+ int id, String productId, String itemId, String productName, String description, String category, String barcode, String itemGroup, String? packSize, String salesUnit, String unitPrice, String image, String itemDiscountGroup, String itemFOCGroup, String inventDimId, String status, String companyCode, int companyId, DateTime createAt, DateTime updatedAt
 });
 
 
@@ -577,7 +577,7 @@ class __$ProductDataCopyWithImpl<$Res>
 
 /// Create a copy of ProductData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? productId = null,Object? itemId = null,Object? productName = null,Object? description = null,Object? category = null,Object? barcode = null,Object? itemGroup = null,Object? packSize = freezed,Object? salesUnit = null,Object? unitPrice = null,Object? image = null,Object? itemDiscountGroup = null,Object? itemFocGroup = null,Object? inventDimId = null,Object? status = null,Object? companyCode = null,Object? companyId = null,Object? createAt = null,Object? updatedAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? productId = null,Object? itemId = null,Object? productName = null,Object? description = null,Object? category = null,Object? barcode = null,Object? itemGroup = null,Object? packSize = freezed,Object? salesUnit = null,Object? unitPrice = null,Object? image = null,Object? itemDiscountGroup = null,Object? itemFOCGroup = null,Object? inventDimId = null,Object? status = null,Object? companyCode = null,Object? companyId = null,Object? createAt = null,Object? updatedAt = null,}) {
   return _then(_ProductData(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,productId: null == productId ? _self.productId : productId // ignore: cast_nullable_to_non_nullable
@@ -592,7 +592,7 @@ as String?,salesUnit: null == salesUnit ? _self.salesUnit : salesUnit // ignore:
 as String,unitPrice: null == unitPrice ? _self.unitPrice : unitPrice // ignore: cast_nullable_to_non_nullable
 as String,image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String,itemDiscountGroup: null == itemDiscountGroup ? _self.itemDiscountGroup : itemDiscountGroup // ignore: cast_nullable_to_non_nullable
-as String,itemFocGroup: null == itemFocGroup ? _self.itemFocGroup : itemFocGroup // ignore: cast_nullable_to_non_nullable
+as String,itemFOCGroup: null == itemFOCGroup ? _self.itemFOCGroup : itemFOCGroup // ignore: cast_nullable_to_non_nullable
 as String,inventDimId: null == inventDimId ? _self.inventDimId : inventDimId // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,companyCode: null == companyCode ? _self.companyCode : companyCode // ignore: cast_nullable_to_non_nullable
