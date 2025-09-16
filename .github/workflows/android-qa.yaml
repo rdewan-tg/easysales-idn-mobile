@@ -121,25 +121,6 @@ jobs:
       - name: Run tests
         run: flutter test
 
-      #- name: Setup Google Play Service Account JSON
-        #run: echo "${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT }}" | base64 --decode > google_playservice_account.json
-
-      - name: Install Python Dependencies
-        run: pip install google-api-python-client google-auth google-auth-oauthlib
-
-      - name: Fetch Version Info from Google Play (Closed Testing)
-        id: fetch_version_info
-        run: |
-          cd scripts
-          python fetch_version_info.py
-          cd ..
-
-      - name: Display Version Info
-        run: |
-          echo "Version Code: ${{ steps.fetch_version_info.outputs.version_code }}"
-          echo "Version Name: ${{ steps.fetch_version_info.outputs.version_name }}"
-
-
       - name: Shorebird Android Build
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-android-release
