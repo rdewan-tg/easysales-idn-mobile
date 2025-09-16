@@ -7,7 +7,7 @@ part 'refresh_token_response.g.dart';
 abstract class RefreshTokenResponse with _$RefreshTokenResponse {
   const factory RefreshTokenResponse({
     required String status,
-   required Data data,
+    required Data data,
   }) = _RefreshTokenResponse;
 
   factory RefreshTokenResponse.fromJson(Map<String, dynamic> json) =>

@@ -189,7 +189,7 @@ List<ProductEntityData> _mapToProductEntity(ProductResponse response) {
       unitPrice: double.parse(e.unitPrice),
       image: e.image,
       itemDiscountGroup: e.itemDiscountGroup,
-      itemFOCGroup: e.itemFocGroup,
+      itemFOCGroup: e.itemFOCGroup,
       inventDimId: e.inventDimId,
       status: e.status,
       companyCode: e.companyCode,

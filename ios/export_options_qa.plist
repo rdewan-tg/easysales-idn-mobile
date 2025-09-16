@@ -6,7 +6,7 @@
     <string>release-testing</string>
 
     <key>teamID</key>
-    <string>FCUZNYGQMQ</string>
+    <string>8QW9GJRQT2</string>
 
     <key>signingStyle</key>
     <string>manual</string>
@@ -14,7 +14,7 @@
     <key>provisioningProfiles</key>
     <dict>
         <key>co.id.tonggarden.easysales.qa</key>
-        <string>EasySalesQAIDNProvisioningProfile</string>
+        <string>EasySales-QA-IDN-ProvisioningProfile</string>
     </dict>
 </dict>
 </plist>
