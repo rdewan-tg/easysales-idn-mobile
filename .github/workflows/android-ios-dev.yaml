@@ -200,7 +200,7 @@ jobs:
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-ios-release
         with:
-          args: --build-name=0.0.1 --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_dev.plist --flavor=dev --target=lib/main_dev.dart
+          args: --build-name=0.1.${{ env.BUILD_NUMBER }} --build-number=${{ env.BUILD_NUMBER }} --export-options-plist ios/export_options_dev.plist --flavor=dev --target=lib/main_dev.dart
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: ios
 
