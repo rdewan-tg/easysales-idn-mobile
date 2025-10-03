@@ -66,6 +66,10 @@ class MainAppDrawer extends ConsumerWidget with ConfirmDialogMixin {
                 );
               },
             ),
+            const SizedBox(height: kSmall),
+            Divider(),
+            const SizedBox(height: kSmall),
+            VersionInfo(),
           ],
         ),
       ),

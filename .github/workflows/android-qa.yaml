@@ -5,7 +5,7 @@ on:
   # Validate PR builds
   pull_request:
     branches:
-      - qa1
+      - qa
 
 env:
   SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}

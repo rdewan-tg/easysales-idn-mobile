@@ -1,5 +1,5 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.35.3",
+  "dart.flutterSdkPath": ".fvm/versions/3.35.5",
   "search.exclude": {
     "**/.fvm": true
   },
@@ -29,7 +29,7 @@
     "r0adkll",
     "playservice",
     "subosito",
-    "kuhnroyal",
+    "kuhnroyal"
   ],
   "yaml.schemaStore.enable": false
 }
