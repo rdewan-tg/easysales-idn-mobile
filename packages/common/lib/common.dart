@@ -5,6 +5,7 @@ import 'dart:convert';
 
 import 'package:common/exception/failure.dart';
 import 'package:common/gen/assets.gen.dart';
+import 'package:common/provider/new_version_status_provider.dart';
 import 'package:core/route/route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ part 'widget/empty_data_widget.dart';
 part 'widget/main_app_drawer.dart';
 part 'widget/main_app_scaffold.dart';
 part 'widget/main_app_scaffold_sliver.dart';
+part 'widget/version_info.dart';
 
 part 'extension/dark_mode.dart';
 part 'extension/text_theme.dart';
