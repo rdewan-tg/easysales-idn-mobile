@@ -7275,6 +7275,476 @@ class SalesLineEntityCompanion extends UpdateCompanion<SalesLineEntityData> {
   }
 }
 
+class $MCustomerEntityTable extends MCustomerEntity
+    with TableInfo<$MCustomerEntityTable, MCustomerEntityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MCustomerEntityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _customerIdMeta = const VerificationMeta(
+    'customerId',
+  );
+  @override
+  late final GeneratedColumn<String> customerId = GeneratedColumn<String>(
+    'customer_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _smMcIdMeta = const VerificationMeta('smMcId');
+  @override
+  late final GeneratedColumn<String> smMcId = GeneratedColumn<String>(
+    'sm_mc_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _outletNameMeta = const VerificationMeta(
+    'outletName',
+  );
+  @override
+  late final GeneratedColumn<String> outletName = GeneratedColumn<String>(
+    'outlet_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _areaMeta = const VerificationMeta('area');
+  @override
+  late final GeneratedColumn<String> area = GeneratedColumn<String>(
+    'area',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _districtMeta = const VerificationMeta(
+    'district',
+  );
+  @override
+  late final GeneratedColumn<String> district = GeneratedColumn<String>(
+    'district',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _roadNameMeta = const VerificationMeta(
+    'roadName',
+  );
+  @override
+  late final GeneratedColumn<String> roadName = GeneratedColumn<String>(
+    'road_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _companyIdMeta = const VerificationMeta(
+    'companyId',
+  );
+  @override
+  late final GeneratedColumn<int> companyId = GeneratedColumn<int>(
+    'company_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    customerId,
+    smMcId,
+    outletName,
+    area,
+    district,
+    roadName,
+    companyId,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'm_customer_entity';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MCustomerEntityData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('customer_id')) {
+      context.handle(
+        _customerIdMeta,
+        customerId.isAcceptableOrUnknown(data['customer_id']!, _customerIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_customerIdMeta);
+    }
+    if (data.containsKey('sm_mc_id')) {
+      context.handle(
+        _smMcIdMeta,
+        smMcId.isAcceptableOrUnknown(data['sm_mc_id']!, _smMcIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_smMcIdMeta);
+    }
+    if (data.containsKey('outlet_name')) {
+      context.handle(
+        _outletNameMeta,
+        outletName.isAcceptableOrUnknown(data['outlet_name']!, _outletNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_outletNameMeta);
+    }
+    if (data.containsKey('area')) {
+      context.handle(
+        _areaMeta,
+        area.isAcceptableOrUnknown(data['area']!, _areaMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_areaMeta);
+    }
+    if (data.containsKey('district')) {
+      context.handle(
+        _districtMeta,
+        district.isAcceptableOrUnknown(data['district']!, _districtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_districtMeta);
+    }
+    if (data.containsKey('road_name')) {
+      context.handle(
+        _roadNameMeta,
+        roadName.isAcceptableOrUnknown(data['road_name']!, _roadNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_roadNameMeta);
+    }
+    if (data.containsKey('company_id')) {
+      context.handle(
+        _companyIdMeta,
+        companyId.isAcceptableOrUnknown(data['company_id']!, _companyIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_companyIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {customerId};
+  @override
+  MCustomerEntityData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MCustomerEntityData(
+      customerId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}customer_id'],
+      )!,
+      smMcId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sm_mc_id'],
+      )!,
+      outletName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}outlet_name'],
+      )!,
+      area: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}area'],
+      )!,
+      district: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}district'],
+      )!,
+      roadName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}road_name'],
+      )!,
+      companyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}company_id'],
+      )!,
+    );
+  }
+
+  @override
+  $MCustomerEntityTable createAlias(String alias) {
+    return $MCustomerEntityTable(attachedDatabase, alias);
+  }
+}
+
+class MCustomerEntityData extends DataClass
+    implements Insertable<MCustomerEntityData> {
+  final String customerId;
+  final String smMcId;
+  final String outletName;
+  final String area;
+  final String district;
+  final String roadName;
+  final int companyId;
+  const MCustomerEntityData({
+    required this.customerId,
+    required this.smMcId,
+    required this.outletName,
+    required this.area,
+    required this.district,
+    required this.roadName,
+    required this.companyId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['customer_id'] = Variable<String>(customerId);
+    map['sm_mc_id'] = Variable<String>(smMcId);
+    map['outlet_name'] = Variable<String>(outletName);
+    map['area'] = Variable<String>(area);
+    map['district'] = Variable<String>(district);
+    map['road_name'] = Variable<String>(roadName);
+    map['company_id'] = Variable<int>(companyId);
+    return map;
+  }
+
+  MCustomerEntityCompanion toCompanion(bool nullToAbsent) {
+    return MCustomerEntityCompanion(
+      customerId: Value(customerId),
+      smMcId: Value(smMcId),
+      outletName: Value(outletName),
+      area: Value(area),
+      district: Value(district),
+      roadName: Value(roadName),
+      companyId: Value(companyId),
+    );
+  }
+
+  factory MCustomerEntityData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MCustomerEntityData(
+      customerId: serializer.fromJson<String>(json['customerId']),
+      smMcId: serializer.fromJson<String>(json['smMcId']),
+      outletName: serializer.fromJson<String>(json['outletName']),
+      area: serializer.fromJson<String>(json['area']),
+      district: serializer.fromJson<String>(json['district']),
+      roadName: serializer.fromJson<String>(json['roadName']),
+      companyId: serializer.fromJson<int>(json['companyId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'customerId': serializer.toJson<String>(customerId),
+      'smMcId': serializer.toJson<String>(smMcId),
+      'outletName': serializer.toJson<String>(outletName),
+      'area': serializer.toJson<String>(area),
+      'district': serializer.toJson<String>(district),
+      'roadName': serializer.toJson<String>(roadName),
+      'companyId': serializer.toJson<int>(companyId),
+    };
+  }
+
+  MCustomerEntityData copyWith({
+    String? customerId,
+    String? smMcId,
+    String? outletName,
+    String? area,
+    String? district,
+    String? roadName,
+    int? companyId,
+  }) => MCustomerEntityData(
+    customerId: customerId ?? this.customerId,
+    smMcId: smMcId ?? this.smMcId,
+    outletName: outletName ?? this.outletName,
+    area: area ?? this.area,
+    district: district ?? this.district,
+    roadName: roadName ?? this.roadName,
+    companyId: companyId ?? this.companyId,
+  );
+  MCustomerEntityData copyWithCompanion(MCustomerEntityCompanion data) {
+    return MCustomerEntityData(
+      customerId: data.customerId.present
+          ? data.customerId.value
+          : this.customerId,
+      smMcId: data.smMcId.present ? data.smMcId.value : this.smMcId,
+      outletName: data.outletName.present
+          ? data.outletName.value
+          : this.outletName,
+      area: data.area.present ? data.area.value : this.area,
+      district: data.district.present ? data.district.value : this.district,
+      roadName: data.roadName.present ? data.roadName.value : this.roadName,
+      companyId: data.companyId.present ? data.companyId.value : this.companyId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MCustomerEntityData(')
+          ..write('customerId: $customerId, ')
+          ..write('smMcId: $smMcId, ')
+          ..write('outletName: $outletName, ')
+          ..write('area: $area, ')
+          ..write('district: $district, ')
+          ..write('roadName: $roadName, ')
+          ..write('companyId: $companyId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    customerId,
+    smMcId,
+    outletName,
+    area,
+    district,
+    roadName,
+    companyId,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MCustomerEntityData &&
+          other.customerId == this.customerId &&
+          other.smMcId == this.smMcId &&
+          other.outletName == this.outletName &&
+          other.area == this.area &&
+          other.district == this.district &&
+          other.roadName == this.roadName &&
+          other.companyId == this.companyId);
+}
+
+class MCustomerEntityCompanion extends UpdateCompanion<MCustomerEntityData> {
+  final Value<String> customerId;
+  final Value<String> smMcId;
+  final Value<String> outletName;
+  final Value<String> area;
+  final Value<String> district;
+  final Value<String> roadName;
+  final Value<int> companyId;
+  final Value<int> rowid;
+  const MCustomerEntityCompanion({
+    this.customerId = const Value.absent(),
+    this.smMcId = const Value.absent(),
+    this.outletName = const Value.absent(),
+    this.area = const Value.absent(),
+    this.district = const Value.absent(),
+    this.roadName = const Value.absent(),
+    this.companyId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MCustomerEntityCompanion.insert({
+    required String customerId,
+    required String smMcId,
+    required String outletName,
+    required String area,
+    required String district,
+    required String roadName,
+    required int companyId,
+    this.rowid = const Value.absent(),
+  }) : customerId = Value(customerId),
+       smMcId = Value(smMcId),
+       outletName = Value(outletName),
+       area = Value(area),
+       district = Value(district),
+       roadName = Value(roadName),
+       companyId = Value(companyId);
+  static Insertable<MCustomerEntityData> custom({
+    Expression<String>? customerId,
+    Expression<String>? smMcId,
+    Expression<String>? outletName,
+    Expression<String>? area,
+    Expression<String>? district,
+    Expression<String>? roadName,
+    Expression<int>? companyId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (customerId != null) 'customer_id': customerId,
+      if (smMcId != null) 'sm_mc_id': smMcId,
+      if (outletName != null) 'outlet_name': outletName,
+      if (area != null) 'area': area,
+      if (district != null) 'district': district,
+      if (roadName != null) 'road_name': roadName,
+      if (companyId != null) 'company_id': companyId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MCustomerEntityCompanion copyWith({
+    Value<String>? customerId,
+    Value<String>? smMcId,
+    Value<String>? outletName,
+    Value<String>? area,
+    Value<String>? district,
+    Value<String>? roadName,
+    Value<int>? companyId,
+    Value<int>? rowid,
+  }) {
+    return MCustomerEntityCompanion(
+      customerId: customerId ?? this.customerId,
+      smMcId: smMcId ?? this.smMcId,
+      outletName: outletName ?? this.outletName,
+      area: area ?? this.area,
+      district: district ?? this.district,
+      roadName: roadName ?? this.roadName,
+      companyId: companyId ?? this.companyId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (customerId.present) {
+      map['customer_id'] = Variable<String>(customerId.value);
+    }
+    if (smMcId.present) {
+      map['sm_mc_id'] = Variable<String>(smMcId.value);
+    }
+    if (outletName.present) {
+      map['outlet_name'] = Variable<String>(outletName.value);
+    }
+    if (area.present) {
+      map['area'] = Variable<String>(area.value);
+    }
+    if (district.present) {
+      map['district'] = Variable<String>(district.value);
+    }
+    if (roadName.present) {
+      map['road_name'] = Variable<String>(roadName.value);
+    }
+    if (companyId.present) {
+      map['company_id'] = Variable<int>(companyId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MCustomerEntityCompanion(')
+          ..write('customerId: $customerId, ')
+          ..write('smMcId: $smMcId, ')
+          ..write('outletName: $outletName, ')
+          ..write('area: $area, ')
+          ..write('district: $district, ')
+          ..write('roadName: $roadName, ')
+          ..write('companyId: $companyId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -7302,6 +7772,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $SalesLineEntityTable salesLineEntity = $SalesLineEntityTable(
     this,
   );
+  late final $MCustomerEntityTable mCustomerEntity = $MCustomerEntityTable(
+    this,
+  );
   late final Index customerId = Index(
     'customer_id',
     'CREATE INDEX customer_id ON customer_address_entity (customer_id)',
@@ -7325,6 +7798,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this as AppDatabase,
   );
   late final SalesLineDao salesLineDao = SalesLineDao(this as AppDatabase);
+  late final MCustomerDao mCustomerDao = MCustomerDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -7341,6 +7815,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     productPriceEntity,
     salesHeaderEntity,
     salesLineEntity,
+    mCustomerEntity,
     customerId,
   ];
   @override
@@ -11204,6 +11679,258 @@ typedef $$SalesLineEntityTableProcessedTableManager =
       SalesLineEntityData,
       PrefetchHooks Function({bool salesId})
     >;
+typedef $$MCustomerEntityTableCreateCompanionBuilder =
+    MCustomerEntityCompanion Function({
+      required String customerId,
+      required String smMcId,
+      required String outletName,
+      required String area,
+      required String district,
+      required String roadName,
+      required int companyId,
+      Value<int> rowid,
+    });
+typedef $$MCustomerEntityTableUpdateCompanionBuilder =
+    MCustomerEntityCompanion Function({
+      Value<String> customerId,
+      Value<String> smMcId,
+      Value<String> outletName,
+      Value<String> area,
+      Value<String> district,
+      Value<String> roadName,
+      Value<int> companyId,
+      Value<int> rowid,
+    });
+
+class $$MCustomerEntityTableFilterComposer
+    extends Composer<_$AppDatabase, $MCustomerEntityTable> {
+  $$MCustomerEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get customerId => $composableBuilder(
+    column: $table.customerId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get smMcId => $composableBuilder(
+    column: $table.smMcId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get outletName => $composableBuilder(
+    column: $table.outletName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get area => $composableBuilder(
+    column: $table.area,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get district => $composableBuilder(
+    column: $table.district,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get roadName => $composableBuilder(
+    column: $table.roadName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get companyId => $composableBuilder(
+    column: $table.companyId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MCustomerEntityTableOrderingComposer
+    extends Composer<_$AppDatabase, $MCustomerEntityTable> {
+  $$MCustomerEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get customerId => $composableBuilder(
+    column: $table.customerId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get smMcId => $composableBuilder(
+    column: $table.smMcId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get outletName => $composableBuilder(
+    column: $table.outletName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get area => $composableBuilder(
+    column: $table.area,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get district => $composableBuilder(
+    column: $table.district,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get roadName => $composableBuilder(
+    column: $table.roadName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get companyId => $composableBuilder(
+    column: $table.companyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MCustomerEntityTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MCustomerEntityTable> {
+  $$MCustomerEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get customerId => $composableBuilder(
+    column: $table.customerId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get smMcId =>
+      $composableBuilder(column: $table.smMcId, builder: (column) => column);
+
+  GeneratedColumn<String> get outletName => $composableBuilder(
+    column: $table.outletName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get area =>
+      $composableBuilder(column: $table.area, builder: (column) => column);
+
+  GeneratedColumn<String> get district =>
+      $composableBuilder(column: $table.district, builder: (column) => column);
+
+  GeneratedColumn<String> get roadName =>
+      $composableBuilder(column: $table.roadName, builder: (column) => column);
+
+  GeneratedColumn<int> get companyId =>
+      $composableBuilder(column: $table.companyId, builder: (column) => column);
+}
+
+class $$MCustomerEntityTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MCustomerEntityTable,
+          MCustomerEntityData,
+          $$MCustomerEntityTableFilterComposer,
+          $$MCustomerEntityTableOrderingComposer,
+          $$MCustomerEntityTableAnnotationComposer,
+          $$MCustomerEntityTableCreateCompanionBuilder,
+          $$MCustomerEntityTableUpdateCompanionBuilder,
+          (
+            MCustomerEntityData,
+            BaseReferences<
+              _$AppDatabase,
+              $MCustomerEntityTable,
+              MCustomerEntityData
+            >,
+          ),
+          MCustomerEntityData,
+          PrefetchHooks Function()
+        > {
+  $$MCustomerEntityTableTableManager(
+    _$AppDatabase db,
+    $MCustomerEntityTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MCustomerEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MCustomerEntityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MCustomerEntityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> customerId = const Value.absent(),
+                Value<String> smMcId = const Value.absent(),
+                Value<String> outletName = const Value.absent(),
+                Value<String> area = const Value.absent(),
+                Value<String> district = const Value.absent(),
+                Value<String> roadName = const Value.absent(),
+                Value<int> companyId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MCustomerEntityCompanion(
+                customerId: customerId,
+                smMcId: smMcId,
+                outletName: outletName,
+                area: area,
+                district: district,
+                roadName: roadName,
+                companyId: companyId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String customerId,
+                required String smMcId,
+                required String outletName,
+                required String area,
+                required String district,
+                required String roadName,
+                required int companyId,
+                Value<int> rowid = const Value.absent(),
+              }) => MCustomerEntityCompanion.insert(
+                customerId: customerId,
+                smMcId: smMcId,
+                outletName: outletName,
+                area: area,
+                district: district,
+                roadName: roadName,
+                companyId: companyId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MCustomerEntityTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MCustomerEntityTable,
+      MCustomerEntityData,
+      $$MCustomerEntityTableFilterComposer,
+      $$MCustomerEntityTableOrderingComposer,
+      $$MCustomerEntityTableAnnotationComposer,
+      $$MCustomerEntityTableCreateCompanionBuilder,
+      $$MCustomerEntityTableUpdateCompanionBuilder,
+      (
+        MCustomerEntityData,
+        BaseReferences<
+          _$AppDatabase,
+          $MCustomerEntityTable,
+          MCustomerEntityData
+        >,
+      ),
+      MCustomerEntityData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -11246,6 +11973,8 @@ class $AppDatabaseManager {
       $$SalesHeaderEntityTableTableManager(_db, _db.salesHeaderEntity);
   $$SalesLineEntityTableTableManager get salesLineEntity =>
       $$SalesLineEntityTableTableManager(_db, _db.salesLineEntity);
+  $$MCustomerEntityTableTableManager get mCustomerEntity =>
+      $$MCustomerEntityTableTableManager(_db, _db.mCustomerEntity);
 }
 
 // **************************************************************************

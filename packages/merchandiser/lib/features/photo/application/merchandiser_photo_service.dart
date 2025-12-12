@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:common/exception/failure.dart';
-import 'package:merchandiser/features/photo/application/imerchandiser_photo_service.dart';
-import 'package:merchandiser/features/photo/data/repository/imerchandiser_photo_repository.dart';
+import 'package:merchandiser/features/photo/application/interface/imerchandiser_photo_service.dart';
+import 'package:merchandiser/features/photo/application/interface/imerchandiser_photo_repository.dart';
 import 'package:merchandiser/features/photo/data/repository/merchandiser_photo_repository.dart';
 import 'package:multiple_result/multiple_result.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

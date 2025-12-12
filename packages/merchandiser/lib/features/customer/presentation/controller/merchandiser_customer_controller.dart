@@ -6,13 +6,13 @@ import 'package:merchandiser/features/customer/application/merchandiser_customer
 import 'package:merchandiser/features/customer/presentation/state/merchandiser_customer_state.dart';
 
 final merchandiserCustomerProvider =
-    NotifierProvider<
-      MerchandiserCustomerController,
-      MerchandiserCustomerState
-    >(MerchandiserCustomerController.new);
+    NotifierProvider<MerchandiserCustomerController, MerchandiserCustomerState>(
+      MerchandiserCustomerController.new,
+    );
 
 class MerchandiserCustomerController
     extends Notifier<MerchandiserCustomerState> {
+  StreamSubscription<List<MCustomerEntityData>>? _subscriptionMCustomer;
   StreamSubscription<List<MerchandiserCustomerEntityData>>?
   _subscriptionMerchandiserCustomer;
   StreamSubscription<List<SearchMerchandiserCustomerHistoryEntityData>>?
@@ -23,6 +23,7 @@ class MerchandiserCustomerController
   @override
   MerchandiserCustomerState build() {
     ref.onDispose(() {
+      _subscriptionMCustomer?.cancel();
       _subscriptionMerchandiserCustomer?.cancel();
       _subscriptionSearchHistory?.cancel();
       _subscriptionTotalCustomerCount?.cancel();
@@ -31,46 +32,54 @@ class MerchandiserCustomerController
     return MerchandiserCustomerState();
   }
 
-  Future<void> importMerchandiserCustomers() async {
-    try {
-      state = state.copyWith(
-        isLoading: true,
-        searchQuery: '',
-        lastSearchQuery: '',
-        isCustomerImported: false,
-      );
+  // import mCustomer from API
+  Future<void> importMCustomers() async {
+    try {    
       // get the setting from the database
       final setting = await ref
           .read(merchandiserCustomerServiceProvider)
           .getAllSetting();
       // get the companyCode from map
-      final String companyCode = setting['companyCode'] ?? 'SGMA';
       final String salesPersonId = setting['salesPersonCode'] ?? '';
 
       // get the merchandiser customers from from api and inset it to the database
       final result = await ref
           .read(merchandiserCustomerServiceProvider)
-          .filterMerchandiserCustomers(companyCode, salesPersonId);
+          .filterMCustomerByCompanySM(salesPersonId);
 
       result.when(
         (customers) {
-          // update the total customer count
-          watchTotalCustomerCount();
-          // get the customer from db
-          watchMerchandiserCustomers();
+          //watchMCustomers();
           // update the state
           state = state.copyWith(isCustomerImported: customers);
         },
         (failure) {
-          watchMerchandiserCustomers();
+          //watchMCustomers();
           state = state.copyWith(errorMsg: failure.message);
         },
       );
     } catch (e) {
       state = state.copyWith(errorMsg: e.toString());
-    } finally {
-      state = state.copyWith(isLoading: false);
-    }
+    } 
+  }
+
+  Future<void> watchMCustomers() async {
+    final searchQuery = state.searchQuery;
+    // Start listening stream
+    _subscriptionMCustomer = ref
+        .watch(merchandiserCustomerServiceProvider)
+        .watchMCustomer(searchQuery)
+        .listen(
+          (customers) {
+            state = state.copyWith(
+              mCustomers: customers,
+              lastSearchQuery: searchQuery,
+            );
+          },
+          onError: (error) {
+            state = state.copyWith(errorMsg: error);
+          },
+        );
   }
 
   Future<void> watchMerchandiserCustomers() async {

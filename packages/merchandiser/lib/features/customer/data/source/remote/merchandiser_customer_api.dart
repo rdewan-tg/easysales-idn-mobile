@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:common/dto/customer/customer_response.dart';
+import 'package:merchandiser/features/customer/data/dto/response/mcustomer_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core/data/remote/endpoint.dart';
@@ -28,5 +29,10 @@ abstract class MerchandiserCustomerApi {
   Future<CustomerResponse> filter(
     @Query('companyCode') String companyCode,
     @Query('salesPersonId') String salesPersonId,
+  );
+
+  @GET(filterMCustomerEndpoint)
+  Future<MCustomerResponse> filterByCompanyAndSM(
+    @Path('smMcId') String salesPersonId,
   );
 }

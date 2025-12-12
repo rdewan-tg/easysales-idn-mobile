@@ -1,7 +1,7 @@
-import 'package:merchandiser/features/site_visit/application/isite_visit_service.dart';
+import 'package:merchandiser/features/site_visit/application/interface/isite_visit_repository.dart';
+import 'package:merchandiser/features/site_visit/application/interface/isite_visit_service.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
-import 'package:merchandiser/features/site_visit/data/repository/isite_visit_repository.dart';
 import 'package:multiple_result/multiple_result.dart';
 import 'package:common/exception/failure.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';

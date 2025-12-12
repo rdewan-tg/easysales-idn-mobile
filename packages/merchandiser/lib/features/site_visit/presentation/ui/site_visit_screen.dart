@@ -119,8 +119,7 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                     'customerId': widget.extras['customerId'],
                     'customerName': widget.extras['customerName'],
                     'address': widget.extras['address'],
-                    'customerDimension': widget.extras['customerDimension'],
-                    'location': widget.extras['location'],
+                    'area': widget.extras['area']
                   },
                 );
               },
@@ -231,7 +230,7 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
       'customerId': widget.extras['customerId'],
       'customerName': widget.extras['customerName'],
       'customerAddress': widget.extras['address'],
-      'customerChain': widget.extras['customerDimension'],
+      'customerChain': widget.extras['area'],
     };
     ref.read(siteVisitControllerProvider.notifier).createSiteVisit(form: form);
   }

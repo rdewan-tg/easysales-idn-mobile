@@ -13,6 +13,7 @@ abstract class MerchandiserCustomerState with _$MerchandiserCustomerState {
     int? totalSearchHistoryCleared,
     @Default(0) int totalCustomerCount,
     @Default([]) List<MerchandiserCustomerEntityData> customers,
+    @Default([]) List<MCustomerEntityData> mCustomers,
     @Default([]) List<MerchandiserCustomerAddress> addresses,
     String? errorMsg,
     @Default([]) List<String> searchHistory,

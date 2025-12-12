@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MerchandiserCustomerState {
 
- bool get isLoading; bool get isCustomerImported; bool get isSearchHistoryCleared; int? get totalSearchHistoryCleared; int get totalCustomerCount; List<MerchandiserCustomerEntityData> get customers; List<MerchandiserCustomerAddress> get addresses; String? get errorMsg; List<String> get searchHistory; String get searchQuery; String get lastSearchQuery; Map<String, String> get settings;
+ bool get isLoading; bool get isCustomerImported; bool get isSearchHistoryCleared; int? get totalSearchHistoryCleared; int get totalCustomerCount; List<MerchandiserCustomerEntityData> get customers; List<MCustomerEntityData> get mCustomers; List<MerchandiserCustomerAddress> get addresses; String? get errorMsg; List<String> get searchHistory; String get searchQuery; String get lastSearchQuery; Map<String, String> get settings;
 /// Create a copy of MerchandiserCustomerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $MerchandiserCustomerStateCopyWith<MerchandiserCustomerState> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MerchandiserCustomerState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCustomerImported, isCustomerImported) || other.isCustomerImported == isCustomerImported)&&(identical(other.isSearchHistoryCleared, isSearchHistoryCleared) || other.isSearchHistoryCleared == isSearchHistoryCleared)&&(identical(other.totalSearchHistoryCleared, totalSearchHistoryCleared) || other.totalSearchHistoryCleared == totalSearchHistoryCleared)&&(identical(other.totalCustomerCount, totalCustomerCount) || other.totalCustomerCount == totalCustomerCount)&&const DeepCollectionEquality().equals(other.customers, customers)&&const DeepCollectionEquality().equals(other.addresses, addresses)&&(identical(other.errorMsg, errorMsg) || other.errorMsg == errorMsg)&&const DeepCollectionEquality().equals(other.searchHistory, searchHistory)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery)&&(identical(other.lastSearchQuery, lastSearchQuery) || other.lastSearchQuery == lastSearchQuery)&&const DeepCollectionEquality().equals(other.settings, settings));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MerchandiserCustomerState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCustomerImported, isCustomerImported) || other.isCustomerImported == isCustomerImported)&&(identical(other.isSearchHistoryCleared, isSearchHistoryCleared) || other.isSearchHistoryCleared == isSearchHistoryCleared)&&(identical(other.totalSearchHistoryCleared, totalSearchHistoryCleared) || other.totalSearchHistoryCleared == totalSearchHistoryCleared)&&(identical(other.totalCustomerCount, totalCustomerCount) || other.totalCustomerCount == totalCustomerCount)&&const DeepCollectionEquality().equals(other.customers, customers)&&const DeepCollectionEquality().equals(other.mCustomers, mCustomers)&&const DeepCollectionEquality().equals(other.addresses, addresses)&&(identical(other.errorMsg, errorMsg) || other.errorMsg == errorMsg)&&const DeepCollectionEquality().equals(other.searchHistory, searchHistory)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery)&&(identical(other.lastSearchQuery, lastSearchQuery) || other.lastSearchQuery == lastSearchQuery)&&const DeepCollectionEquality().equals(other.settings, settings));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,isCustomerImported,isSearchHistoryCleared,totalSearchHistoryCleared,totalCustomerCount,const DeepCollectionEquality().hash(customers),const DeepCollectionEquality().hash(addresses),errorMsg,const DeepCollectionEquality().hash(searchHistory),searchQuery,lastSearchQuery,const DeepCollectionEquality().hash(settings));
+int get hashCode => Object.hash(runtimeType,isLoading,isCustomerImported,isSearchHistoryCleared,totalSearchHistoryCleared,totalCustomerCount,const DeepCollectionEquality().hash(customers),const DeepCollectionEquality().hash(mCustomers),const DeepCollectionEquality().hash(addresses),errorMsg,const DeepCollectionEquality().hash(searchHistory),searchQuery,lastSearchQuery,const DeepCollectionEquality().hash(settings));
 
 @override
 String toString() {
-  return 'MerchandiserCustomerState(isLoading: $isLoading, isCustomerImported: $isCustomerImported, isSearchHistoryCleared: $isSearchHistoryCleared, totalSearchHistoryCleared: $totalSearchHistoryCleared, totalCustomerCount: $totalCustomerCount, customers: $customers, addresses: $addresses, errorMsg: $errorMsg, searchHistory: $searchHistory, searchQuery: $searchQuery, lastSearchQuery: $lastSearchQuery, settings: $settings)';
+  return 'MerchandiserCustomerState(isLoading: $isLoading, isCustomerImported: $isCustomerImported, isSearchHistoryCleared: $isSearchHistoryCleared, totalSearchHistoryCleared: $totalSearchHistoryCleared, totalCustomerCount: $totalCustomerCount, customers: $customers, mCustomers: $mCustomers, addresses: $addresses, errorMsg: $errorMsg, searchHistory: $searchHistory, searchQuery: $searchQuery, lastSearchQuery: $lastSearchQuery, settings: $settings)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $MerchandiserCustomerStateCopyWith<$Res>  {
   factory $MerchandiserCustomerStateCopyWith(MerchandiserCustomerState value, $Res Function(MerchandiserCustomerState) _then) = _$MerchandiserCustomerStateCopyWithImpl;
 @useResult
 $Res call({
- bool isLoading, bool isCustomerImported, bool isSearchHistoryCleared, int? totalSearchHistoryCleared, int totalCustomerCount, List<MerchandiserCustomerEntityData> customers, List<MerchandiserCustomerAddress> addresses, String? errorMsg, List<String> searchHistory, String searchQuery, String lastSearchQuery, Map<String, String> settings
+ bool isLoading, bool isCustomerImported, bool isSearchHistoryCleared, int? totalSearchHistoryCleared, int totalCustomerCount, List<MerchandiserCustomerEntityData> customers, List<MCustomerEntityData> mCustomers, List<MerchandiserCustomerAddress> addresses, String? errorMsg, List<String> searchHistory, String searchQuery, String lastSearchQuery, Map<String, String> settings
 });
 
 
@@ -62,7 +62,7 @@ class _$MerchandiserCustomerStateCopyWithImpl<$Res>
 
 /// Create a copy of MerchandiserCustomerState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isCustomerImported = null,Object? isSearchHistoryCleared = null,Object? totalSearchHistoryCleared = freezed,Object? totalCustomerCount = null,Object? customers = null,Object? addresses = null,Object? errorMsg = freezed,Object? searchHistory = null,Object? searchQuery = null,Object? lastSearchQuery = null,Object? settings = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isCustomerImported = null,Object? isSearchHistoryCleared = null,Object? totalSearchHistoryCleared = freezed,Object? totalCustomerCount = null,Object? customers = null,Object? mCustomers = null,Object? addresses = null,Object? errorMsg = freezed,Object? searchHistory = null,Object? searchQuery = null,Object? lastSearchQuery = null,Object? settings = null,}) {
   return _then(_self.copyWith(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,isCustomerImported: null == isCustomerImported ? _self.isCustomerImported : isCustomerImported // ignore: cast_nullable_to_non_nullable
@@ -70,7 +70,8 @@ as bool,isSearchHistoryCleared: null == isSearchHistoryCleared ? _self.isSearchH
 as bool,totalSearchHistoryCleared: freezed == totalSearchHistoryCleared ? _self.totalSearchHistoryCleared : totalSearchHistoryCleared // ignore: cast_nullable_to_non_nullable
 as int?,totalCustomerCount: null == totalCustomerCount ? _self.totalCustomerCount : totalCustomerCount // ignore: cast_nullable_to_non_nullable
 as int,customers: null == customers ? _self.customers : customers // ignore: cast_nullable_to_non_nullable
-as List<MerchandiserCustomerEntityData>,addresses: null == addresses ? _self.addresses : addresses // ignore: cast_nullable_to_non_nullable
+as List<MerchandiserCustomerEntityData>,mCustomers: null == mCustomers ? _self.mCustomers : mCustomers // ignore: cast_nullable_to_non_nullable
+as List<MCustomerEntityData>,addresses: null == addresses ? _self.addresses : addresses // ignore: cast_nullable_to_non_nullable
 as List<MerchandiserCustomerAddress>,errorMsg: freezed == errorMsg ? _self.errorMsg : errorMsg // ignore: cast_nullable_to_non_nullable
 as String?,searchHistory: null == searchHistory ? _self.searchHistory : searchHistory // ignore: cast_nullable_to_non_nullable
 as List<String>,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
@@ -161,10 +162,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isCustomerImported,  bool isSearchHistoryCleared,  int? totalSearchHistoryCleared,  int totalCustomerCount,  List<MerchandiserCustomerEntityData> customers,  List<MerchandiserCustomerAddress> addresses,  String? errorMsg,  List<String> searchHistory,  String searchQuery,  String lastSearchQuery,  Map<String, String> settings)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isCustomerImported,  bool isSearchHistoryCleared,  int? totalSearchHistoryCleared,  int totalCustomerCount,  List<MerchandiserCustomerEntityData> customers,  List<MCustomerEntityData> mCustomers,  List<MerchandiserCustomerAddress> addresses,  String? errorMsg,  List<String> searchHistory,  String searchQuery,  String lastSearchQuery,  Map<String, String> settings)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MerchandiserCustomerState() when $default != null:
-return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCleared,_that.totalSearchHistoryCleared,_that.totalCustomerCount,_that.customers,_that.addresses,_that.errorMsg,_that.searchHistory,_that.searchQuery,_that.lastSearchQuery,_that.settings);case _:
+return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCleared,_that.totalSearchHistoryCleared,_that.totalCustomerCount,_that.customers,_that.mCustomers,_that.addresses,_that.errorMsg,_that.searchHistory,_that.searchQuery,_that.lastSearchQuery,_that.settings);case _:
   return orElse();
 
 }
@@ -182,10 +183,10 @@ return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCl
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isCustomerImported,  bool isSearchHistoryCleared,  int? totalSearchHistoryCleared,  int totalCustomerCount,  List<MerchandiserCustomerEntityData> customers,  List<MerchandiserCustomerAddress> addresses,  String? errorMsg,  List<String> searchHistory,  String searchQuery,  String lastSearchQuery,  Map<String, String> settings)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isCustomerImported,  bool isSearchHistoryCleared,  int? totalSearchHistoryCleared,  int totalCustomerCount,  List<MerchandiserCustomerEntityData> customers,  List<MCustomerEntityData> mCustomers,  List<MerchandiserCustomerAddress> addresses,  String? errorMsg,  List<String> searchHistory,  String searchQuery,  String lastSearchQuery,  Map<String, String> settings)  $default,) {final _that = this;
 switch (_that) {
 case _MerchandiserCustomerState():
-return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCleared,_that.totalSearchHistoryCleared,_that.totalCustomerCount,_that.customers,_that.addresses,_that.errorMsg,_that.searchHistory,_that.searchQuery,_that.lastSearchQuery,_that.settings);case _:
+return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCleared,_that.totalSearchHistoryCleared,_that.totalCustomerCount,_that.customers,_that.mCustomers,_that.addresses,_that.errorMsg,_that.searchHistory,_that.searchQuery,_that.lastSearchQuery,_that.settings);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +203,10 @@ return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCl
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isCustomerImported,  bool isSearchHistoryCleared,  int? totalSearchHistoryCleared,  int totalCustomerCount,  List<MerchandiserCustomerEntityData> customers,  List<MerchandiserCustomerAddress> addresses,  String? errorMsg,  List<String> searchHistory,  String searchQuery,  String lastSearchQuery,  Map<String, String> settings)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isCustomerImported,  bool isSearchHistoryCleared,  int? totalSearchHistoryCleared,  int totalCustomerCount,  List<MerchandiserCustomerEntityData> customers,  List<MCustomerEntityData> mCustomers,  List<MerchandiserCustomerAddress> addresses,  String? errorMsg,  List<String> searchHistory,  String searchQuery,  String lastSearchQuery,  Map<String, String> settings)?  $default,) {final _that = this;
 switch (_that) {
 case _MerchandiserCustomerState() when $default != null:
-return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCleared,_that.totalSearchHistoryCleared,_that.totalCustomerCount,_that.customers,_that.addresses,_that.errorMsg,_that.searchHistory,_that.searchQuery,_that.lastSearchQuery,_that.settings);case _:
+return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCleared,_that.totalSearchHistoryCleared,_that.totalCustomerCount,_that.customers,_that.mCustomers,_that.addresses,_that.errorMsg,_that.searchHistory,_that.searchQuery,_that.lastSearchQuery,_that.settings);case _:
   return null;
 
 }
@@ -217,7 +218,7 @@ return $default(_that.isLoading,_that.isCustomerImported,_that.isSearchHistoryCl
 
 
 class _MerchandiserCustomerState implements MerchandiserCustomerState {
-   _MerchandiserCustomerState({this.isLoading = false, this.isCustomerImported = false, this.isSearchHistoryCleared = false, this.totalSearchHistoryCleared, this.totalCustomerCount = 0, final  List<MerchandiserCustomerEntityData> customers = const [], final  List<MerchandiserCustomerAddress> addresses = const [], this.errorMsg, final  List<String> searchHistory = const [], this.searchQuery = '', this.lastSearchQuery = '', final  Map<String, String> settings = const {}}): _customers = customers,_addresses = addresses,_searchHistory = searchHistory,_settings = settings;
+   _MerchandiserCustomerState({this.isLoading = false, this.isCustomerImported = false, this.isSearchHistoryCleared = false, this.totalSearchHistoryCleared, this.totalCustomerCount = 0, final  List<MerchandiserCustomerEntityData> customers = const [], final  List<MCustomerEntityData> mCustomers = const [], final  List<MerchandiserCustomerAddress> addresses = const [], this.errorMsg, final  List<String> searchHistory = const [], this.searchQuery = '', this.lastSearchQuery = '', final  Map<String, String> settings = const {}}): _customers = customers,_mCustomers = mCustomers,_addresses = addresses,_searchHistory = searchHistory,_settings = settings;
   
 
 @override@JsonKey() final  bool isLoading;
@@ -230,6 +231,13 @@ class _MerchandiserCustomerState implements MerchandiserCustomerState {
   if (_customers is EqualUnmodifiableListView) return _customers;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_customers);
+}
+
+ final  List<MCustomerEntityData> _mCustomers;
+@override@JsonKey() List<MCustomerEntityData> get mCustomers {
+  if (_mCustomers is EqualUnmodifiableListView) return _mCustomers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_mCustomers);
 }
 
  final  List<MerchandiserCustomerAddress> _addresses;
@@ -267,16 +275,16 @@ _$MerchandiserCustomerStateCopyWith<_MerchandiserCustomerState> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MerchandiserCustomerState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCustomerImported, isCustomerImported) || other.isCustomerImported == isCustomerImported)&&(identical(other.isSearchHistoryCleared, isSearchHistoryCleared) || other.isSearchHistoryCleared == isSearchHistoryCleared)&&(identical(other.totalSearchHistoryCleared, totalSearchHistoryCleared) || other.totalSearchHistoryCleared == totalSearchHistoryCleared)&&(identical(other.totalCustomerCount, totalCustomerCount) || other.totalCustomerCount == totalCustomerCount)&&const DeepCollectionEquality().equals(other._customers, _customers)&&const DeepCollectionEquality().equals(other._addresses, _addresses)&&(identical(other.errorMsg, errorMsg) || other.errorMsg == errorMsg)&&const DeepCollectionEquality().equals(other._searchHistory, _searchHistory)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery)&&(identical(other.lastSearchQuery, lastSearchQuery) || other.lastSearchQuery == lastSearchQuery)&&const DeepCollectionEquality().equals(other._settings, _settings));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MerchandiserCustomerState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCustomerImported, isCustomerImported) || other.isCustomerImported == isCustomerImported)&&(identical(other.isSearchHistoryCleared, isSearchHistoryCleared) || other.isSearchHistoryCleared == isSearchHistoryCleared)&&(identical(other.totalSearchHistoryCleared, totalSearchHistoryCleared) || other.totalSearchHistoryCleared == totalSearchHistoryCleared)&&(identical(other.totalCustomerCount, totalCustomerCount) || other.totalCustomerCount == totalCustomerCount)&&const DeepCollectionEquality().equals(other._customers, _customers)&&const DeepCollectionEquality().equals(other._mCustomers, _mCustomers)&&const DeepCollectionEquality().equals(other._addresses, _addresses)&&(identical(other.errorMsg, errorMsg) || other.errorMsg == errorMsg)&&const DeepCollectionEquality().equals(other._searchHistory, _searchHistory)&&(identical(other.searchQuery, searchQuery) || other.searchQuery == searchQuery)&&(identical(other.lastSearchQuery, lastSearchQuery) || other.lastSearchQuery == lastSearchQuery)&&const DeepCollectionEquality().equals(other._settings, _settings));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,isCustomerImported,isSearchHistoryCleared,totalSearchHistoryCleared,totalCustomerCount,const DeepCollectionEquality().hash(_customers),const DeepCollectionEquality().hash(_addresses),errorMsg,const DeepCollectionEquality().hash(_searchHistory),searchQuery,lastSearchQuery,const DeepCollectionEquality().hash(_settings));
+int get hashCode => Object.hash(runtimeType,isLoading,isCustomerImported,isSearchHistoryCleared,totalSearchHistoryCleared,totalCustomerCount,const DeepCollectionEquality().hash(_customers),const DeepCollectionEquality().hash(_mCustomers),const DeepCollectionEquality().hash(_addresses),errorMsg,const DeepCollectionEquality().hash(_searchHistory),searchQuery,lastSearchQuery,const DeepCollectionEquality().hash(_settings));
 
 @override
 String toString() {
-  return 'MerchandiserCustomerState(isLoading: $isLoading, isCustomerImported: $isCustomerImported, isSearchHistoryCleared: $isSearchHistoryCleared, totalSearchHistoryCleared: $totalSearchHistoryCleared, totalCustomerCount: $totalCustomerCount, customers: $customers, addresses: $addresses, errorMsg: $errorMsg, searchHistory: $searchHistory, searchQuery: $searchQuery, lastSearchQuery: $lastSearchQuery, settings: $settings)';
+  return 'MerchandiserCustomerState(isLoading: $isLoading, isCustomerImported: $isCustomerImported, isSearchHistoryCleared: $isSearchHistoryCleared, totalSearchHistoryCleared: $totalSearchHistoryCleared, totalCustomerCount: $totalCustomerCount, customers: $customers, mCustomers: $mCustomers, addresses: $addresses, errorMsg: $errorMsg, searchHistory: $searchHistory, searchQuery: $searchQuery, lastSearchQuery: $lastSearchQuery, settings: $settings)';
 }
 
 
@@ -287,7 +295,7 @@ abstract mixin class _$MerchandiserCustomerStateCopyWith<$Res> implements $Merch
   factory _$MerchandiserCustomerStateCopyWith(_MerchandiserCustomerState value, $Res Function(_MerchandiserCustomerState) _then) = __$MerchandiserCustomerStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool isLoading, bool isCustomerImported, bool isSearchHistoryCleared, int? totalSearchHistoryCleared, int totalCustomerCount, List<MerchandiserCustomerEntityData> customers, List<MerchandiserCustomerAddress> addresses, String? errorMsg, List<String> searchHistory, String searchQuery, String lastSearchQuery, Map<String, String> settings
+ bool isLoading, bool isCustomerImported, bool isSearchHistoryCleared, int? totalSearchHistoryCleared, int totalCustomerCount, List<MerchandiserCustomerEntityData> customers, List<MCustomerEntityData> mCustomers, List<MerchandiserCustomerAddress> addresses, String? errorMsg, List<String> searchHistory, String searchQuery, String lastSearchQuery, Map<String, String> settings
 });
 
 
@@ -304,7 +312,7 @@ class __$MerchandiserCustomerStateCopyWithImpl<$Res>
 
 /// Create a copy of MerchandiserCustomerState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isCustomerImported = null,Object? isSearchHistoryCleared = null,Object? totalSearchHistoryCleared = freezed,Object? totalCustomerCount = null,Object? customers = null,Object? addresses = null,Object? errorMsg = freezed,Object? searchHistory = null,Object? searchQuery = null,Object? lastSearchQuery = null,Object? settings = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isCustomerImported = null,Object? isSearchHistoryCleared = null,Object? totalSearchHistoryCleared = freezed,Object? totalCustomerCount = null,Object? customers = null,Object? mCustomers = null,Object? addresses = null,Object? errorMsg = freezed,Object? searchHistory = null,Object? searchQuery = null,Object? lastSearchQuery = null,Object? settings = null,}) {
   return _then(_MerchandiserCustomerState(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,isCustomerImported: null == isCustomerImported ? _self.isCustomerImported : isCustomerImported // ignore: cast_nullable_to_non_nullable
@@ -312,7 +320,8 @@ as bool,isSearchHistoryCleared: null == isSearchHistoryCleared ? _self.isSearchH
 as bool,totalSearchHistoryCleared: freezed == totalSearchHistoryCleared ? _self.totalSearchHistoryCleared : totalSearchHistoryCleared // ignore: cast_nullable_to_non_nullable
 as int?,totalCustomerCount: null == totalCustomerCount ? _self.totalCustomerCount : totalCustomerCount // ignore: cast_nullable_to_non_nullable
 as int,customers: null == customers ? _self._customers : customers // ignore: cast_nullable_to_non_nullable
-as List<MerchandiserCustomerEntityData>,addresses: null == addresses ? _self._addresses : addresses // ignore: cast_nullable_to_non_nullable
+as List<MerchandiserCustomerEntityData>,mCustomers: null == mCustomers ? _self._mCustomers : mCustomers // ignore: cast_nullable_to_non_nullable
+as List<MCustomerEntityData>,addresses: null == addresses ? _self._addresses : addresses // ignore: cast_nullable_to_non_nullable
 as List<MerchandiserCustomerAddress>,errorMsg: freezed == errorMsg ? _self.errorMsg : errorMsg // ignore: cast_nullable_to_non_nullable
 as String?,searchHistory: null == searchHistory ? _self._searchHistory : searchHistory // ignore: cast_nullable_to_non_nullable
 as List<String>,searchQuery: null == searchQuery ? _self.searchQuery : searchQuery // ignore: cast_nullable_to_non_nullable
