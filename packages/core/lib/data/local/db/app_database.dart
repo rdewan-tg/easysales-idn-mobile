@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:core/data/local/db/app_database.steps.dart';
 import 'package:core/data/local/db/dao/customer_address_dao.dart';
+import 'package:core/data/local/db/dao/mcustomer_dao.dart';
 import 'package:core/data/local/db/dao/merchandiser_customer_dao.dart';
 import 'package:core/data/local/db/dao/product_dao.dart';
 import 'package:core/data/local/db/dao/product_price_dao.dart';
@@ -10,13 +12,14 @@ import 'package:core/data/local/db/dao/sales_line_dao.dart';
 import 'package:core/data/local/db/dao/search_product_history_dao.dart';
 import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:core/data/local/db/entity/customer_address_entity.dart';
+import 'package:core/data/local/db/entity/mcustomer_entity.dart';
 import 'package:core/data/local/db/entity/merchandiser_customer_entity.dart';
 import 'package:core/data/local/db/entity/product_entity.dart';
 import 'package:core/data/local/db/entity/product_price_entity.dart';
 import 'package:core/data/local/db/entity/sales_customer_entity.dart';
 import 'package:core/data/local/db/entity/sales_header_entity.dart';
 import 'package:core/data/local/db/entity/sales_line_entity.dart';
-import 'package:core/data/local/db/entity/search_merchnadiser_customer_history_entity.dart';
+import 'package:core/data/local/db/entity/search_merchandiser_customer_history_entity.dart';
 import 'package:core/data/local/db/entity/search_product_history_entity.dart';
 import 'package:core/data/local/db/entity/search_sales_customer_history_entity.dart';
 import 'package:core/data/local/db/entity/setting_entity.dart';
@@ -68,6 +71,7 @@ Future<DriftIsolate> createIsolateWithSpawn() async {
     ProductPriceEntity,
     SalesHeaderEntity,
     SalesLineEntity,
+    MCustomerEntity,
   ],
   daos: [
     SettingDao,
@@ -79,6 +83,7 @@ Future<DriftIsolate> createIsolateWithSpawn() async {
     SearchProductHistoryDao,
     SalesHeaderDao,
     SalesLineDao,
+    MCustomerDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -88,7 +93,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   static QueryExecutor _openConnection() {
     // `driftDatabase` from `package:drift_flutter` stores the database in
@@ -97,6 +102,11 @@ class AppDatabase extends _$AppDatabase {
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
+    onUpgrade: stepByStep(
+      from1To2: (m, schema) async {
+        await m.createTable(schema.mCustomerEntity);
+      },
+    ),
     beforeOpen: (details) async {
       if (details.wasCreated) {
         // This database is being created for the first time.
@@ -109,10 +119,6 @@ class AppDatabase extends _$AppDatabase {
       await customStatement('PRAGMA foreign_keys = ON');
     },
     //onCreate: (migrator) {},
-    // onUpgrade: stepByStep(
-    //   from1To2: (m, schema) async {
-
-    //   },
-    // ),
+    
   );
 }

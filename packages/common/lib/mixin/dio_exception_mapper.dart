@@ -23,8 +23,12 @@ mixin DioExceptionMapper {
         );
       case DioExceptionType.badResponse:
         final statusCode = e.response?.statusCode;
+        final dynamic msg = e.response?.data['message'];
+        final String? message = (msg is List && msg.isNotEmpty)
+            ? (msg.first?.toString())
+            : (msg?.toString());
         return Failure(
-          message: _getMessageForStatusCode(statusCode),
+          message: _getMessageForStatusCode(statusCode, message),
           statusCode: statusCode,
           exception: e,
           stackTrace: stackTrace,
@@ -50,18 +54,19 @@ mixin DioExceptionMapper {
     }
   }
 
-  String _getMessageForStatusCode(int? statusCode) {
+  String _getMessageForStatusCode(int? statusCode, String? message) {
     switch (statusCode) {
       case 400:
-        return "Bad Request. Please check your input.".hardcoded;
+        return message ?? "Bad Request. Please check your input.".hardcoded;
       case 401:
-        return "Unauthorized. Please check your credentials.".hardcoded;
+        return message ??
+            "Unauthorized. Please check your credentials.".hardcoded;
       case 403:
-        return "Forbidden. You do not have access.".hardcoded;
+        return message ?? "Forbidden. You do not have access.".hardcoded;
       case 404:
-        return "Not found. Please check the endpoint.".hardcoded;
+        return message ?? "Not found. Please check the endpoint.".hardcoded;
       case 500:
-        return "Internal Server Error. Try again later.".hardcoded;
+        return message ?? "Internal Server Error. Try again later.".hardcoded;
       default:
         return "Unexpected server response (Status code: $statusCode)."
             .hardcoded;

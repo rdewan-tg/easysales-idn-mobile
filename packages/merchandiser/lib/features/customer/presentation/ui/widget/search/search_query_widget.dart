@@ -55,7 +55,7 @@ class SearchQueryWidget extends ConsumerWidget {
                         // get the customers
                         ref
                             .read(merchandiserCustomerProvider.notifier)
-                            .watchMerchandiserCustomers();
+                            .watchMCustomers();
                       },
                       child: const Icon(Icons.clear_outlined, size: kMedium),
                     ),

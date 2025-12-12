@@ -9,21 +9,16 @@ class CustomerListWidget extends ConsumerStatefulWidget {
 }
 
 class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
-  late AnimationStyle _animationStyle;
-  late PersistentBottomSheetController _bottomSheetController;
   late ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _animationStyle = const AnimationStyle(
-      duration: Duration(seconds: 1),
-      reverseDuration: Duration(seconds: 1),
-    );
   }
 
   void _setScrollController() {
+    ref.invalidate(appScrollControllerProvider);
     final provider = ref.read(appScrollControllerProvider.notifier);
     provider.setScrollController(_scrollController);
   }
@@ -39,7 +34,7 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
     _listener();
 
     final customer = ref.watch(
-      merchandiserCustomerProvider.select((value) => value.customers),
+      merchandiserCustomerProvider.select((value) => value.mCustomers),
     );
 
     if (customer.isEmpty) {
@@ -50,7 +45,7 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
       child: VisibilityDetector(
         key: const Key('customerListWidget'),
         onVisibilityChanged: (info) {
-          if (info.visibleFraction > 0.5) {
+          if (info.visibleFraction >= 1) {
             _setScrollController();
           }
         },
@@ -61,11 +56,8 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
             final data = customer[index];
 
             return GestureDetector(
-              onTap: () => _onTap(
-                data.customerName,
-                data.customerId,
-                data.customreDimension ?? '-',
-              ),
+              onTap: () =>
+                  _onTap(data.customerId, data.outletName, data.district, data.area),
               child: Card(
                 margin: const EdgeInsets.symmetric(
                   horizontal: kMedium,
@@ -89,7 +81,7 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
                         style: const TextStyle(fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(height: kXSmall),
-                      Text(data.customerName),
+                      Text(data.outletName),
                       const SizedBox(height: kXSmall),
                       Chip(
                         visualDensity: const VisualDensity(
@@ -97,7 +89,7 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
                           vertical: -4,
                         ), // Reduce overall padding
                         label: Text(
-                          data.customreDimension ?? '-',
+                          data.area,
                           style:
                               context.textTheme.labelSmall, // Reduce text size
                         ),
@@ -176,23 +168,28 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
   }
 
   void _onTap(
-    String customerName,
     String customerId,
-    String customerDimension,
+    String customerName,
+    String roadName,
+    String area,
   ) {
-    _bottomSheetController = showBottomSheet(
-      context: context,
-      sheetAnimationStyle: _animationStyle,
-      builder: (BuildContext context) {
-        return CustomerAddressListWidget(
-          onClose: _closeBottonSheet,
-          customerName: customerName,
-          customerId: customerId,
-          customerDimension: customerDimension,
-        );
+    // check if site visit is enabled
+    final isSiteVisitEnabled = ref
+        .read(merchandiserCustomerProvider.notifier)
+        .isSiteVisitEnabled();
+    // if site visit is enabled, navigate to site visit screen
+    // else navigate to capture image screen
+    context.push(
+      isSiteVisitEnabled
+          ? "/merchandiser/$siteVisitRoute"
+          : "/merchandiser/$captureImageRoute",
+      extra: {
+        'customerId': customerId,
+        'customerName': customerName,
+        'address': roadName,
+        'area': area,
       },
     );
   }
 
-  void _closeBottonSheet() => _bottomSheetController.close();
 }

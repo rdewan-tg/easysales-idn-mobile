@@ -10,9 +10,15 @@ abstract interface class IMerchandiserCustomerService {
     String salesPersonId,
   );
 
+  Future<Result<bool, Failure>> filterMCustomerByCompanySM(
+    String salesPersonId,
+  );
+
   Future<Result<int, Failure>> deleteAllSearchCustomerHistory();
 
   Stream<List<MerchandiserCustomerEntityData>> watchAll(String? searchQuery);
+
+  Stream<List<MCustomerEntityData>> watchMCustomer(String? searchQuery);
 
   Stream<List<SearchMerchandiserCustomerHistoryEntityData>>
   watchSearchCustomerHistory();
