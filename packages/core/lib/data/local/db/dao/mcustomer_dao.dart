@@ -43,12 +43,12 @@ class MCustomerDao extends DatabaseAccessor<AppDatabase>
       query.where(
         (tbl) =>
             tbl.customerId.like(formattedSearchQuery) | // Filter by customerId
-            tbl.customerId.like(
+            tbl.outletName .like(
               formattedSearchQuery,
-            ) | // Filter by customerName
-            tbl.outletName.like(
+            ) | // Filter by outletName
+            tbl.area.like(
               formattedSearchQuery,
-            ), // Filter by outletName
+            ), // Filter by area
       );
     }
 

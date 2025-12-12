@@ -82,25 +82,6 @@ class MerchandiserCustomerController
         );
   }
 
-  Future<void> watchMerchandiserCustomers() async {
-    final searchQuery = state.searchQuery;
-    // Start listening stream
-    _subscriptionMerchandiserCustomer = ref
-        .watch(merchandiserCustomerServiceProvider)
-        .watchAll(searchQuery)
-        .listen(
-          (customers) {
-            state = state.copyWith(
-              customers: customers,
-              lastSearchQuery: searchQuery,
-            );
-          },
-          onError: (error) {
-            state = state.copyWith(errorMsg: error);
-          },
-        );
-  }
-
   Future<void> watchTotalCustomerCount() async {
     // Start listening stream
     _subscriptionTotalCustomerCount = ref
