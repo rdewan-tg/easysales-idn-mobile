@@ -9,6 +9,8 @@ const String merchandiserCustomerEndPoint =
     '/v1/api/merchandiser-customers/{DataAreaId}';
 const String filterMerchandiserCustomerEndPoint =
     '/v1/api/merchandiser-customers';
+const String filterMCustomerEndpoint =
+    "/v1/api/merchandiser-customers/filter/company-id-and-sm/{smMcId}";
 
 const String salesCustomerEndPoint = '/v1/api/customers/{DataAreaId}';
 const String filterSalesCustomerEndPoint = '/v1/api/customers';

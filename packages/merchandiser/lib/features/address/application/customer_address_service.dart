@@ -1,9 +1,9 @@
 import 'dart:isolate';
 
 import 'package:core/data/local/db/app_database.dart';
-import 'package:merchandiser/features/address/application/icustomer_address_service.dart';
+import 'package:merchandiser/features/address/application/interface/icustomer_address_service.dart';
 import 'package:merchandiser/features/address/data/repository/customer_address_repository.dart';
-import 'package:merchandiser/features/address/data/repository/icustomer_address_repository.dart';
+import 'package:merchandiser/features/address/application/interface/icustomer_address_repository.dart';
 import 'package:common/dto/address/customer_address_response.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multiple_result/multiple_result.dart';

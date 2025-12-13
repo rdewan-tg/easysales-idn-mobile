@@ -142,7 +142,6 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
       'bytes': bytes,
       'dateTime': dateTime,
       'customerId': widget.extras['customerId'],
-      'deliveryName': widget.extras['deliveryName'],
       'address': widget.extras['address'],
     });
 
@@ -162,8 +161,8 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
           customerName: widget.extras['customerName'],
           customerAddress: widget.extras['address'],
           transDate: _currentDateTime('dd-MM-yyyy'),
-          customerDimension: widget.extras['customerDimension'],
-          location: widget.extras['location'],
+          customerDimension: widget.extras['area'],
+          location: '-',
         );
   }
 

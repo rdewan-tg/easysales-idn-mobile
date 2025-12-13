@@ -1,8 +1,8 @@
 import 'package:core/data/local/db/dao/setting_dao.dart';
+import 'package:merchandiser/features/site_visit/application/interface/isite_visit_repository.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
-import 'package:merchandiser/features/site_visit/data/repository/isite_visit_repository.dart';
 import 'package:merchandiser/features/site_visit/data/source/remote/site_visit_api.dart';
 import 'package:common/common.dart';
 import 'package:dio/dio.dart';
