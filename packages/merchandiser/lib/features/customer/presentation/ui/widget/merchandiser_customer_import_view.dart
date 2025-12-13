@@ -31,9 +31,9 @@ class _CustomerImportViewState
                 children: [
                   ElevatedButton.icon(
                     onPressed: () {
-                      ref
-                          .read(merchandiserCustomerProvider.notifier)
-                          .importMerchandiserCustomers();
+                      // ref
+                      //     .read(merchandiserCustomerProvider.notifier)
+                      //     .importMerchandiserCustomers();
                     },
                     label: Text(
                       context.localizations('merchandiser.customerImport'),

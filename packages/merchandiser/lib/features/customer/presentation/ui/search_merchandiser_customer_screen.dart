@@ -55,7 +55,7 @@ class _SearchMerchandiserCustomerScreenState
                       .setSearchQuery(value);
                 },
                 onFieldSubmitted: (value) {
-                  _searchProduct();
+                  _search();
                 },
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -77,7 +77,7 @@ class _SearchMerchandiserCustomerScreenState
                   onPressed: query.length < 3
                       ? null
                       : () async {
-                          _searchProduct();
+                          _search();
                         },
                   icon: const Icon(Icons.search_outlined),
                 );
@@ -99,7 +99,7 @@ class _SearchMerchandiserCustomerScreenState
     );
   }
 
-  Future<void> _searchProduct() async {
+  Future<void> _search() async {
     // validate the search condition
     if (searchController.text.isEmpty || searchController.text.length < 3) {
       return;
@@ -118,7 +118,7 @@ class _SearchMerchandiserCustomerScreenState
     // get the customer from the db
     await ref
         .watch(merchandiserCustomerProvider.notifier)
-        .watchMerchandiserCustomers();
+        .watchMCustomers();
 
     // pop the search screen from the route stack
     if (!mounted) return;

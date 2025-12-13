@@ -4,7 +4,7 @@ import 'package:core/data/local/db/app_database.dart';
 import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:core/data/local/db/dao/customer_address_dao.dart';
 import 'package:dio/dio.dart';
-import 'package:merchandiser/features/address/data/repository/icustomer_address_repository.dart';
+import 'package:merchandiser/features/address/application/interface/icustomer_address_repository.dart';
 import 'package:merchandiser/features/address/data/source/customer_address_api.dart';
 import 'package:common/dto/address/customer_address_response.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

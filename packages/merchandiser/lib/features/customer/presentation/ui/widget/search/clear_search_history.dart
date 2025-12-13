@@ -64,7 +64,7 @@ class ClearSearchHistory extends ConsumerWidget {
     // get the customer from db
     await ref
         .read(merchandiserCustomerProvider.notifier)
-        .watchMerchandiserCustomers();
+        .watchMCustomers();
     // pop the current search screen
     if (!context.mounted) return;
     context.pop();

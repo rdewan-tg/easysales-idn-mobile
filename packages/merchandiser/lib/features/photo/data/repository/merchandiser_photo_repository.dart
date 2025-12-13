@@ -4,7 +4,7 @@ import 'package:common/common.dart';
 import 'package:common/exception/failure.dart';
 import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:merchandiser/features/photo/data/dto/upload_merchandiser_photo_response.dart';
-import 'package:merchandiser/features/photo/data/repository/imerchandiser_photo_repository.dart';
+import 'package:merchandiser/features/photo/application/interface/imerchandiser_photo_repository.dart';
 import 'package:merchandiser/features/photo/data/source/remote/photo_api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

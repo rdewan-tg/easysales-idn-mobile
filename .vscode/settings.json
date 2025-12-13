@@ -1,5 +1,5 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.35.5",
+  "dart.flutterSdkPath": ".fvm/versions/3.38.4",
   "search.exclude": {
     "**/.fvm": true
   },
@@ -31,6 +31,8 @@
     "subosito",
     "kuhnroyal",
     "emertozd",
+    "daos",
+    "mcustomer"
   ],
   "yaml.schemaStore.enable": false
 }
