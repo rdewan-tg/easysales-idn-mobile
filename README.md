@@ -105,12 +105,12 @@ fvm flutter pub run build_runner build -d
 
         qa.keyAlias=YOUR-KEY_ALIAS
         qa.keyPassword=YOUR-KEY-PASSWORD
-        qa.storeFile=../keystores/dewan.jks  / Mac-Linux For Windows qa.storeFile=D:\\KeyStore\\tonggarden.jks
+        qa.storeFile=../keystores/tonggarden.jks  / Mac-Linux For Windows qa.storeFile=D:\\KeyStore\\tonggarden.jks
         qa.storePassword=YOUR-STORE-PASSWORD
 
         prod.keyAlias=YOUR-KEY_ALIAS
         prod.keyPassword=YOUR-KEY-PASSWORD
-        prod.storeFile=../keystores/mobileacademy.jks  / Mac-Linux For Windows prod.storeFile=D:\\KeyStore\\tonggarden.jks
+        prod.storeFile=../keystores/tonggarden.jks  / Mac-Linux For Windows prod.storeFile=D:\\KeyStore\\tonggarden.jks
         prod.storePassword=YOUR-STORE-PASSWORD
         ```
     4. In your `local.properties` at `android/local.properties` add the below data at the end of the file

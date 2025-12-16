@@ -142,9 +142,8 @@ jobs:
       - name: Shorebird Android Build
         uses: shorebirdtech/shorebird-release@v1
         id: shorebird-android-release
-        with:
-          args: --build-name=1.0.5 --build-number=5 --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
-          #args: --build-name=1.0.${{ steps.fetch_version_info.outputs.version_code }} --build-number=${{ steps.fetch_version_info.outputs.version_code }} --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
+        with:          
+          args: --build-name=1.0.${{ steps.fetch_version_info.outputs.version_code }} --build-number=${{ steps.fetch_version_info.outputs.version_code }} --flavor=prod --target=lib/main_prod.dart -- --obfuscate --split-debug-info=build/app/symbols 
           flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
           platform: android
 
@@ -160,5 +159,5 @@ jobs:
           mappingFile: build/app/outputs/mapping/prodRelease/mapping.txt
           debugSymbols: build/app/intermediates/merged_native_libs/prodRelease/mergeProdReleaseNativeLibs/out/lib
           whatsNewDirectory: distribution/whatsnew
-          track: 0.0.1
+          track: production
   

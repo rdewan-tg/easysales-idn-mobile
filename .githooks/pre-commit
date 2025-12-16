@@ -33,7 +33,7 @@ printf "\e[32;1m%s\e[0m\n" 'Finished running dart format'
 # \e[0m resets the color back to the terminal's default. 
 # \n is a newline character that moves the terminal cursor to the next line.
 printf "\e[33;1m%s\e[0m\n" 'Running flutter analyze'
-analyze=$(flutter analyze)
+analyze=$(fvm dart analyze)
 analyzet_lines=$(echo "$analyze" | wc -l)
 # Subtract 2 from the line count
 real_analyzet_lines=$((analyzet_lines - 2))
