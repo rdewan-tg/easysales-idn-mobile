@@ -13,7 +13,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 
-
 part 'flavor/flavor.dart';
 part 'env/env_reader.dart';
 part 'route/go_router_notifier.dart';

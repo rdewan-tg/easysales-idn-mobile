@@ -34,7 +34,7 @@ class MerchandiserCustomerController
 
   // import mCustomer from API
   Future<void> importMCustomers() async {
-    try {    
+    try {
       // get the setting from the database
       final setting = await ref
           .read(merchandiserCustomerServiceProvider)
@@ -60,7 +60,7 @@ class MerchandiserCustomerController
       );
     } catch (e) {
       state = state.copyWith(errorMsg: e.toString());
-    } 
+    }
   }
 
   Future<void> watchMCustomers() async {

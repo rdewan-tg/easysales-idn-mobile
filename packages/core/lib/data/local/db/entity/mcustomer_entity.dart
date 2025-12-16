@@ -1,5 +1,3 @@
-
-
 import 'package:drift/drift.dart';
 
 class MCustomerEntity extends Table {
@@ -13,5 +11,4 @@ class MCustomerEntity extends Table {
 
   @override
   Set<Column<Object>> get primaryKey => {customerId};
-
 }
