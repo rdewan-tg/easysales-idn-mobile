@@ -155,17 +155,22 @@ final class MerchandiserCustomerService
   }
 }
 
-List<MCustomerEntityData> _mapMCustomerDataToMCustomerEntity(List<MCustomerData> data) {
-  return data.map((e) => MCustomerEntityData(
-    customerId: e.customerId,
-    smMcId: e.smMcId,
-    outletName: e.outletName,
-    area: e.area,
-    district: e.district,
-    roadName: e.roadName,
-    companyId: e.companyId
-  )).toList();
-
+List<MCustomerEntityData> _mapMCustomerDataToMCustomerEntity(
+  List<MCustomerData> data,
+) {
+  return data
+      .map(
+        (e) => MCustomerEntityData(
+          customerId: e.customerId,
+          smMcId: e.smMcId,
+          outletName: e.outletName,
+          area: e.area,
+          district: e.district,
+          roadName: e.roadName,
+          companyId: e.companyId,
+        ),
+      )
+      .toList();
 }
 
 // top level function for isolate

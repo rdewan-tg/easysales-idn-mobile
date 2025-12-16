@@ -16,9 +16,7 @@ class _MerchandiserCustomerScreenState
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       ref.read(merchandiserCustomerProvider.notifier).importMCustomers();
       ref.read(merchandiserCustomerProvider.notifier).getSetting();
-      ref
-          .read(merchandiserCustomerProvider.notifier)
-          .watchMCustomers();
+      ref.read(merchandiserCustomerProvider.notifier).watchMCustomers();
     });
   }
 

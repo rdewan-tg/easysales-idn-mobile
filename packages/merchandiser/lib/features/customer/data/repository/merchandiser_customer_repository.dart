@@ -25,7 +25,7 @@ final merchandiserCustomerRepositoryProvider =
       ); // searchHistoryDao
 
       return MerchandiserCustomerRepository(
-        mCustomerApi:merchandiserCustomerApi,
+        mCustomerApi: merchandiserCustomerApi,
         customerDao: customerDao,
         mCustomerDao: mCustomerDao,
         settingDao: settingDao,
@@ -53,9 +53,7 @@ final class MerchandiserCustomerRepository
   @override
   Future<CustomerResponse> getMerchandiserCustomers(String dataAreaId) async {
     try {
-      return await mCustomerApi.getMerchandiserCustomers(
-        dataAreaId,
-      );
+      return await mCustomerApi.getMerchandiserCustomers(dataAreaId);
     } on DioException catch (e, stackTrace) {
       // Use the mixin to map DioException to Failure
       throw mapDioExceptionToFailure(e, stackTrace);
@@ -75,10 +73,7 @@ final class MerchandiserCustomerRepository
     String salesPersonId,
   ) async {
     try {
-      final response = await mCustomerApi.filter(
-        companyCode,
-        salesPersonId,
-      );
+      final response = await mCustomerApi.filter(companyCode, salesPersonId);
 
       return response;
     } on DioException catch (e, stackTrace) {
@@ -99,9 +94,7 @@ final class MerchandiserCustomerRepository
     String salesPersonId,
   ) async {
     try {
-      final response = await mCustomerApi.filterByCompanyAndSM(
-        salesPersonId,
-      );
+      final response = await mCustomerApi.filterByCompanyAndSM(salesPersonId);
 
       return response;
     } on DioException catch (e, stackTrace) {

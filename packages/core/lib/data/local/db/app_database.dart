@@ -118,7 +118,7 @@ class AppDatabase extends _$AppDatabase {
       // To enable them, run:
       await customStatement('PRAGMA foreign_keys = ON');
     },
+
     //onCreate: (migrator) {},
-    
   );
 }

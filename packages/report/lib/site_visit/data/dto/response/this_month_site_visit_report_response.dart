@@ -8,7 +8,8 @@ ThisMonthSiteVisitReportResponse deserializeThisMonthSiteVisitReportResponse(
 ) => ThisMonthSiteVisitReportResponse.fromJson(json);
 
 @freezed
-abstract class ThisMonthSiteVisitReportResponse with _$ThisMonthSiteVisitReportResponse {
+abstract class ThisMonthSiteVisitReportResponse
+    with _$ThisMonthSiteVisitReportResponse {
   const factory ThisMonthSiteVisitReportResponse({
     required String status,
     required ThisMonthSiteVisitReportData data,
@@ -20,7 +21,8 @@ abstract class ThisMonthSiteVisitReportResponse with _$ThisMonthSiteVisitReportR
 }
 
 @freezed
-abstract class ThisMonthSiteVisitReportData with _$ThisMonthSiteVisitReportData {
+abstract class ThisMonthSiteVisitReportData
+    with _$ThisMonthSiteVisitReportData {
   const factory ThisMonthSiteVisitReportData({
     required int totalUniqueVisits,
     required List<ThisMonthSiteVisitDetail> visitDetails,

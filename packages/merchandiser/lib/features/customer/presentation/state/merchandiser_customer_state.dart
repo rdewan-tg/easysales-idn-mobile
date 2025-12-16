@@ -20,5 +20,5 @@ abstract class MerchandiserCustomerState with _$MerchandiserCustomerState {
     @Default('') String searchQuery,
     @Default('') String lastSearchQuery,
     @Default({}) Map<String, String> settings,
-  }) = _MerchandiserCustomerState;  
+  }) = _MerchandiserCustomerState;
 }
