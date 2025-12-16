@@ -13,7 +13,8 @@ String uploadMerchandiserPhotoResponseToJson(
 ) => json.encode(data);
 
 @freezed
-abstract class UploadMerchandiserPhotoResponse with _$UploadMerchandiserPhotoResponse {
+abstract class UploadMerchandiserPhotoResponse
+    with _$UploadMerchandiserPhotoResponse {
   const factory UploadMerchandiserPhotoResponse({
     required String status,
     required String data,

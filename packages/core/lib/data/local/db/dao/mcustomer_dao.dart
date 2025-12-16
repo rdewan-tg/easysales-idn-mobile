@@ -7,9 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 part 'mcustomer_dao.g.dart';
 
-final mCustomerDaoProvider = Provider<MCustomerDao>((
-  ref,
-) {
+final mCustomerDaoProvider = Provider<MCustomerDao>((ref) {
   return MCustomerDao(ref.watch(appDatabaseProvider));
 });
 
@@ -18,9 +16,7 @@ class MCustomerDao extends DatabaseAccessor<AppDatabase>
     with _$MCustomerDaoMixin {
   MCustomerDao(super.db);
 
-  Future<void> insertOrUpdateList(
-    List<MCustomerEntityData> dataList,
-  ) async {
+  Future<void> insertOrUpdateList(List<MCustomerEntityData> dataList) async {
     try {
       await batch((batch) {
         batch.insertAllOnConflictUpdate(mCustomerEntity, dataList);
@@ -43,12 +39,8 @@ class MCustomerDao extends DatabaseAccessor<AppDatabase>
       query.where(
         (tbl) =>
             tbl.customerId.like(formattedSearchQuery) | // Filter by customerId
-            tbl.outletName .like(
-              formattedSearchQuery,
-            ) | // Filter by outletName
-            tbl.area.like(
-              formattedSearchQuery,
-            ), // Filter by area
+            tbl.outletName.like(formattedSearchQuery) | // Filter by outletName
+            tbl.area.like(formattedSearchQuery), // Filter by area
       );
     }
 

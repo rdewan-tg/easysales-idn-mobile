@@ -119,7 +119,7 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                     'customerId': widget.extras['customerId'],
                     'customerName': widget.extras['customerName'],
                     'address': widget.extras['address'],
-                    'area': widget.extras['area']
+                    'area': widget.extras['area'],
                   },
                 );
               },

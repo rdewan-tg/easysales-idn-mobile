@@ -56,8 +56,12 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
             final data = customer[index];
 
             return GestureDetector(
-              onTap: () =>
-                  _onTap(data.customerId, data.outletName, data.district, data.area),
+              onTap: () => _onTap(
+                data.customerId,
+                data.outletName,
+                data.district,
+                data.area,
+              ),
               child: Card(
                 margin: const EdgeInsets.symmetric(
                   horizontal: kMedium,
@@ -191,5 +195,4 @@ class _CustomerListWidgetState extends ConsumerState<CustomerListWidget> {
       },
     );
   }
-
 }

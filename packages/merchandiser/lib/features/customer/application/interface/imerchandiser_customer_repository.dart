@@ -10,9 +10,7 @@ abstract interface class IMerchandiserCustomerRepository {
     String salesPersonId,
   );
 
-  Future<MCustomerResponse> filterMCustomerByCompanySM(
-    String salesPersonId,
-  );
+  Future<MCustomerResponse> filterMCustomerByCompanySM(String salesPersonId);
 
   Stream<List<MerchandiserCustomerEntityData>> watchAll(String? searchQuery);
 
@@ -23,7 +21,7 @@ abstract interface class IMerchandiserCustomerRepository {
 
   Future<void> insertOrUpdate(List<MerchandiserCustomerEntityData> data);
 
-   Future<void> insertOrUpdateMCustomer(List<MCustomerEntityData> data);
+  Future<void> insertOrUpdateMCustomer(List<MCustomerEntityData> data);
 
   Future<void> insertOrUpdateSearchMerchandiserCustomerHistory(String key);
 

@@ -6,9 +6,7 @@ import 'package:merchandiser/features/address/application/customer_address_servi
 import 'package:merchandiser/features/address/presentation/state/address_state.dart';
 
 final addressControllerProvider =
-    NotifierProvider<AddressController, AddressState>(
-      AddressController.new,
-    );
+    NotifierProvider<AddressController, AddressState>(AddressController.new);
 
 class AddressController extends Notifier<AddressState> {
   StreamSubscription<List<CustomerAddressEntityData>>? _subscription;

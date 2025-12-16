@@ -27,8 +27,8 @@ abstract class MCustomerData with _$MCustomerData {
     @JsonKey(name: "area") required String area,
     @JsonKey(name: "district") required district,
     @JsonKey(name: "roadName") required String roadName,
-    @JsonKey(name: "latitude")  String? latitude,
-    @JsonKey(name: "longitude")  String? longitude,
+    @JsonKey(name: "latitude") String? latitude,
+    @JsonKey(name: "longitude") String? longitude,
     @JsonKey(name: "companyId") required int companyId,
     @JsonKey(name: "createAt") required DateTime createAt,
     @JsonKey(name: "updatedAt") required DateTime updatedAt,
@@ -37,4 +37,3 @@ abstract class MCustomerData with _$MCustomerData {
   factory MCustomerData.fromJson(Map<String, dynamic> json) =>
       _$MCustomerDataFromJson(json);
 }
-

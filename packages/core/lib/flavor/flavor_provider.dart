@@ -8,7 +8,6 @@ part 'flavor_provider.g.dart';
 //   return Flavor.dev;
 // });
 
-
 @Riverpod(keepAlive: true)
 class FlavorNotifier extends _$FlavorNotifier {
   @override

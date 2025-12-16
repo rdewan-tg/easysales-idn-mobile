@@ -37,10 +37,10 @@ Sales and Merchandiser App
 
 ```
 # install the flutter version using fvm
-fvm install 3.35.3
+fvm install 3.38.4
 
 # select the flutter version for current project
-fvm use 3.35.3
+fvm use 3.38.4
 
 # use fvm command to proxy your flutter command
 fvm flutter pub get

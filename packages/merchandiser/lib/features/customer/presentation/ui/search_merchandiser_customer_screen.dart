@@ -116,9 +116,7 @@ class _SearchMerchandiserCustomerScreenState
         .setSearchHistory(searchController.text.toLowerCase());
 
     // get the customer from the db
-    await ref
-        .watch(merchandiserCustomerProvider.notifier)
-        .watchMCustomers();
+    await ref.watch(merchandiserCustomerProvider.notifier).watchMCustomers();
 
     // pop the search screen from the route stack
     if (!mounted) return;
