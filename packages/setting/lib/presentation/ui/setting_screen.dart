@@ -118,26 +118,6 @@ class _SettingScreenState extends ConsumerState<SettingScreen> {
               context.go('/order-history/sales/sales-customer-import');
             },
           ),
-          // import merchandiser customer
-          ListTile(
-            title: Text(
-              context.localizations('setting.importMerchandiserCustomer'),
-            ),
-            subtitle: Text(
-              context.localizations(
-                'setting.importMerchandiserCustomerSubTitle',
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {
-                context.go('/merchandiser/merchandiser-customer-import');
-              },
-              icon: const Icon(Icons.navigate_next),
-            ),
-            onTap: () {
-              context.go('/merchandiser/merchandiser-customer-import');
-            },
-          ),
           // import product and price
           ListTile(
             title: Text(context.localizations('setting.importProductAndPrice')),
