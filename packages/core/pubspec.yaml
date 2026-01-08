@@ -41,7 +41,7 @@ dependencies:
   # https://pub.dev/packages/dio_http_formatter
   dio_http_formatter: ^3.3.1
   # https://pub.dev/packages/retrofit
-  retrofit: ^4.7.2
+  retrofit: 4.9.1
   # https://pub.dev/packages/go_router
   go_router: ^17.0.1
   # https://pub.dev/packages/logger
@@ -129,7 +129,7 @@ dev_dependencies:
   # https://pub.dev/packages/build_runner
   build_runner: ^2.10.4
   # https://pub.dev/packages/retrofit_generator
-  retrofit_generator: '10.0.5'  
+  retrofit_generator: 10.2.0
   # https://pub.dev/packages/json_serializable
   json_serializable: ^6.11.3
   # https://pub.dev/packages/freezed

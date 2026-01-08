@@ -39,7 +39,7 @@
     "keyalg",
     "keysize",
     "appbundle",
-    "androiddebugkey",
+    "androiddebugkey"
   ],
   "yaml.schemaStore.enable": false
 }
