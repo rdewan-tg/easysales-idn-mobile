@@ -10,7 +10,7 @@ part of 'new_version_status_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(versionStatus)
-const versionStatusProvider = VersionStatusProvider._();
+final versionStatusProvider = VersionStatusProvider._();
 
 final class VersionStatusProvider
     extends
@@ -20,7 +20,7 @@ final class VersionStatusProvider
           FutureOr<VersionStatus?>
         >
     with $FutureModifier<VersionStatus?>, $FutureProvider<VersionStatus?> {
-  const VersionStatusProvider._()
+  VersionStatusProvider._()
     : super(
         from: null,
         argument: null,
