@@ -3,16 +3,16 @@ import 'package:multiple_result/multiple_result.dart';
 import 'package:common/exception/failure.dart';
 
 abstract interface class IMerchandiserCustomerService {
-  Future<Result<bool, Failure>> getMerchandiserCustomers(String dataAreaId);
+  // Future<Result<bool, Failure>> getMerchandiserCustomers(String dataAreaId);
 
   Future<Result<bool, Failure>> filterMerchandiserCustomers(
     String companyCode,
     String salesPersonId,
   );
 
-  Future<Result<bool, Failure>> filterMCustomerByCompanySM(
-    String salesPersonId,
-  );
+  // Future<Result<bool, Failure>> filterMCustomerByCompanySM(
+  //   String salesPersonId,
+  // );
 
   Future<Result<int, Failure>> deleteAllSearchCustomerHistory();
 

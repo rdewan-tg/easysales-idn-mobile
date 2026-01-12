@@ -30,27 +30,27 @@ final class CustomerAddressService implements ICustomerAddressService {
     }
   }
 
-  @override
-  Future<Result<bool, Failure>> getCustomerAddresses(String dataAreaId) async {
-    try {
-      // get the address from api
-      final result = await _customerAddressRepository.getCustomerAddresses(
-        dataAreaId,
-      );
-      // map to customer address
-      final data = await Isolate.run(
-        () => _mapToCustomerAddressEntityList(result),
-      );
-      // insert to db
-      await _customerAddressRepository.insertOrUpdate(data);
+  // @override
+  // Future<Result<bool, Failure>> getCustomerAddresses(String dataAreaId) async {
+  //   try {
+  //     // get the address from api
+  //     final result = await _customerAddressRepository.getCustomerAddresses(
+  //       dataAreaId,
+  //     );
+  //     // map to customer address
+  //     final data = await Isolate.run(
+  //       () => _mapToCustomerAddressEntityList(result),
+  //     );
+  //     // insert to db
+  //     await _customerAddressRepository.insertOrUpdate(data);
 
-      return const Result.success(true);
-    } on Failure catch (e) {
-      return Result.error(e);
-    } catch (e, s) {
-      return Result.error(Failure(message: e.toString(), stackTrace: s));
-    }
-  }
+  //     return const Result.success(true);
+  //   } on Failure catch (e) {
+  //     return Result.error(e);
+  //   } catch (e, s) {
+  //     return Result.error(Failure(message: e.toString(), stackTrace: s));
+  //   }
+  // }
 
   @override
   Future<Result<bool, Failure>> filterCustomerAddresses(
