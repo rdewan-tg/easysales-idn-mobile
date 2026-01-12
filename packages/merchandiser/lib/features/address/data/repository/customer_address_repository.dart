@@ -35,24 +35,24 @@ final class CustomerAddressRepository
     this._customerAddressDao,
   );
 
-  @override
-  Future<CustomerAddressResponse> getCustomerAddresses(
-    String dataAreaId,
-  ) async {
-    try {
-      return await _customerAddressApi.getCustomerAddresses(dataAreaId);
-    } on DioException catch (e, stackTrace) {
-      // Use the mixin to map DioException to Failure
-      throw mapDioExceptionToFailure(e, stackTrace);
-    } catch (e, stackTrace) {
-      // Map unexpected exceptions to Failure
-      throw Failure(
-        message: 'An unexpected error occurred'.hardcoded,
-        exception: e as Exception,
-        stackTrace: stackTrace,
-      );
-    }
-  }
+  // @override
+  // Future<CustomerAddressResponse> getCustomerAddresses(
+  //   String dataAreaId,
+  // ) async {
+  //   try {
+  //     return await _customerAddressApi.getCustomerAddresses(dataAreaId);
+  //   } on DioException catch (e, stackTrace) {
+  //     // Use the mixin to map DioException to Failure
+  //     throw mapDioExceptionToFailure(e, stackTrace);
+  //   } catch (e, stackTrace) {
+  //     // Map unexpected exceptions to Failure
+  //     throw Failure(
+  //       message: 'An unexpected error occurred'.hardcoded,
+  //       exception: e as Exception,
+  //       stackTrace: stackTrace,
+  //     );
+  //   }
+  // }
 
   @override
   Future<CustomerAddressResponse> filterCustomerAddresses(

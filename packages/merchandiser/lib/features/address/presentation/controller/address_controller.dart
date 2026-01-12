@@ -21,34 +21,34 @@ class AddressController extends Notifier<AddressState> {
     return AddressState();
   }
 
-  Future<void> importCustomerAddresses() async {
-    state = state.copyWith(
-      isLoading: true,
-      errorMsg: null,
-      isAddressImported: false,
-    );
-    // get the setting from the database
-    final setting = await ref
-        .read(customerAddressServiceProvider)
-        .getAllSettings();
-    // get the companyCode from map
-    final String companyCode = setting['companyCode'] ?? 'SGMA';
-    final String salesPersonId = setting['salesPersonCode'] ?? '';
+  // Future<void> importCustomerAddresses() async {
+  //   state = state.copyWith(
+  //     isLoading: true,
+  //     errorMsg: null,
+  //     isAddressImported: false,
+  //   );
+  //   // get the setting from the database
+  //   final setting = await ref
+  //       .read(customerAddressServiceProvider)
+  //       .getAllSettings();
+  //   // get the companyCode from map
+  //   final String companyCode = setting['companyCode'] ?? 'SGMA';
+  //   final String salesPersonId = setting['salesPersonCode'] ?? '';
 
-    final result = await ref
-        .read(customerAddressServiceProvider)
-        .filterCustomerAddresses(companyCode, salesPersonId);
-    result.when(
-      (success) {
-        // update the total address count
-        watchTotalCustomerAddressCount();
-        state = state.copyWith(isLoading: false, isAddressImported: success);
-      },
-      (error) {
-        state = state.copyWith(isLoading: false, errorMsg: error.message);
-      },
-    );
-  }
+  //   final result = await ref
+  //       .read(customerAddressServiceProvider)
+  //       .filterCustomerAddresses(companyCode, salesPersonId);
+  //   result.when(
+  //     (success) {
+  //       // update the total address count
+  //       watchTotalCustomerAddressCount();
+  //       state = state.copyWith(isLoading: false, isAddressImported: success);
+  //     },
+  //     (error) {
+  //       state = state.copyWith(isLoading: false, errorMsg: error.message);
+  //     },
+  //   );
+  // }
 
   Future<void> watchCustomerAddress(String query) async {
     // Start listening stream
