@@ -19,7 +19,6 @@ import 'package:go_router/go_router.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:dio/dio.dart';
 
-
 part 'style/dimens.dart';
 part 'upgrader/upgrader_translation_messages.dart';
 part 'upgrader/custom_upgrader_message.dart';
