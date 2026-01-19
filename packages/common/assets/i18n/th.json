@@ -123,5 +123,7 @@
     "auth.emailSentSuccessfully": "ส่งอีเมลสำเร็จแล้ว",
     "auth.checkEmailForFurtherInstructions": "โปรดตรวจสอบอีเมลของคุณสำหรับคำแนะนำเพิ่มเติม",
     "home.refreshData": "รีเฟรช",
-    "report.currentOrderNumber": "หมายเลขคำสั่งซื้อปัจจุบัน"
+    "report.currentOrderNumber": "หมายเลขคำสั่งซื้อปัจจุบัน",
+    "siteVisit.exit": "ทางออก",
+    "siteVisit.confirmLeavePage": "คุณต้องการออกจากหน้านี้หรือไม่?"
 }

@@ -123,5 +123,7 @@
     "auth.emailSentSuccessfully": "Email berhasil terkirim.",
     "auth.checkEmailForFurtherInstructions": "Silakan periksa email Anda untuk instruksi lebih lanjut.",
     "home.refreshData": "Menyegarkan",
-    "report.currentOrderNumber": "Nomor Pesanan Saat Ini"
+    "report.currentOrderNumber": "Nomor Pesanan Saat Ini",
+    "siteVisit.exit": "KELUAR",
+    "siteVisit.confirmLeavePage": "Apakah Anda ingin meninggalkan halaman ini?"
 }

@@ -93,6 +93,8 @@
     "siteVisit.currentLocation": "Current Location",
     "siteVisit.noLocation": "No Location",
     "siteVisit.currentTime": "Current Time",
+    "siteVisit.exit": "Exit",
+    "siteVisit.confirmLeavePage": "Do you want to leave this page?",
     "drawer.myProfile": "My Profile",
     "drawer.aboutUs": "About Us",
     "drawer.notification": "Notification",

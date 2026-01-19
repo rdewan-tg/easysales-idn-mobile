@@ -112,9 +112,13 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
             barrierDismissible: false,
             builder: (context) {
               return AlertDialog(
-                title: Text(context.localizations('auth.emailSentSuccessfully')),
+                title: Text(
+                  context.localizations('auth.emailSentSuccessfully'),
+                ),
                 content: Text(
-                  context.localizations('auth.checkEmailForFurtherInstructions'),
+                  context.localizations(
+                    'auth.checkEmailForFurtherInstructions',
+                  ),
                 ),
                 actions: [
                   TextButton(
