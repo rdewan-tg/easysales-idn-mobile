@@ -123,5 +123,7 @@
     "auth.emailSentSuccessfully": "邮件已成功发送",
     "auth.checkEmailForFurtherInstructions": "请查看您的电子邮件以获取更多说明。",
     "home.refreshData": "刷新",
-    "report.currentOrderNumber": "当前订单号"
+    "report.currentOrderNumber": "当前订单号",
+    "siteVisit.exit": "出口",
+    "siteVisit.confirmLeavePage": "您想离开此页面吗？"
 }

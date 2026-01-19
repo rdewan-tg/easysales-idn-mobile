@@ -249,10 +249,10 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
           children: [
             const Icon(Icons.warning_amber_rounded, color: Colors.amber),
             const SizedBox(width: kSmall),
-            Text('Exit'.hardcoded),
+            Text(context.localizations('siteVisit.exit')),
           ],
         ),
-        content: Text('Do you want to leave this page?'.hardcoded),
+        content: Text(context.localizations('siteVisit.confirmLeavePage')),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
