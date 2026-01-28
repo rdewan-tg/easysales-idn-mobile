@@ -5,12 +5,13 @@ publish_to: 'none'
 homepage:
 
 environment:
-  sdk: ^3.10.1
+  sdk: ^3.10.4
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
   
   common:
     path: ../common
@@ -40,7 +41,7 @@ dependencies:
   dio: ^5.9.0
   # https://pub.dev/packages/dio_http_formatter
   dio_http_formatter: ^3.3.1
-  # https://pub.dev/packages/retrofit
+  # # https://pub.dev/packages/retrofit
   retrofit: 4.9.1
   # https://pub.dev/packages/go_router
   go_router: ^17.0.1

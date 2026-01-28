@@ -51,7 +51,7 @@ if (keystorePropertiesFile.exists()) {
 
 
 android {
-    namespace = "com.tonggarden.easysales"
+    namespace = "ind.co.tonggarden.easysales"
     compileSdk = flutterCompileSdkVersion.toInteger()
     ndkVersion = "27.0.12077973"
 
@@ -119,27 +119,27 @@ android {
     productFlavors {
         dev {
             dimension "flavor"
-            applicationId "co.id.tonggarden.easysales"
+            applicationId "ind.co.tonggarden.easysales"
             applicationIdSuffix ".dev"
             //versionNameSuffix " Dev"
             signingConfig signingConfigs.debug            
         }
         qa {
             dimension "flavor"
-            applicationId "co.id.tonggarden.easysales"
+            applicationId "ind.co.tonggarden.easysales"
             applicationIdSuffix ".qa"
             //versionNameSuffix " QA"
             signingConfig signingConfigs.qa            
         }
         prod {
             dimension "flavor"
-            applicationId "co.id.tonggarden.easysales"
+            applicationId "ind.co.tonggarden.easysales"
             signingConfig signingConfigs.release           
         }
     }
 
     defaultConfig {
-        applicationId = "co.id.tonggarden.easysales"
+        applicationId = "ind.co.tonggarden.easysales"
         minSdkVersion flutterMinSdkVersion.toInteger()
         targetSdkVersion flutterTargetSdkVersion.toInteger()
         versionCode flutterVersionCode.toInteger()

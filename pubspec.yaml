@@ -4,17 +4,19 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.10.1
+  sdk: ^3.10.4
 
 dependencies:
   flutter:
     sdk: flutter
 
+
   core:
-    path: packages/core
+    path: packages/core 
 
 dependency_overrides:
-  analyzer: 8.4.1
+  # analyzer: 8.4.1
+
 
 dev_dependencies:
   flutter_test:
@@ -23,9 +25,9 @@ dev_dependencies:
    # https://pub.dev/packages/build_runner
   build_runner: ^2.10.4
   # https://pub.dev/packages/retrofit_generator
-  retrofit_generator: 10.2.0
+  retrofit_generator: 10.2.0 #version 10.2.1 has an issue with retrofit 4.9.1
   # https://pub.dev/packages/json_serializable
-  json_serializable: ^6.11.3
+  json_serializable: ^6.11.2
   # https://pub.dev/packages/freezed
   freezed: ^3.2.3
   # https://pub.dev/packages/riverpod_generator
