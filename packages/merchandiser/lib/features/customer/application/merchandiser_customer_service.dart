@@ -153,8 +153,6 @@ final class MerchandiserCustomerService
       return Result.error(Failure(message: e.toString(), stackTrace: s));
     }
   }
-  
-  
 }
 
 List<MCustomerEntityData> _mapMCustomerDataToMCustomerEntity(
