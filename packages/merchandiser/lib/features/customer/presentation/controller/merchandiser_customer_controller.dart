@@ -32,36 +32,36 @@ class MerchandiserCustomerController
     return MerchandiserCustomerState();
   }
 
-  // import mCustomer from API
-  // Future<void> importMCustomers() async {
-  //   try {
-  // get the setting from the database
-  // final setting = await ref
-  //     .read(merchandiserCustomerServiceProvider)
-  //     .getAllSetting();
-  // get the companyCode from map
-  // final String salesPersonId = setting['salesPersonCode'] ?? '';
+  //import mCustomer from API
+  Future<void> importMCustomers() async {
+    try {
+      //get the setting from the database
+      final setting = await ref
+          .read(merchandiserCustomerServiceProvider)
+          .getAllSetting();
+      //get the companyCode from map
+      final String salesPersonId = setting['salesPersonCode'] ?? '';
 
-  // get the merchandiser customers from from api and inset it to the database
-  //     final result = await ref
-  //         .read(merchandiserCustomerServiceProvider)
-  //         .filterMCustomerByCompanySM(salesPersonId);
+      //get the merchandiser customers from from api and inset it to the database
+      final result = await ref
+          .read(merchandiserCustomerServiceProvider)
+          .filterMCustomerByCompanySM(salesPersonId);
 
-  //     result.when(
-  //       (customers) {
-  //         //watchMCustomers();
-  //         // update the state
-  //         state = state.copyWith(isCustomerImported: customers);
-  //       },
-  //       (failure) {
-  //         //watchMCustomers();
-  //         state = state.copyWith(errorMsg: failure.message);
-  //       },
-  //     );
-  //   } catch (e) {
-  //     state = state.copyWith(errorMsg: e.toString());
-  //   }
-  // }
+      result.when(
+        (customers) {
+          //watchMCustomers();
+          // update the state
+          state = state.copyWith(isCustomerImported: customers);
+        },
+        (failure) {
+          //watchMCustomers();
+          state = state.copyWith(errorMsg: failure.message);
+        },
+      );
+    } catch (e) {
+      state = state.copyWith(errorMsg: e.toString());
+    }
+  }
 
   Future<void> watchMCustomers() async {
     final searchQuery = state.searchQuery;

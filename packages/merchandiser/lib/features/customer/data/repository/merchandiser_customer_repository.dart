@@ -9,7 +9,7 @@ import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:dio/dio.dart';
 import 'package:merchandiser/features/customer/application/interface/imerchandiser_customer_repository.dart';
 import 'package:merchandiser/features/customer/data/source/remote/merchandiser_customer_api.dart';
-// import 'package:merchandiser/features/customer/data/dto/response/mcustomer_response.dart';
+import 'package:merchandiser/features/customer/data/dto/response/mcustomer_response.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final merchandiserCustomerRepositoryProvider =
@@ -89,26 +89,27 @@ final class MerchandiserCustomerRepository
     }
   }
 
-  // @override
-  // Future<MCustomerResponse> filterMCustomerByCompanySM(
-  //   String salesPersonId,
-  // ) async {
-  //   try {
-  //     final response = await mCustomerApi.filterByCompanyAndSM(salesPersonId);
+  @override
+  Future<MCustomerResponse> filterMCustomerByCompanySM(
 
-  //     return response;
-  //   } on DioException catch (e, stackTrace) {
-  //     // Use the mixin to map DioException to Failure
-  //     throw mapDioExceptionToFailure(e, stackTrace);
-  //   } catch (e, stackTrace) {
-  //     // Map unexpected exceptions to Failure
-  //     throw Failure(
-  //       message: 'An unexpected error occurred'.hardcoded,
-  //       exception: e as Exception,
-  //       stackTrace: stackTrace,
-  //     );
-  //   }
-  // }
+    String salesPersonId,
+  ) async {
+    try {
+      final response = await mCustomerApi.filterByCompanyAndSM(salesPersonId);
+
+      return response;
+    } on DioException catch (e, stackTrace) {
+      // Use the mixin to map DioException to Failure
+      throw mapDioExceptionToFailure(e, stackTrace);
+    } catch (e, stackTrace) {
+      // Map unexpected exceptions to Failure
+      throw Failure(
+        message: 'An unexpected error occurred'.hardcoded,
+        exception: e as Exception,
+        stackTrace: stackTrace,
+      );
+    }
+  }
 
   @override
   Stream<List<MerchandiserCustomerEntityData>> watchAll(String? searchQuery) {
@@ -145,19 +146,19 @@ final class MerchandiserCustomerRepository
     }
   }
 
-  // @override
-  // Future<void> insertOrUpdateMCustomer(List<MCustomerEntityData> data) async {
-  //   try {
-  //     return await mCustomerDao.insertOrUpdateList(data);
-  //   } catch (e, stackTrace) {
-  //     // Map unexpected exceptions to Failure
-  //     throw Failure(
-  //       message: 'An unexpected error occurred'.hardcoded,
-  //       exception: e as Exception,
-  //       stackTrace: stackTrace,
-  //     );
-  //   }
-  // }
+  @override
+  Future<void> insertOrUpdateMCustomer(List<MCustomerEntityData> data) async {
+    try {
+      return await mCustomerDao.insertOrUpdateList(data);
+    } catch (e, stackTrace) {
+      // Map unexpected exceptions to Failure
+      throw Failure(
+        message: 'An unexpected error occurred'.hardcoded,
+        exception: e as Exception,
+        stackTrace: stackTrace,
+      );
+    }
+  }
 
   @override
   Future<Map<String, String>> getAllSettings() {
@@ -202,4 +203,6 @@ final class MerchandiserCustomerRepository
       );
     }
   }
+  
+  
 }
