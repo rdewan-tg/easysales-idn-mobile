@@ -28,4 +28,6 @@ abstract interface class IMerchandiserCustomerService {
   Future<void> insertOrUpdateSearchMerchandiserCustomerHistory(String key);
 
   Stream<int> watchTotalCustomerCount();
+
+  Future<dynamic> filterMCustomerByCompanySM(String salesPersonId) async {}
 }

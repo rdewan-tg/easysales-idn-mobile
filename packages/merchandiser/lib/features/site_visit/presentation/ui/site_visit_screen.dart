@@ -111,20 +111,20 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
           title: Text(context.localizations('siteVisit.title')),
           centerTitle: true,
           actions: [
-            IconButton(
-              onPressed: () {
-                context.push(
-                  "/merchandiser/$captureImageRoute",
-                  extra: {
-                    'customerId': widget.extras['customerId'],
-                    'customerName': widget.extras['customerName'],
-                    'address': widget.extras['address'],
-                    'area': widget.extras['area'],
-                  },
-                );
-              },
-              icon: const Icon(Icons.camera_alt_outlined),
-            ),
+            // IconButton(
+            //   onPressed: () {
+            //     context.push(
+            //       "/merchandiser/$captureImageRoute",
+            //       extra: {
+            //         'customerId': widget.extras['customerId'],
+            //         'customerName': widget.extras['customerName'],
+            //         'address': widget.extras['address'],
+            //         'area': widget.extras['area'],
+            //       },
+            //     );
+            //   },
+            //   icon: const Icon(Icons.camera_alt_outlined),
+            // ),
           ],
         ),
         body: Consumer(
@@ -189,7 +189,11 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                   const CurrentTimeWidget(),
                   const SizedBox(height: kSmall),
                   //CustomerInfoWidget(extras: widget.extras),
-                  SubmitSiteVisitButton(onSubmit: _submit),
+                  SubmitSiteVisitButton(
+                    onSubmitIn: _submitIn,
+                    onSubmitOut: _submitOut,
+                    onCapturePhoto: _capturePhoto,
+                  ),
                 ],
               ),
             ),
@@ -216,15 +220,6 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
     });
   }
 
-  void _submit() {
-    final id = ref.read(siteVisitControllerProvider.notifier).getSiteVisitId();
-    if (id == 0) {
-      _submitIn();
-    } else {
-      _submitOut();
-    }
-  }
-
   void _submitIn() {
     final form = {
       'customerId': widget.extras['customerId'],
@@ -237,6 +232,21 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
 
   void _submitOut() {
     ref.read(siteVisitControllerProvider.notifier).updateSiteVisit();
+  }
+
+  void _capturePhoto() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => CaptureImageScreen(
+          extras: {
+            'customerId': widget.extras['customerId'],
+            'customerName': widget.extras['customerName'],
+            'address': widget.extras['address'],
+            'area': widget.extras['area'],
+          },
+        ),
+      ),
+    );
   }
 
   Future<bool> _shouldPopDialog() async {

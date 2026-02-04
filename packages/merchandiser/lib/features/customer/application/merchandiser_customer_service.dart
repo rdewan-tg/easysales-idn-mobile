@@ -5,7 +5,7 @@ import 'package:core/data/local/db/app_database.dart';
 import 'package:merchandiser/features/customer/application/interface/imerchandiser_customer_service.dart';
 import 'package:common/dto/customer/customer_response.dart';
 import 'package:merchandiser/features/customer/application/interface/imerchandiser_customer_repository.dart';
-// import 'package:merchandiser/features/customer/data/dto/response/mcustomer_response.dart';
+import 'package:merchandiser/features/customer/data/dto/response/mcustomer_response.dart';
 import 'package:merchandiser/features/customer/data/repository/merchandiser_customer_repository.dart';
 import 'package:multiple_result/multiple_result.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -74,29 +74,29 @@ final class MerchandiserCustomerService
     }
   }
 
-  // @override
-  // Future<Result<bool, Failure>> filterMCustomerByCompanySM(
-  //   String salesPersonId,
-  // ) async {
-  //   try {
-  //     final response = await _merchandiserCustomerRepository
-  //         .filterMCustomerByCompanySM(salesPersonId);
+  @override
+  Future<Result<bool, Failure>> filterMCustomerByCompanySM(
+    String salesPersonId,
+  ) async {
+    try {
+      final response = await _merchandiserCustomerRepository
+          .filterMCustomerByCompanySM(salesPersonId);
 
-  //     final mCustomerData = await Isolate.run(
-  //       () => _mapMCustomerDataToMCustomerEntity(response.data),
-  //     );
+      final mCustomerData = await Isolate.run(
+        () => _mapMCustomerDataToMCustomerEntity(response.data),
+      );
 
-  //     await _merchandiserCustomerRepository.insertOrUpdateMCustomer(
-  //       mCustomerData,
-  //     );
+      await _merchandiserCustomerRepository.insertOrUpdateMCustomer(
+        mCustomerData,
+      );
 
-  //     return const Result.success(true);
-  //   } on Failure catch (e) {
-  //     return Result.error(e);
-  //   } catch (e, s) {
-  //     return Result.error(Failure(message: e.toString(), stackTrace: s));
-  //   }
-  // }
+      return const Result.success(true);
+    } on Failure catch (e) {
+      return Result.error(e);
+    } catch (e, s) {
+      return Result.error(Failure(message: e.toString(), stackTrace: s));
+    }
+  }
 
   @override
   Stream<List<MerchandiserCustomerEntityData>> watchAll(String? searchQuery) {
@@ -153,25 +153,27 @@ final class MerchandiserCustomerService
       return Result.error(Failure(message: e.toString(), stackTrace: s));
     }
   }
+  
+  
 }
 
-// List<MCustomerEntityData> _mapMCustomerDataToMCustomerEntity(
-//   List<MCustomerData> data,
-// ) {
-//   return data
-//       .map(
-//         (e) => MCustomerEntityData(
-//           customerId: e.customerId,
-//           smMcId: e.smMcId,
-//           outletName: e.outletName,
-//           area: e.area,
-//           district: e.district,
-//           roadName: e.roadName,
-//           companyId: e.companyId,
-//         ),
-//       )
-//       .toList();
-// }
+List<MCustomerEntityData> _mapMCustomerDataToMCustomerEntity(
+  List<MCustomerData> data,
+) {
+  return data
+      .map(
+        (e) => MCustomerEntityData(
+          customerId: e.customerId,
+          smMcId: e.smMcId,
+          outletName: e.outletName,
+          area: e.area,
+          district: e.district,
+          roadName: e.roadName,
+          companyId: e.companyId,
+        ),
+      )
+      .toList();
+}
 
 // top level function for isolate
 List<MerchandiserCustomerEntityData> _mapToMerchandiserCustomerEntityData(
