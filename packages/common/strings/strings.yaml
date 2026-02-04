@@ -32,4 +32,6 @@ siteVisit:
   $ref: siteVisit.yaml
 drawer:
   $ref: drawer.yaml
+auth:
+  $ref: auth.yaml
 

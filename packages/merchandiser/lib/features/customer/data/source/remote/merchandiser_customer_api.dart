@@ -20,10 +20,10 @@ final merchandiserCustomerApiProvider =
 abstract class MerchandiserCustomerApi {
   factory MerchandiserCustomerApi(Dio dio) => _MerchandiserCustomerApi(dio);
 
-  @GET(merchandiserCustomerEndPoint)
-  Future<CustomerResponse> getMerchandiserCustomers(
-    @Path('DataAreaId') String dataAreaId,
-  );
+  // @GET(merchandiserCustomerEndPoint)
+  // Future<CustomerResponse> getMerchandiserCustomers(
+  //   @Path('DataAreaId') String dataAreaId,
+  // );
 
   @GET(filterMerchandiserCustomerEndPoint)
   Future<CustomerResponse> filter(

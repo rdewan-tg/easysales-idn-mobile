@@ -13,7 +13,7 @@ class ThisMonthSiteVisitTotalView extends ConsumerWidget {
       child: Row(
         children: [
           Text(
-            context.localizations('report.thisMonthVisits').hardcoded,
+            context.localizations('report.thisMonthVisits'),
             style: context.textTheme.labelLarge,
           ),
           Padding(

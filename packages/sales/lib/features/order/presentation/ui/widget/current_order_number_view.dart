@@ -42,7 +42,10 @@ class _CurrentOrderNumberViewScreenState
         padding: const EdgeInsets.all(kMedium),
         child: Row(
           children: [
-            Text('Current Order Number:', style: context.textTheme.labelLarge),
+            Text(
+              context.localizations('report.currentOrderNumber'),
+              style: context.textTheme.labelLarge,
+            ),
             Padding(
               padding: const EdgeInsets.only(left: kXSmall),
               child: isLoading

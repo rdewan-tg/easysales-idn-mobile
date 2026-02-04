@@ -32,7 +32,7 @@ Sales and Merchandiser App
 
 ### Setup Flutter Version Management
 - Run below command to setup flutter version
-- Current version for this project is 3.35.3
+- Current version for this project is 3.38.4
 - Docs : https://fvm.app/docs/getting_started/overview
 
 ```

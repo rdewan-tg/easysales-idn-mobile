@@ -25,29 +25,29 @@ final class MerchandiserCustomerService
 
   MerchandiserCustomerService(this._merchandiserCustomerRepository);
 
-  @override
-  Future<Result<bool, Failure>> getMerchandiserCustomers(
-    String dataAreaId,
-  ) async {
-    try {
-      final response = await _merchandiserCustomerRepository
-          .getMerchandiserCustomers(dataAreaId);
+  // @override
+  // Future<Result<bool, Failure>> getMerchandiserCustomers(
+  //   String dataAreaId,
+  // ) async {
+  //   try {
+  //     final response = await _merchandiserCustomerRepository
+  //         .getMerchandiserCustomers(dataAreaId);
 
-      final merchandiserCustomerData = await Isolate.run(
-        () => _mapToMerchandiserCustomerEntityData(response),
-      );
+  //     // final merchandiserCustomerData = await Isolate.run(
+  //     //   () => _mapToMerchandiserCustomerEntityData(response),
+  //     // );
 
-      await _merchandiserCustomerRepository.insertOrUpdate(
-        merchandiserCustomerData,
-      );
+  //     await _merchandiserCustomerRepository.insertOrUpdate(
+  //       merchandiserCustomerData,
+  //     );
 
-      return const Result.success(true);
-    } on Failure catch (e) {
-      return Result.error(e);
-    } catch (e, s) {
-      return Result.error(Failure(message: e.toString(), stackTrace: s));
-    }
-  }
+  //     return const Result.success(true);
+  //   } on Failure catch (e) {
+  //     return Result.error(e);
+  //   } catch (e, s) {
+  //     return Result.error(Failure(message: e.toString(), stackTrace: s));
+  //   }
+  // }
 
   @override
   Future<Result<bool, Failure>> filterMerchandiserCustomers(
