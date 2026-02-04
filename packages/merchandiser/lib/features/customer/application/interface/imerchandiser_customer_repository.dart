@@ -3,7 +3,7 @@ import 'package:common/dto/customer/customer_response.dart';
 import 'package:merchandiser/features/customer/data/dto/response/mcustomer_response.dart';
 
 abstract interface class IMerchandiserCustomerRepository {
-  Future<CustomerResponse> getMerchandiserCustomers(String dataAreaId);
+  // Future<CustomerResponse> getMerchandiserCustomers(String dataAreaId);
 
   Future<CustomerResponse> filterMerchandiserCustomers(
     String companyCode,

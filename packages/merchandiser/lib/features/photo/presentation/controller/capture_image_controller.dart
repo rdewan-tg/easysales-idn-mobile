@@ -94,12 +94,25 @@ class CaptureImageController extends Notifier<CaptureImageState> {
     ref.read(bottomNavigationStateProvider.notifier).state = value;
   }
 
-  // get the android sdk int
-  Future<void> setAndroidSdkInt() async {
-    final deviceInfo = ref.read(deviceInfoPluginProvider);
-    final info = await deviceInfo.androidInfo;
-    state = state.copyWith(androidSdkInt: info.version.sdkInt);
-  }
+  //get the android sdk int
+  //   Future<void> setAndroidSdkInt() async {
+  //     final deviceInfo = ref.read(deviceInfoPluginProvider);
+  //     final info = await deviceInfo.androidInfo;
+  //     state = state.copyWith(androidSdkInt: info.version.sdkInt);
+  //   }
 
-  int getAndroidSdkInt() => state.androidSdkInt;
+  //   int getAndroidSdkInt() => state.androidSdkInt;
+  // }
+
+  Future<void> setAndroidSdkInt() async {
+    try {
+      final deviceInfo = ref.read(deviceInfoPluginProvider);
+      final info = await deviceInfo.androidInfo;
+
+      state = state.copyWith(androidSdkInt: info.version.sdkInt);
+    } catch (e) {
+      // Prevent crash when Android returns null fields
+      state = state.copyWith(androidSdkInt: 0);
+    }
+  }
 }

@@ -32,7 +32,14 @@
     "kuhnroyal",
     "emertozd",
     "daos",
-    "mcustomer"
+    "mcustomer",
+    "keytool",
+    "genkeypair",
+    "storetype",
+    "keyalg",
+    "keysize",
+    "appbundle",
+    "androiddebugkey"
   ],
   "yaml.schemaStore.enable": false
 }

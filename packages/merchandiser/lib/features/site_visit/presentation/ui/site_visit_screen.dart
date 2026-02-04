@@ -111,20 +111,20 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
           title: Text(context.localizations('siteVisit.title')),
           centerTitle: true,
           actions: [
-            IconButton(
-              onPressed: () {
-                context.push(
-                  "/merchandiser/$captureImageRoute",
-                  extra: {
-                    'customerId': widget.extras['customerId'],
-                    'customerName': widget.extras['customerName'],
-                    'address': widget.extras['address'],
-                    'area': widget.extras['area'],
-                  },
-                );
-              },
-              icon: const Icon(Icons.camera_alt_outlined),
-            ),
+            // IconButton(
+            //   onPressed: () {
+            //     context.push(
+            //       "/merchandiser/$captureImageRoute",
+            //       extra: {
+            //         'customerId': widget.extras['customerId'],
+            //         'customerName': widget.extras['customerName'],
+            //         'address': widget.extras['address'],
+            //         'area': widget.extras['area'],
+            //       },
+            //     );
+            //   },
+            //   icon: const Icon(Icons.camera_alt_outlined),
+            // ),
           ],
         ),
         body: Consumer(
@@ -189,7 +189,11 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                   const CurrentTimeWidget(),
                   const SizedBox(height: kSmall),
                   //CustomerInfoWidget(extras: widget.extras),
-                  SubmitSiteVisitButton(onSubmit: _submit),
+                  SubmitSiteVisitButton(
+                    onSubmitIn: _submitIn,
+                    onSubmitOut: _submitOut,
+                    onCapturePhoto: _capturePhoto,
+                  ),
                 ],
               ),
             ),
@@ -216,15 +220,6 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
     });
   }
 
-  void _submit() {
-    final id = ref.read(siteVisitControllerProvider.notifier).getSiteVisitId();
-    if (id == 0) {
-      _submitIn();
-    } else {
-      _submitOut();
-    }
-  }
-
   void _submitIn() {
     final form = {
       'customerId': widget.extras['customerId'],
@@ -239,6 +234,21 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
     ref.read(siteVisitControllerProvider.notifier).updateSiteVisit();
   }
 
+  void _capturePhoto() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => CaptureImageScreen(
+          extras: {
+            'customerId': widget.extras['customerId'],
+            'customerName': widget.extras['customerName'],
+            'address': widget.extras['address'],
+            'area': widget.extras['area'],
+          },
+        ),
+      ),
+    );
+  }
+
   Future<bool> _shouldPopDialog() async {
     // Show a confirmation dialog
     final bool shouldPop = await showDialog(
@@ -249,10 +259,10 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
           children: [
             const Icon(Icons.warning_amber_rounded, color: Colors.amber),
             const SizedBox(width: kSmall),
-            Text('Exit'.hardcoded),
+            Text(context.localizations('siteVisit.exit')),
           ],
         ),
-        content: Text('Do you want to leave this page?'.hardcoded),
+        content: Text(context.localizations('siteVisit.confirmLeavePage')),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),

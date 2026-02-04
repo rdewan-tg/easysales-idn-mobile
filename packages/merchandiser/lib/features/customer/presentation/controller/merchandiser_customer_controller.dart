@@ -32,17 +32,17 @@ class MerchandiserCustomerController
     return MerchandiserCustomerState();
   }
 
-  // import mCustomer from API
+  //import mCustomer from API
   Future<void> importMCustomers() async {
     try {
-      // get the setting from the database
+      //get the setting from the database
       final setting = await ref
           .read(merchandiserCustomerServiceProvider)
           .getAllSetting();
-      // get the companyCode from map
+      //get the companyCode from map
       final String salesPersonId = setting['salesPersonCode'] ?? '';
 
-      // get the merchandiser customers from from api and inset it to the database
+      //get the merchandiser customers from from api and inset it to the database
       final result = await ref
           .read(merchandiserCustomerServiceProvider)
           .filterMCustomerByCompanySM(salesPersonId);

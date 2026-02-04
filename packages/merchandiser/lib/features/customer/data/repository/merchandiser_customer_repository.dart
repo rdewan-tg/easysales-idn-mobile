@@ -50,22 +50,22 @@ final class MerchandiserCustomerRepository
     required this.searchHistoryDao,
   });
 
-  @override
-  Future<CustomerResponse> getMerchandiserCustomers(String dataAreaId) async {
-    try {
-      return await mCustomerApi.getMerchandiserCustomers(dataAreaId);
-    } on DioException catch (e, stackTrace) {
-      // Use the mixin to map DioException to Failure
-      throw mapDioExceptionToFailure(e, stackTrace);
-    } catch (e, stackTrace) {
-      // Map unexpected exceptions to Failure
-      throw Failure(
-        message: 'An unexpected error occurred'.hardcoded,
-        exception: e as Exception,
-        stackTrace: stackTrace,
-      );
-    }
-  }
+  // @override
+  // Future<CustomerResponse> getMerchandiserCustomers(String dataAreaId) async {
+  //   try {
+  //     return await mCustomerApi.getMerchandiserCustomers(dataAreaId);
+  //   } on DioException catch (e, stackTrace) {
+  //     // Use the mixin to map DioException to Failure
+  //     throw mapDioExceptionToFailure(e, stackTrace);
+  //   } catch (e, stackTrace) {
+  //     // Map unexpected exceptions to Failure
+  //     throw Failure(
+  //       message: 'An unexpected error occurred'.hardcoded,
+  //       exception: e as Exception,
+  //       stackTrace: stackTrace,
+  //     );
+  //   }
+  // }
 
   @override
   Future<CustomerResponse> filterMerchandiserCustomers(
@@ -91,6 +91,7 @@ final class MerchandiserCustomerRepository
 
   @override
   Future<MCustomerResponse> filterMCustomerByCompanySM(
+
     String salesPersonId,
   ) async {
     try {
@@ -202,4 +203,6 @@ final class MerchandiserCustomerRepository
       );
     }
   }
+  
+  
 }

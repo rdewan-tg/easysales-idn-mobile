@@ -65,17 +65,17 @@ class _CustomerImportViewState
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      ref
-                          .read(addressControllerProvider.notifier)
-                          .importCustomerAddresses();
-                    },
-                    label: Text(
-                      context.localizations('merchandiser.addressImport'),
-                    ),
-                    icon: const Icon(Icons.import_export),
-                  ),
+                  // ElevatedButton.icon(
+                  //   onPressed: () {
+                  //     ref
+                  //         .read(addressControllerProvider.notifier)
+                  //         .importCustomerAddresses();
+                  //   },
+                  //   label: Text(
+                  //     context.localizations('merchandiser.addressImport'),
+                  //   ),
+                  //   icon: const Icon(Icons.import_export),
+                  // ),
                   if (totalAddressCount > 0) ...[
                     const SizedBox(width: kSmall),
                     Text(
