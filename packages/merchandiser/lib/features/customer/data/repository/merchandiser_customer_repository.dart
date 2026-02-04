@@ -91,7 +91,6 @@ final class MerchandiserCustomerRepository
 
   @override
   Future<MCustomerResponse> filterMCustomerByCompanySM(
-
     String salesPersonId,
   ) async {
     try {
@@ -203,6 +202,4 @@ final class MerchandiserCustomerRepository
       );
     }
   }
-  
-  
 }
