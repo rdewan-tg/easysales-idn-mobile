@@ -2,6 +2,7 @@ import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:merchandiser/features/site_visit/application/interface/isite_visit_repository.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
 import 'package:merchandiser/features/site_visit/data/source/remote/site_visit_api.dart';
 import 'package:common/common.dart';
@@ -39,6 +40,19 @@ final class SiteVisitRepository
   Future<SiteVisitResponse> updateSiteVisit(UpdateSiteVisitRequest body) async {
     try {
       return await siteVisitApi.updateSiteVisit(body);
+    } on DioException catch (e, s) {
+      throw mapDioExceptionToFailure(e, s);
+    } on Exception catch (e, s) {
+      throw Failure(message: e.toString(), exception: e, stackTrace: s);
+    }
+  }
+
+  @override
+  Future<SiteVisitResponse> updateSiteVisitNote(
+    UpdateSiteVisitNoteRequest body,
+  ) async {
+    try {
+      return await siteVisitApi.updateSiteVisitNote(body);
     } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } on Exception catch (e, s) {

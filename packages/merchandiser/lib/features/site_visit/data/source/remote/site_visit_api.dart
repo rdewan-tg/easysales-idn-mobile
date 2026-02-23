@@ -1,6 +1,7 @@
 import 'package:core/data/remote/network_service.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -27,5 +28,10 @@ abstract class SiteVisitApi {
   @PATCH(updateSiteVisitEndPoint)
   Future<SiteVisitResponse> updateSiteVisit(
     @Body() UpdateSiteVisitRequest body,
+  );
+
+  @PATCH(updateSiteVisitNoteEndPoint)
+  Future<SiteVisitResponse> updateSiteVisitNote(
+    @Body() UpdateSiteVisitNoteRequest body,
   );
 }
