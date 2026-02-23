@@ -7,8 +7,7 @@ const String findDeviceSettingByDeviceIdEndPoint =
     '/v1/device-setting/find/{deviceId}';
 const String merchandiserCustomerEndPoint =
     '/v1/merchandiser-customers/{DataAreaId}';
-const String filterMerchandiserCustomerEndPoint =
-    '/v1/merchandiser-customers';
+const String filterMerchandiserCustomerEndPoint = '/v1/merchandiser-customers';
 const String filterMCustomerEndpoint =
     "/v1/merchandiser-customers/filter/company-id-and-sm/{smMcId}";
 
@@ -39,7 +38,7 @@ const String lastSalesOrderIdEndPoint =
 // site visit
 const String createSiteVisitEndPoint = '/v1/site-visit';
 const String updateSiteVisitEndPoint = '/v1/site-visit';
-const String updateSiteVisitNoteEndPoint='/v1/site-visit/note';
+const String updateSiteVisitNoteEndPoint = '/v1/site-visit/note';
 
 // company setting
 const String findCompanySettingEndPoint = '/v1/company-setting';

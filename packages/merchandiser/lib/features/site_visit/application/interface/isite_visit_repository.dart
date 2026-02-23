@@ -6,6 +6,8 @@ import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_re
 abstract interface class ISiteVisitRepository {
   Future<SiteVisitResponse> createSiteVisit(CreateSiteVisitRequest body);
   Future<SiteVisitResponse> updateSiteVisit(UpdateSiteVisitRequest body);
-  Future<SiteVisitResponse> updateSiteVisitNote(UpdateSiteVisitNoteRequest body);
+  Future<SiteVisitResponse> updateSiteVisitNote(
+    UpdateSiteVisitNoteRequest body,
+  );
   Future<Map<String, String>> getAllSettings();
 }
