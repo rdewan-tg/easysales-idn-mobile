@@ -5,7 +5,7 @@ publish_to: 'none'
 homepage:
 
 environment:
-  sdk: ^3.10.1
+  sdk: ^3.10.3
   flutter: ">=1.17.0"
 
 dependencies:
@@ -117,6 +117,7 @@ dependencies:
 
 dependency_overrides:
   # analyzer: 8.4.1
+  
   
 dev_dependencies:
   flutter_test:

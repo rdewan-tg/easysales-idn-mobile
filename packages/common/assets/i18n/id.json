@@ -126,5 +126,11 @@
     "report.currentOrderNumber": "Nomor Pesanan Saat Ini",
     "siteVisit.exit": "KELUAR",
     "siteVisit.confirmLeavePage": "Apakah Anda ingin meninggalkan halaman ini?",
-    "siteVisit.capturePhoto": "Ambil Foto"
+    "siteVisit.capturePhoto": "Ambil Foto",
+    "siteVisit.noteSave": "Catatan berhasil disimpan.",
+    "siteVisit.addNote": "Tambahkan Catatan",
+    "siteVisit.enterNote": "Masukkan catatan Anda di sini...",
+    "siteVisit.cancel": "Membatalkan",
+    "siteVisit.emptyNote": "Catatan tidak boleh kosong",
+    "siteVisit.save": "Menyimpan"
 }

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SiteVisitState {
 
- bool get isLoading; bool get isCreated; bool get isUpdated; LatLng? get currentPosition; SiteVisitData? get createSiteVisitResponse; SiteVisitData? get updateSiteVisitResponse; String? get currentAddress; String? get timeNow; Map<String, String> get settings; String? get error;
+ bool get isLoading; bool get isCreated; bool get isUpdated; LatLng? get currentPosition; SiteVisitData? get createSiteVisitResponse; SiteVisitData? get updateSiteVisitResponse; SiteVisitData? get updateSiteVisitNoteResponse; String? get currentAddress; String? get timeNow; Map<String, String> get settings; String? get error;
 /// Create a copy of SiteVisitState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $SiteVisitStateCopyWith<SiteVisitState> get copyWith => _$SiteVisitStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SiteVisitState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCreated, isCreated) || other.isCreated == isCreated)&&(identical(other.isUpdated, isUpdated) || other.isUpdated == isUpdated)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.createSiteVisitResponse, createSiteVisitResponse) || other.createSiteVisitResponse == createSiteVisitResponse)&&(identical(other.updateSiteVisitResponse, updateSiteVisitResponse) || other.updateSiteVisitResponse == updateSiteVisitResponse)&&(identical(other.currentAddress, currentAddress) || other.currentAddress == currentAddress)&&(identical(other.timeNow, timeNow) || other.timeNow == timeNow)&&const DeepCollectionEquality().equals(other.settings, settings)&&(identical(other.error, error) || other.error == error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SiteVisitState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCreated, isCreated) || other.isCreated == isCreated)&&(identical(other.isUpdated, isUpdated) || other.isUpdated == isUpdated)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.createSiteVisitResponse, createSiteVisitResponse) || other.createSiteVisitResponse == createSiteVisitResponse)&&(identical(other.updateSiteVisitResponse, updateSiteVisitResponse) || other.updateSiteVisitResponse == updateSiteVisitResponse)&&(identical(other.updateSiteVisitNoteResponse, updateSiteVisitNoteResponse) || other.updateSiteVisitNoteResponse == updateSiteVisitNoteResponse)&&(identical(other.currentAddress, currentAddress) || other.currentAddress == currentAddress)&&(identical(other.timeNow, timeNow) || other.timeNow == timeNow)&&const DeepCollectionEquality().equals(other.settings, settings)&&(identical(other.error, error) || other.error == error));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,isCreated,isUpdated,currentPosition,createSiteVisitResponse,updateSiteVisitResponse,currentAddress,timeNow,const DeepCollectionEquality().hash(settings),error);
+int get hashCode => Object.hash(runtimeType,isLoading,isCreated,isUpdated,currentPosition,createSiteVisitResponse,updateSiteVisitResponse,updateSiteVisitNoteResponse,currentAddress,timeNow,const DeepCollectionEquality().hash(settings),error);
 
 @override
 String toString() {
-  return 'SiteVisitState(isLoading: $isLoading, isCreated: $isCreated, isUpdated: $isUpdated, currentPosition: $currentPosition, createSiteVisitResponse: $createSiteVisitResponse, updateSiteVisitResponse: $updateSiteVisitResponse, currentAddress: $currentAddress, timeNow: $timeNow, settings: $settings, error: $error)';
+  return 'SiteVisitState(isLoading: $isLoading, isCreated: $isCreated, isUpdated: $isUpdated, currentPosition: $currentPosition, createSiteVisitResponse: $createSiteVisitResponse, updateSiteVisitResponse: $updateSiteVisitResponse, updateSiteVisitNoteResponse: $updateSiteVisitNoteResponse, currentAddress: $currentAddress, timeNow: $timeNow, settings: $settings, error: $error)';
 }
 
 
@@ -45,11 +45,11 @@ abstract mixin class $SiteVisitStateCopyWith<$Res>  {
   factory $SiteVisitStateCopyWith(SiteVisitState value, $Res Function(SiteVisitState) _then) = _$SiteVisitStateCopyWithImpl;
 @useResult
 $Res call({
- bool isLoading, bool isCreated, bool isUpdated, LatLng? currentPosition, SiteVisitData? createSiteVisitResponse, SiteVisitData? updateSiteVisitResponse, String? currentAddress, String? timeNow, Map<String, String> settings, String? error
+ bool isLoading, bool isCreated, bool isUpdated, LatLng? currentPosition, SiteVisitData? createSiteVisitResponse, SiteVisitData? updateSiteVisitResponse, SiteVisitData? updateSiteVisitNoteResponse, String? currentAddress, String? timeNow, Map<String, String> settings, String? error
 });
 
 
-$LatLngCopyWith<$Res>? get currentPosition;$SiteVisitDataCopyWith<$Res>? get createSiteVisitResponse;$SiteVisitDataCopyWith<$Res>? get updateSiteVisitResponse;
+$LatLngCopyWith<$Res>? get currentPosition;$SiteVisitDataCopyWith<$Res>? get createSiteVisitResponse;$SiteVisitDataCopyWith<$Res>? get updateSiteVisitResponse;$SiteVisitDataCopyWith<$Res>? get updateSiteVisitNoteResponse;
 
 }
 /// @nodoc
@@ -62,7 +62,7 @@ class _$SiteVisitStateCopyWithImpl<$Res>
 
 /// Create a copy of SiteVisitState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isCreated = null,Object? isUpdated = null,Object? currentPosition = freezed,Object? createSiteVisitResponse = freezed,Object? updateSiteVisitResponse = freezed,Object? currentAddress = freezed,Object? timeNow = freezed,Object? settings = null,Object? error = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isCreated = null,Object? isUpdated = null,Object? currentPosition = freezed,Object? createSiteVisitResponse = freezed,Object? updateSiteVisitResponse = freezed,Object? updateSiteVisitNoteResponse = freezed,Object? currentAddress = freezed,Object? timeNow = freezed,Object? settings = null,Object? error = freezed,}) {
   return _then(_self.copyWith(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,isCreated: null == isCreated ? _self.isCreated : isCreated // ignore: cast_nullable_to_non_nullable
@@ -70,6 +70,7 @@ as bool,isUpdated: null == isUpdated ? _self.isUpdated : isUpdated // ignore: ca
 as bool,currentPosition: freezed == currentPosition ? _self.currentPosition : currentPosition // ignore: cast_nullable_to_non_nullable
 as LatLng?,createSiteVisitResponse: freezed == createSiteVisitResponse ? _self.createSiteVisitResponse : createSiteVisitResponse // ignore: cast_nullable_to_non_nullable
 as SiteVisitData?,updateSiteVisitResponse: freezed == updateSiteVisitResponse ? _self.updateSiteVisitResponse : updateSiteVisitResponse // ignore: cast_nullable_to_non_nullable
+as SiteVisitData?,updateSiteVisitNoteResponse: freezed == updateSiteVisitNoteResponse ? _self.updateSiteVisitNoteResponse : updateSiteVisitNoteResponse // ignore: cast_nullable_to_non_nullable
 as SiteVisitData?,currentAddress: freezed == currentAddress ? _self.currentAddress : currentAddress // ignore: cast_nullable_to_non_nullable
 as String?,timeNow: freezed == timeNow ? _self.timeNow : timeNow // ignore: cast_nullable_to_non_nullable
 as String?,settings: null == settings ? _self.settings : settings // ignore: cast_nullable_to_non_nullable
@@ -112,6 +113,18 @@ $SiteVisitDataCopyWith<$Res>? get updateSiteVisitResponse {
 
   return $SiteVisitDataCopyWith<$Res>(_self.updateSiteVisitResponse!, (value) {
     return _then(_self.copyWith(updateSiteVisitResponse: value));
+  });
+}/// Create a copy of SiteVisitState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SiteVisitDataCopyWith<$Res>? get updateSiteVisitNoteResponse {
+    if (_self.updateSiteVisitNoteResponse == null) {
+    return null;
+  }
+
+  return $SiteVisitDataCopyWith<$Res>(_self.updateSiteVisitNoteResponse!, (value) {
+    return _then(_self.copyWith(updateSiteVisitNoteResponse: value));
   });
 }
 }
@@ -195,10 +208,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isCreated,  bool isUpdated,  LatLng? currentPosition,  SiteVisitData? createSiteVisitResponse,  SiteVisitData? updateSiteVisitResponse,  String? currentAddress,  String? timeNow,  Map<String, String> settings,  String? error)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isCreated,  bool isUpdated,  LatLng? currentPosition,  SiteVisitData? createSiteVisitResponse,  SiteVisitData? updateSiteVisitResponse,  SiteVisitData? updateSiteVisitNoteResponse,  String? currentAddress,  String? timeNow,  Map<String, String> settings,  String? error)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SiteVisitState() when $default != null:
-return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPosition,_that.createSiteVisitResponse,_that.updateSiteVisitResponse,_that.currentAddress,_that.timeNow,_that.settings,_that.error);case _:
+return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPosition,_that.createSiteVisitResponse,_that.updateSiteVisitResponse,_that.updateSiteVisitNoteResponse,_that.currentAddress,_that.timeNow,_that.settings,_that.error);case _:
   return orElse();
 
 }
@@ -216,10 +229,10 @@ return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPos
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isCreated,  bool isUpdated,  LatLng? currentPosition,  SiteVisitData? createSiteVisitResponse,  SiteVisitData? updateSiteVisitResponse,  String? currentAddress,  String? timeNow,  Map<String, String> settings,  String? error)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isCreated,  bool isUpdated,  LatLng? currentPosition,  SiteVisitData? createSiteVisitResponse,  SiteVisitData? updateSiteVisitResponse,  SiteVisitData? updateSiteVisitNoteResponse,  String? currentAddress,  String? timeNow,  Map<String, String> settings,  String? error)  $default,) {final _that = this;
 switch (_that) {
 case _SiteVisitState():
-return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPosition,_that.createSiteVisitResponse,_that.updateSiteVisitResponse,_that.currentAddress,_that.timeNow,_that.settings,_that.error);case _:
+return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPosition,_that.createSiteVisitResponse,_that.updateSiteVisitResponse,_that.updateSiteVisitNoteResponse,_that.currentAddress,_that.timeNow,_that.settings,_that.error);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -236,10 +249,10 @@ return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPos
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isCreated,  bool isUpdated,  LatLng? currentPosition,  SiteVisitData? createSiteVisitResponse,  SiteVisitData? updateSiteVisitResponse,  String? currentAddress,  String? timeNow,  Map<String, String> settings,  String? error)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isCreated,  bool isUpdated,  LatLng? currentPosition,  SiteVisitData? createSiteVisitResponse,  SiteVisitData? updateSiteVisitResponse,  SiteVisitData? updateSiteVisitNoteResponse,  String? currentAddress,  String? timeNow,  Map<String, String> settings,  String? error)?  $default,) {final _that = this;
 switch (_that) {
 case _SiteVisitState() when $default != null:
-return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPosition,_that.createSiteVisitResponse,_that.updateSiteVisitResponse,_that.currentAddress,_that.timeNow,_that.settings,_that.error);case _:
+return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPosition,_that.createSiteVisitResponse,_that.updateSiteVisitResponse,_that.updateSiteVisitNoteResponse,_that.currentAddress,_that.timeNow,_that.settings,_that.error);case _:
   return null;
 
 }
@@ -251,7 +264,7 @@ return $default(_that.isLoading,_that.isCreated,_that.isUpdated,_that.currentPos
 
 
 class _SiteVisitState implements SiteVisitState {
-   _SiteVisitState({this.isLoading = false, this.isCreated = false, this.isUpdated = false, this.currentPosition, this.createSiteVisitResponse, this.updateSiteVisitResponse, this.currentAddress, this.timeNow, final  Map<String, String> settings = const {}, this.error}): _settings = settings;
+   _SiteVisitState({this.isLoading = false, this.isCreated = false, this.isUpdated = false, this.currentPosition, this.createSiteVisitResponse, this.updateSiteVisitResponse, this.updateSiteVisitNoteResponse, this.currentAddress, this.timeNow, final  Map<String, String> settings = const {}, this.error}): _settings = settings;
   
 
 @override@JsonKey() final  bool isLoading;
@@ -260,6 +273,7 @@ class _SiteVisitState implements SiteVisitState {
 @override final  LatLng? currentPosition;
 @override final  SiteVisitData? createSiteVisitResponse;
 @override final  SiteVisitData? updateSiteVisitResponse;
+@override final  SiteVisitData? updateSiteVisitNoteResponse;
 @override final  String? currentAddress;
 @override final  String? timeNow;
  final  Map<String, String> _settings;
@@ -281,16 +295,16 @@ _$SiteVisitStateCopyWith<_SiteVisitState> get copyWith => __$SiteVisitStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SiteVisitState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCreated, isCreated) || other.isCreated == isCreated)&&(identical(other.isUpdated, isUpdated) || other.isUpdated == isUpdated)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.createSiteVisitResponse, createSiteVisitResponse) || other.createSiteVisitResponse == createSiteVisitResponse)&&(identical(other.updateSiteVisitResponse, updateSiteVisitResponse) || other.updateSiteVisitResponse == updateSiteVisitResponse)&&(identical(other.currentAddress, currentAddress) || other.currentAddress == currentAddress)&&(identical(other.timeNow, timeNow) || other.timeNow == timeNow)&&const DeepCollectionEquality().equals(other._settings, _settings)&&(identical(other.error, error) || other.error == error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SiteVisitState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isCreated, isCreated) || other.isCreated == isCreated)&&(identical(other.isUpdated, isUpdated) || other.isUpdated == isUpdated)&&(identical(other.currentPosition, currentPosition) || other.currentPosition == currentPosition)&&(identical(other.createSiteVisitResponse, createSiteVisitResponse) || other.createSiteVisitResponse == createSiteVisitResponse)&&(identical(other.updateSiteVisitResponse, updateSiteVisitResponse) || other.updateSiteVisitResponse == updateSiteVisitResponse)&&(identical(other.updateSiteVisitNoteResponse, updateSiteVisitNoteResponse) || other.updateSiteVisitNoteResponse == updateSiteVisitNoteResponse)&&(identical(other.currentAddress, currentAddress) || other.currentAddress == currentAddress)&&(identical(other.timeNow, timeNow) || other.timeNow == timeNow)&&const DeepCollectionEquality().equals(other._settings, _settings)&&(identical(other.error, error) || other.error == error));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,isCreated,isUpdated,currentPosition,createSiteVisitResponse,updateSiteVisitResponse,currentAddress,timeNow,const DeepCollectionEquality().hash(_settings),error);
+int get hashCode => Object.hash(runtimeType,isLoading,isCreated,isUpdated,currentPosition,createSiteVisitResponse,updateSiteVisitResponse,updateSiteVisitNoteResponse,currentAddress,timeNow,const DeepCollectionEquality().hash(_settings),error);
 
 @override
 String toString() {
-  return 'SiteVisitState(isLoading: $isLoading, isCreated: $isCreated, isUpdated: $isUpdated, currentPosition: $currentPosition, createSiteVisitResponse: $createSiteVisitResponse, updateSiteVisitResponse: $updateSiteVisitResponse, currentAddress: $currentAddress, timeNow: $timeNow, settings: $settings, error: $error)';
+  return 'SiteVisitState(isLoading: $isLoading, isCreated: $isCreated, isUpdated: $isUpdated, currentPosition: $currentPosition, createSiteVisitResponse: $createSiteVisitResponse, updateSiteVisitResponse: $updateSiteVisitResponse, updateSiteVisitNoteResponse: $updateSiteVisitNoteResponse, currentAddress: $currentAddress, timeNow: $timeNow, settings: $settings, error: $error)';
 }
 
 
@@ -301,11 +315,11 @@ abstract mixin class _$SiteVisitStateCopyWith<$Res> implements $SiteVisitStateCo
   factory _$SiteVisitStateCopyWith(_SiteVisitState value, $Res Function(_SiteVisitState) _then) = __$SiteVisitStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool isLoading, bool isCreated, bool isUpdated, LatLng? currentPosition, SiteVisitData? createSiteVisitResponse, SiteVisitData? updateSiteVisitResponse, String? currentAddress, String? timeNow, Map<String, String> settings, String? error
+ bool isLoading, bool isCreated, bool isUpdated, LatLng? currentPosition, SiteVisitData? createSiteVisitResponse, SiteVisitData? updateSiteVisitResponse, SiteVisitData? updateSiteVisitNoteResponse, String? currentAddress, String? timeNow, Map<String, String> settings, String? error
 });
 
 
-@override $LatLngCopyWith<$Res>? get currentPosition;@override $SiteVisitDataCopyWith<$Res>? get createSiteVisitResponse;@override $SiteVisitDataCopyWith<$Res>? get updateSiteVisitResponse;
+@override $LatLngCopyWith<$Res>? get currentPosition;@override $SiteVisitDataCopyWith<$Res>? get createSiteVisitResponse;@override $SiteVisitDataCopyWith<$Res>? get updateSiteVisitResponse;@override $SiteVisitDataCopyWith<$Res>? get updateSiteVisitNoteResponse;
 
 }
 /// @nodoc
@@ -318,7 +332,7 @@ class __$SiteVisitStateCopyWithImpl<$Res>
 
 /// Create a copy of SiteVisitState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isCreated = null,Object? isUpdated = null,Object? currentPosition = freezed,Object? createSiteVisitResponse = freezed,Object? updateSiteVisitResponse = freezed,Object? currentAddress = freezed,Object? timeNow = freezed,Object? settings = null,Object? error = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isCreated = null,Object? isUpdated = null,Object? currentPosition = freezed,Object? createSiteVisitResponse = freezed,Object? updateSiteVisitResponse = freezed,Object? updateSiteVisitNoteResponse = freezed,Object? currentAddress = freezed,Object? timeNow = freezed,Object? settings = null,Object? error = freezed,}) {
   return _then(_SiteVisitState(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,isCreated: null == isCreated ? _self.isCreated : isCreated // ignore: cast_nullable_to_non_nullable
@@ -326,6 +340,7 @@ as bool,isUpdated: null == isUpdated ? _self.isUpdated : isUpdated // ignore: ca
 as bool,currentPosition: freezed == currentPosition ? _self.currentPosition : currentPosition // ignore: cast_nullable_to_non_nullable
 as LatLng?,createSiteVisitResponse: freezed == createSiteVisitResponse ? _self.createSiteVisitResponse : createSiteVisitResponse // ignore: cast_nullable_to_non_nullable
 as SiteVisitData?,updateSiteVisitResponse: freezed == updateSiteVisitResponse ? _self.updateSiteVisitResponse : updateSiteVisitResponse // ignore: cast_nullable_to_non_nullable
+as SiteVisitData?,updateSiteVisitNoteResponse: freezed == updateSiteVisitNoteResponse ? _self.updateSiteVisitNoteResponse : updateSiteVisitNoteResponse // ignore: cast_nullable_to_non_nullable
 as SiteVisitData?,currentAddress: freezed == currentAddress ? _self.currentAddress : currentAddress // ignore: cast_nullable_to_non_nullable
 as String?,timeNow: freezed == timeNow ? _self.timeNow : timeNow // ignore: cast_nullable_to_non_nullable
 as String?,settings: null == settings ? _self._settings : settings // ignore: cast_nullable_to_non_nullable
@@ -369,6 +384,18 @@ $SiteVisitDataCopyWith<$Res>? get updateSiteVisitResponse {
 
   return $SiteVisitDataCopyWith<$Res>(_self.updateSiteVisitResponse!, (value) {
     return _then(_self.copyWith(updateSiteVisitResponse: value));
+  });
+}/// Create a copy of SiteVisitState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SiteVisitDataCopyWith<$Res>? get updateSiteVisitNoteResponse {
+    if (_self.updateSiteVisitNoteResponse == null) {
+    return null;
+  }
+
+  return $SiteVisitDataCopyWith<$Res>(_self.updateSiteVisitNoteResponse!, (value) {
+    return _then(_self.copyWith(updateSiteVisitNoteResponse: value));
   });
 }
 }

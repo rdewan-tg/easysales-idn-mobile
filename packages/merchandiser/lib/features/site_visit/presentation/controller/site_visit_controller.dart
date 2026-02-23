@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:merchandiser/features/site_visit/application/site_visit_service.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
 import 'package:merchandiser/features/site_visit/presentation/state/site_visit_state.dart';
 
 final siteVisitControllerProvider =
@@ -74,6 +75,28 @@ class SiteVisitController extends Notifier<SiteVisitState> {
       (success) => state = state.copyWith(
         isLoading: false,
         updateSiteVisitResponse: success,
+      ),
+      (failure) =>
+          state = state.copyWith(isLoading: false, error: failure.message),
+    );
+  }
+
+  Future<void> updateSiteVisitNote({required String note}) async {
+    state = state.copyWith(isLoading: true, error: null);
+
+    final body = UpdateSiteVisitNoteRequest(
+      id: state.createSiteVisitResponse?.id ?? 0,
+      note: note,
+    );
+
+    final result = await ref
+        .read(siteVisitServiceProvider)
+        .updateSiteVisitNote(body);
+
+    result.when(
+      (success) => state = state.copyWith(
+        isLoading: false,
+        updateSiteVisitNoteResponse: success,
       ),
       (failure) =>
           state = state.copyWith(isLoading: false, error: failure.message),
