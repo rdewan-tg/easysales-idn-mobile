@@ -186,14 +186,47 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CurrentLocationWidget(),
-                  const CurrentTimeWidget(),
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final timeNow = ref.watch(
+                        siteVisitControllerProvider.select(
+                          (value) => value.timeNow,
+                        ),
+                      );
+
+                      final hasCheckedIn = ref.watch(
+                        siteVisitControllerProvider.select(
+                          (value) => value.createSiteVisitResponse != null,
+                        ),
+                      );
+
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          /// Current time expands fully
+                          const Expanded(child: CurrentTimeWidget()),
+                          const SizedBox(width: kSmall),
+
+                          /// Note taking button
+                          IconButton.filled(
+                            style: IconButton.styleFrom(
+                              backgroundColor: Colors.orangeAccent,
+                            ),
+                            onPressed: timeNow != null && hasCheckedIn
+                                ? _takeNote
+                                : null,
+                            icon: const Icon(Icons.edit_note),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                   const SizedBox(height: kSmall),
                   //CustomerInfoWidget(extras: widget.extras),
                   SubmitSiteVisitButton(
                     onSubmitIn: _submitIn,
                     onSubmitOut: _submitOut,
                     onCapturePhoto: _capturePhoto,
-                    onTakeNote: _takeNote,
                   ),
                 ],
               ),
