@@ -4,14 +4,12 @@ class SubmitSiteVisitButton extends ConsumerWidget {
   final VoidCallback onSubmitIn;
   final VoidCallback onSubmitOut;
   final VoidCallback onCapturePhoto;
-  final VoidCallback onTakeNote;
 
   const SubmitSiteVisitButton({
     super.key,
     required this.onSubmitIn,
     required this.onSubmitOut,
     required this.onCapturePhoto,
-    required this.onTakeNote,
   });
 
   @override
@@ -26,45 +24,38 @@ class SubmitSiteVisitButton extends ConsumerWidget {
       ),
     );
 
-    return Row(
-      children: [
-        const Spacer(),
-
-        // Check-In Button
-        FilledButton(
-          style: FilledButton.styleFrom(
-            backgroundColor: context.themeColor.colorScheme.primary,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kMedium),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Check-In Button
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: context.themeColor.colorScheme.primary,
+            ),
+            onPressed: timeNow != null && !hasCheckedIn ? onSubmitIn : null,
+            child: Text(context.localizations('siteVisit.checkIn')),
           ),
-          onPressed: timeNow != null && !hasCheckedIn ? onSubmitIn : null,
-          child: Text(context.localizations('siteVisit.checkIn')),
-        ),
 
-        const SizedBox(width: 40),
+          // Check-Out Button
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Colors.redAccent),
+            onPressed: timeNow != null && hasCheckedIn ? onSubmitOut : null,
+            child: Text(context.localizations('siteVisit.checkOut')),
+          ),
 
-        // Check-Out Button
-        FilledButton(
-          style: FilledButton.styleFrom(backgroundColor: Colors.redAccent),
-          onPressed: timeNow != null && hasCheckedIn ? onSubmitOut : null,
-          child: Text(context.localizations('siteVisit.checkOut')),
-        ),
-
-        const SizedBox(width: 40),
-
-        // Capture Photo Icon Button
-        IconButton.filled(
-          style: IconButton.styleFrom(backgroundColor: Colors.lightBlueAccent),
-          onPressed: timeNow != null && hasCheckedIn ? onCapturePhoto : null,
-          icon: const Icon(Icons.camera_alt),
-        ),
-
-        const SizedBox(width: 24),
-        //Note taking Button
-        IconButton.filled(
-          style: IconButton.styleFrom(backgroundColor: Colors.orangeAccent),
-          onPressed: timeNow != null && hasCheckedIn ? onTakeNote : null,
-          icon: const Icon(Icons.edit_note),
-        ),
-      ],
+          // Capture Photo Icon Button
+          IconButton.filled(
+            style: IconButton.styleFrom(
+              backgroundColor: Colors.lightBlueAccent,
+            ),
+            onPressed: timeNow != null && hasCheckedIn ? onCapturePhoto : null,
+            icon: const Icon(Icons.camera_alt),
+          ),
+        ],
+      ),
     );
   }
 }
