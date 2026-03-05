@@ -12,6 +12,7 @@ abstract class SiteVisitState with _$SiteVisitState {
     LatLng? currentPosition,
     SiteVisitData? createSiteVisitResponse,
     SiteVisitData? updateSiteVisitResponse,
+    SiteVisitData? updateSiteVisitNoteResponse,
     String? currentAddress,
     String? timeNow,
     @Default({}) Map<String, String> settings,

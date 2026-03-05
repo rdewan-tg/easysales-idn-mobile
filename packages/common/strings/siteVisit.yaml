@@ -11,3 +11,9 @@ currentTime: Current Time
 exit: Exit
 confirmLeavePage: Do you want to leave this page?
 capturePhoto: Capture Photo
+noteSave: Note saved successfully
+addNote: Add Note
+enterNote: Enter your note here...
+cancel: cancel
+emptyNote: Note cannot be empty
+save: Save

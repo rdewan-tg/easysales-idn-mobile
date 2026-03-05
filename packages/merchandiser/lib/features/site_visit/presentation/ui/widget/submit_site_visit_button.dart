@@ -4,12 +4,14 @@ class SubmitSiteVisitButton extends ConsumerWidget {
   final VoidCallback onSubmitIn;
   final VoidCallback onSubmitOut;
   final VoidCallback onCapturePhoto;
+  final VoidCallback onTakeNote;
 
   const SubmitSiteVisitButton({
     super.key,
     required this.onSubmitIn,
     required this.onSubmitOut,
     required this.onCapturePhoto,
+    required this.onTakeNote,
   });
 
   @override
@@ -53,6 +55,14 @@ class SubmitSiteVisitButton extends ConsumerWidget {
           style: IconButton.styleFrom(backgroundColor: Colors.lightBlueAccent),
           onPressed: timeNow != null && hasCheckedIn ? onCapturePhoto : null,
           icon: const Icon(Icons.camera_alt),
+        ),
+
+        const SizedBox(width: 24),
+        //Note taking Button
+        IconButton.filled(
+          style: IconButton.styleFrom(backgroundColor: Colors.orangeAccent),
+          onPressed: timeNow != null && hasCheckedIn ? onTakeNote : null,
+          icon: const Icon(Icons.edit_note),
         ),
       ],
     );

@@ -126,5 +126,11 @@
     "report.currentOrderNumber": "当前订单号",
     "siteVisit.exit": "出口",
     "siteVisit.confirmLeavePage": "您想离开此页面吗？",
-    "siteVisit.capturePhoto": "拍摄照片"
+    "siteVisit.capturePhoto": "拍摄照片",
+    "siteVisit.noteSave": "笔记已成功保存",
+    "siteVisit.addNote": "添加备注",
+    "siteVisit.enterNote": "请在此处输入您的备注……",
+    "siteVisit.cancel": "取消",
+    "siteVisit.emptyNote": "备注不能为空",
+    "siteVisit.save": "节省"
 }

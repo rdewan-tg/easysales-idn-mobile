@@ -126,5 +126,11 @@
     "report.currentOrderNumber": "หมายเลขคำสั่งซื้อปัจจุบัน",
     "siteVisit.exit": "ทางออก",
     "siteVisit.confirmLeavePage": "คุณต้องการออกจากหน้านี้หรือไม่?",
-    "siteVisit.capturePhoto": "ถ่ายภาพ"
+    "siteVisit.capturePhoto": "ถ่ายภาพ",
+    "siteVisit.noteSave": "บันทึกข้อความสำเร็จแล้ว",
+    "siteVisit.addNote": "เพิ่มหมายเหตุ",
+    "siteVisit.enterNote": "ใส่ข้อความของคุณที่นี่...",
+    "siteVisit.cancel": "ยกเลิก",
+    "siteVisit.emptyNote": "หมายเหตุต้องไม่ว่างเปล่า",
+    "siteVisit.save": "บันทึก"
 }
