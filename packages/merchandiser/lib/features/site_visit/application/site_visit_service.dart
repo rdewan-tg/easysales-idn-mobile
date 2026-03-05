@@ -5,6 +5,7 @@ import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_re
 import 'package:multiple_result/multiple_result.dart';
 import 'package:common/exception/failure.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:merchandiser/features/site_visit/data/repository/site_visit_repository.dart';
 
@@ -39,6 +40,20 @@ final class SiteVisitService implements ISiteVisitService {
   ) async {
     try {
       final result = await _siteVisitRepository.updateSiteVisit(body);
+      return Success(result.data);
+    } on Failure catch (e) {
+      return Error(e);
+    } catch (e) {
+      return Error(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<SiteVisitData, Failure>> updateSiteVisitNote(
+    UpdateSiteVisitNoteRequest body,
+  ) async {
+    try {
+      final result = await _siteVisitRepository.updateSiteVisitNote(body);
       return Success(result.data);
     } on Failure catch (e) {
       return Error(e);

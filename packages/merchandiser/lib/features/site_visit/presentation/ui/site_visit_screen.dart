@@ -193,6 +193,7 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                     onSubmitIn: _submitIn,
                     onSubmitOut: _submitOut,
                     onCapturePhoto: _capturePhoto,
+                    onTakeNote: _takeNote,
                   ),
                 ],
               ),
@@ -246,6 +247,58 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
           },
         ),
       ),
+    );
+  }
+
+  void _takeNote() {
+    final TextEditingController noteController = TextEditingController();
+
+    showDialog(
+      context: context,
+      barrierDismissible: false, // Prevent dismiss on outside tap
+      builder: (context) {
+        return AlertDialog(
+          title: Text(context.localizations('siteVisit.addNote')),
+          content: TextField(
+            controller: noteController,
+            maxLines: 5, // Multi-line
+            decoration: InputDecoration(
+              hintText: context.localizations('siteVisit.enterNote'),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          actions: [
+            // Cancel Button
+            TextButton(
+              onPressed: () {
+                context.pop(); // Close dialog
+              },
+              child: Text(context.localizations('siteVisit.cancel')),
+            ),
+
+            // Save Button
+            FilledButton(
+              onPressed: () {
+                final note = noteController.text.trim();
+
+                if (note.isEmpty) {
+                  context.showErrorSnackBar(
+                    context.localizations('siteVisit.emptyNote'),
+                  );
+                  return;
+                }
+
+                ref
+                    .read(siteVisitControllerProvider.notifier)
+                    .updateSiteVisitNote(note: note);
+
+                context.pop(); // Close dialog
+              },
+              child: Text(context.localizations('siteVisit.save')),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -328,6 +381,20 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
           ref.invalidate(siteVisitControllerProvider);
           // navigate back
           context.pop();
+        }
+      },
+    );
+
+    // listen to update site visit note response and show snackbar
+    ref.listen(
+      siteVisitControllerProvider.select(
+        (value) => value.updateSiteVisitNoteResponse,
+      ),
+      (previous, next) {
+        if (next != null) {
+          context.showSuccessSnackBar(
+            context.localizations('siteVisit.noteSave'),
+          );
         }
       },
     );
