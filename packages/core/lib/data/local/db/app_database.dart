@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:core/data/local/db/app_database.steps.dart';
 import 'package:core/data/local/db/dao/customer_address_dao.dart';
+
 import 'package:core/data/local/db/dao/mcustomer_dao.dart';
 import 'package:core/data/local/db/dao/merchandiser_customer_dao.dart';
 import 'package:core/data/local/db/dao/product_dao.dart';
@@ -12,6 +13,7 @@ import 'package:core/data/local/db/dao/sales_line_dao.dart';
 import 'package:core/data/local/db/dao/search_product_history_dao.dart';
 import 'package:core/data/local/db/dao/setting_dao.dart';
 import 'package:core/data/local/db/entity/customer_address_entity.dart';
+
 import 'package:core/data/local/db/entity/mcustomer_entity.dart';
 import 'package:core/data/local/db/entity/merchandiser_customer_entity.dart';
 import 'package:core/data/local/db/entity/product_entity.dart';

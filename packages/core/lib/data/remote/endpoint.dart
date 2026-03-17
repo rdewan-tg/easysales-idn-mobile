@@ -39,6 +39,7 @@ const String lastSalesOrderIdEndPoint =
 const String createSiteVisitEndPoint = '/v1/site-visit';
 const String updateSiteVisitEndPoint = '/v1/site-visit';
 const String updateSiteVisitNoteEndPoint = '/v1/site-visit/note';
+const String updateCustomerLocationEndPoint = '/v1/merchandiser-customers/update-customer-location';
 
 // company setting
 const String findCompanySettingEndPoint = '/v1/company-setting';
