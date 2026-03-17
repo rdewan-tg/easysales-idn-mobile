@@ -31,5 +31,3 @@ abstract interface class IMerchandiserCustomerRepository {
 
   Stream<int> watchTotalCustomerCount();
 }
-
-

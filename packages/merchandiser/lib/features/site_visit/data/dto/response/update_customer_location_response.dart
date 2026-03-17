@@ -4,7 +4,8 @@ part 'update_customer_location_response.freezed.dart';
 part 'update_customer_location_response.g.dart';
 
 @freezed
-abstract class UpdateCustomerLocationResponse with _$UpdateCustomerLocationResponse {
+abstract class UpdateCustomerLocationResponse
+    with _$UpdateCustomerLocationResponse {
   const factory UpdateCustomerLocationResponse({
     required String status,
     required UpdateCustomerLocationData data,

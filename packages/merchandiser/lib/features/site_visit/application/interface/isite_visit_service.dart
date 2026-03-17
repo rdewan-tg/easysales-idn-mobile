@@ -22,6 +22,3 @@ abstract interface class ISiteVisitService {
   );
   Future<Map<String, String>> getAllSetting();
 }
-
-
-

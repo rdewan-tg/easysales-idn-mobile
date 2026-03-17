@@ -8,10 +8,11 @@ import 'package:merchandiser/features/site_visit/data/dto/response/update_custom
 abstract interface class ISiteVisitRepository {
   Future<SiteVisitResponse> createSiteVisit(CreateSiteVisitRequest body);
   Future<SiteVisitResponse> updateSiteVisit(UpdateSiteVisitRequest body);
-  Future<SiteVisitResponse> updateSiteVisitNote(UpdateSiteVisitNoteRequest body);
-  Future<UpdateCustomerLocationResponse> updateCustomerLocation(UpdateCustomerLocationRequest body);
+  Future<SiteVisitResponse> updateSiteVisitNote(
+    UpdateSiteVisitNoteRequest body,
+  );
+  Future<UpdateCustomerLocationResponse> updateCustomerLocation(
+    UpdateCustomerLocationRequest body,
+  );
   Future<Map<String, String>> getAllSettings();
 }
-
-
-
