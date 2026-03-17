@@ -3,6 +3,7 @@ import 'package:merchandiser/features/site_visit/application/site_visit_service.
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_customer_location_request.dart';
 import 'package:merchandiser/features/site_visit/presentation/state/site_visit_state.dart';
 
 final siteVisitControllerProvider =
@@ -38,7 +39,7 @@ class SiteVisitController extends Notifier<SiteVisitState> {
       customerId: form['customerId'],
       customerName: form['customerName'],
       customerAddress: form['customerAddress'],
-      customerChain: form['customerChain'],
+      customerChain: form['area'],
       customerLatitude: state.currentPosition?.latitude ?? 0,
       customerLongitude: state.currentPosition?.longitude ?? 0,
       timeIn: state.timeNow ?? '',
@@ -103,6 +104,33 @@ class SiteVisitController extends Notifier<SiteVisitState> {
     );
   }
 
+  Future<void> updateCustomerLocation({
+    required String customerId,
+    required double latitude,
+    required double longitude,
+  }) async {
+    state = state.copyWith(isLoading: true, error: null);
+
+    final body = UpdateCustomerLocationRequest(
+      customerId: customerId,
+      latitude: latitude,
+      longitude: longitude,
+    );
+
+    final result = await ref
+        .read(siteVisitServiceProvider)
+        .updateCustomerLocation(body);
+
+    result.when(
+      (success) => state = state.copyWith(
+        isLoading: false,
+        updateCustomerLocationResponse: success,
+      ),
+      (failure) =>
+          state = state.copyWith(isLoading: false, error: failure.message),
+    );
+  }
+
   void setTimeNow(String timeNow) {
     state = state.copyWith(timeNow: timeNow);
   }
@@ -111,6 +139,10 @@ class SiteVisitController extends Notifier<SiteVisitState> {
     state = state.copyWith(
       currentPosition: LatLng(latitude: lat, longitude: lng),
     );
+  }
+
+  LatLng? getCurrentPosition() {
+    return state.currentPosition;
   }
 
   void setCurrentAddress(String address) {
