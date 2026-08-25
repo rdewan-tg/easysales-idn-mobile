@@ -42,10 +42,12 @@ track_response = track_request.execute()  # Execute the request and get the trac
 
 # Extract release information from the track response
 releases = track_response.get('releases', [])  # Get the list of releases for the track
-if releases:
-    # If releases exist, get the latest release details
-    latest_release = releases[0]
-    # Safely get the first version code or default to 0 if missing
+# Ignore draft/halted releases with no assigned version code (e.g. leftovers from
+# a failed CI run) -- releases[0] is not guaranteed to be the real latest release.
+releases_with_code = [r for r in releases if r.get('versionCodes')]
+if releases_with_code:
+    # Pick the release with the highest version code, not just the first entry
+    latest_release = max(releases_with_code, key=lambda r: int(r['versionCodes'][0]))
     version_codes = latest_release.get('versionCodes', [])  # Get the first version code
     current_version_code = int(version_codes[0]) if version_codes else 0  # Default to 0 when absent
     current_version_name = latest_release.get('name', '0.0.1')  # Default to '0.0.1' if name is missing
