@@ -65,10 +65,9 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
 
   Future<void> getAddressFromLatLng(LatLng position) async {
     try {
-      List<Placemark> placeMarks = await placemarkFromCoordinates(
-        position.latitude,
-        position.longitude,
-      );
+      List<Placemark> placeMarks = await ref
+          .read(giocodingProvider)
+          .placemarkFromCoordinates(position.latitude, position.longitude);
 
       if (placeMarks.isNotEmpty) {
         final place = placeMarks.first;
