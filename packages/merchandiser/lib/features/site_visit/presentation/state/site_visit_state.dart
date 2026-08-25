@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
+import 'package:merchandiser/features/site_visit/data/dto/response/update_customer_location_response.dart';
 
 part 'site_visit_state.freezed.dart';
 
@@ -13,6 +14,7 @@ abstract class SiteVisitState with _$SiteVisitState {
     SiteVisitData? createSiteVisitResponse,
     SiteVisitData? updateSiteVisitResponse,
     SiteVisitData? updateSiteVisitNoteResponse,
+    UpdateCustomerLocationData? updateCustomerLocationResponse,
     String? currentAddress,
     String? timeNow,
     @Default({}) Map<String, String> settings,

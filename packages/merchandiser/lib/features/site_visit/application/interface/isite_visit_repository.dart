@@ -2,12 +2,17 @@ import 'package:merchandiser/features/site_visit/data/dto/request/create_site_vi
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_customer_location_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/response/update_customer_location_response.dart';
 
 abstract interface class ISiteVisitRepository {
   Future<SiteVisitResponse> createSiteVisit(CreateSiteVisitRequest body);
   Future<SiteVisitResponse> updateSiteVisit(UpdateSiteVisitRequest body);
   Future<SiteVisitResponse> updateSiteVisitNote(
     UpdateSiteVisitNoteRequest body,
+  );
+  Future<UpdateCustomerLocationResponse> updateCustomerLocation(
+    UpdateCustomerLocationRequest body,
   );
   Future<Map<String, String>> getAllSettings();
 }

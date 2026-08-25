@@ -10613,10 +10613,7 @@ final class $$SalesHeaderEntityTableReferences
   static MultiTypedResultKey<$SalesLineEntityTable, List<SalesLineEntityData>>
   _salesLineEntityRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
     db.salesLineEntity,
-    aliasName: $_aliasNameGenerator(
-      db.salesHeaderEntity.salesId,
-      db.salesLineEntity.salesId,
-    ),
+    aliasName: 'sales_header_entity__sales_id__sales_line_entity__sales_id',
   );
 
   $$SalesLineEntityTableProcessedTableManager get salesLineEntityRefs {
@@ -11146,10 +11143,7 @@ final class $$SalesLineEntityTableReferences
 
   static $SalesHeaderEntityTable _salesIdTable(_$AppDatabase db) =>
       db.salesHeaderEntity.createAlias(
-        $_aliasNameGenerator(
-          db.salesLineEntity.salesId,
-          db.salesHeaderEntity.salesId,
-        ),
+        'sales_line_entity__sales_id__sales_header_entity__sales_id',
       );
 
   $$SalesHeaderEntityTableProcessedTableManager get salesId {

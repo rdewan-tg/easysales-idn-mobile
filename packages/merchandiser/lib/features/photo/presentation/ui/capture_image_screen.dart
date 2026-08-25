@@ -142,7 +142,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
       'bytes': bytes,
       'dateTime': dateTime,
       'customerId': widget.extras['customerId'],
-      'address': widget.extras['address'],
+      'address': widget.extras['customerAddress'],
     });
 
     // Save the modified image to the original file path
@@ -159,9 +159,9 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
           photo: File(file.path),
           customerId: widget.extras['customerId'],
           customerName: widget.extras['customerName'],
-          customerAddress: widget.extras['address'],
+          customerAddress: widget.extras['customerAddress'],
           transDate: _currentDateTime('dd-MM-yyyy'),
-          customerDimension: widget.extras['area'],
+          customerDimension: "-",
           location: '-',
         );
   }
@@ -181,7 +181,7 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
         'bytes': bytes,
         'dateTime': dateTime,
         'customerId': widget.extras['customerId'],
-        'deliveryName': widget.extras['deliveryName'],
+        'address': widget.extras['customerAddress'],
       });
 
       // Save the modified image to the original file path
@@ -301,30 +301,43 @@ class _CaptureImageScreenState extends ConsumerState<CaptureImageScreen> {
 
 Uint8List processImage(Map<String, dynamic> args) {
   final Uint8List bytes = args['bytes'];
-  final String dateTime = args['dateTime'];
 
-  // Decode the image
   final image = img.decodeImage(bytes);
-  if (image == null) {
-    throw StateError('Invalid image data');
+  if (image == null) throw StateError('Invalid image data');
+
+  // Resize based on longest side — handles portrait and landscape
+  const int maxDimension = 1920;
+
+  final img.Image resized;
+  if (image.width >= image.height) {
+    // Landscape
+    resized = img.copyResize(image, width: maxDimension, maintainAspect: true);
+  } else {
+    // Portrait
+    resized = img.copyResize(image, height: maxDimension, maintainAspect: true);
   }
 
-  final data =
-      '''
-    $dateTime \n
-    ${args['customerId']} \n
-    ${args['address']}
-  ''';
-
-  //Draw the date and time
-  final modifiedImage = img.drawString(
-    image,
-    data,
-    font: img.arial48,
+  final modifiedImageWithDate = img.drawString(
+    resized,
+    '${args['dateTime']}',
+    font: img.arial24,
     x: 10,
-    y: image.height - 300,
+    y: resized.height - 300,
+  );
+  final modifiedImageWithCustomerId = img.drawString(
+    modifiedImageWithDate,
+    '${args['customerId']}',
+    font: img.arial24,
+    x: 10,
+    y: resized.height - 270,
+  );
+  final modifiedImageWithAddress = img.drawString(
+    modifiedImageWithCustomerId,
+    '${args['address']}',
+    font: img.arial24,
+    x: 10,
+    y: resized.height - 240,
   );
 
-  // Return the encoded modified image
-  return img.encodeJpg(modifiedImage, quality: 50);
+  return img.encodeJpg(modifiedImageWithAddress, quality: 50);
 }

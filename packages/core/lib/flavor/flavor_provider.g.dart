@@ -47,7 +47,7 @@ abstract class _$FlavorNotifier extends $Notifier<Flavor> {
   Flavor build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<Flavor, Flavor>;
     final element =
         ref.element
@@ -57,6 +57,6 @@ abstract class _$FlavorNotifier extends $Notifier<Flavor> {
               Object?,
               Object?
             >;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

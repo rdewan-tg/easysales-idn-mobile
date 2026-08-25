@@ -65,10 +65,9 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
 
   Future<void> getAddressFromLatLng(LatLng position) async {
     try {
-      List<Placemark> placeMarks = await placemarkFromCoordinates(
-        position.latitude,
-        position.longitude,
-      );
+      List<Placemark> placeMarks = await ref
+          .read(giocodingProvider)
+          .placemarkFromCoordinates(position.latitude, position.longitude);
 
       if (placeMarks.isNotEmpty) {
         final place = placeMarks.first;
@@ -110,22 +109,6 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
         appBar: AppBar(
           title: Text(context.localizations('siteVisit.title')),
           centerTitle: true,
-          actions: [
-            // IconButton(
-            //   onPressed: () {
-            //     context.push(
-            //       "/merchandiser/$captureImageRoute",
-            //       extra: {
-            //         'customerId': widget.extras['customerId'],
-            //         'customerName': widget.extras['customerName'],
-            //         'address': widget.extras['address'],
-            //         'area': widget.extras['area'],
-            //       },
-            //     );
-            //   },
-            //   icon: const Icon(Icons.camera_alt_outlined),
-            // ),
-          ],
         ),
         body: Consumer(
           builder: (context, ref, child) {
@@ -185,7 +168,39 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CurrentLocationWidget(),
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final latLan = ref.watch(
+                        siteVisitControllerProvider.select(
+                          (value) => value.currentPosition,
+                        ),
+                      );
+
+                      if (latLan == null) {
+                        return const SizedBox();
+                      }
+
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          /// Current address expands fully
+                          const Expanded(child: CurrentLocationWidget()),
+
+                          /// Location update button beside address
+                          IconButton(
+                            icon: const Icon(
+                              Icons.cloud_upload_outlined,
+                              color: Colors.blue,
+                            ),
+                            tooltip: "Update customer location",
+                            onPressed: _updateCustomerLocation,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+
+                  // const CurrentTimeWidget(),
                   Consumer(
                     builder: (context, ref, child) {
                       final timeNow = ref.watch(
@@ -205,7 +220,7 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
                         children: [
                           /// Current time expands fully
                           const Expanded(child: CurrentTimeWidget()),
-                          const SizedBox(width: kSmall),
+                          const SizedBox(width: 8),
 
                           /// Note taking button
                           IconButton.filled(
@@ -245,6 +260,7 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
         .getTimeZone();
     // get the location
     final location = tz.getLocation(timeZone);
+
     // start the timer
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       final now = tz.TZDateTime.now(location);
@@ -254,12 +270,42 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
     });
   }
 
+  // Update customer location API call
+  Future<void> _updateCustomerLocation() async {
+    try {
+      final position = ref
+          .read(siteVisitControllerProvider.notifier)
+          .getCurrentPosition();
+
+      if (position == null) {
+        if (!mounted) return;
+        context.showErrorSnackBar("Location not available");
+        return;
+      }
+
+      await ref
+          .read(siteVisitControllerProvider.notifier)
+          .updateCustomerLocation(
+            customerId: widget.extras['customerId'],
+            latitude: position.latitude,
+            longitude: position.longitude,
+          );
+
+      if (!mounted) return;
+
+      context.showSuccessSnackBar("Location updated successfully ");
+    } catch (e) {
+      if (!mounted) return;
+      context.showErrorSnackBar("Failed to update location");
+    }
+  }
+
   void _submitIn() {
     final form = {
       'customerId': widget.extras['customerId'],
       'customerName': widget.extras['customerName'],
       'customerAddress': widget.extras['address'],
-      'customerChain': widget.extras['area'],
+      'area': widget.extras['area'],
     };
     ref.read(siteVisitControllerProvider.notifier).createSiteVisit(form: form);
   }
@@ -269,17 +315,19 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
   }
 
   void _capturePhoto() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => CaptureImageScreen(
-          extras: {
-            'customerId': widget.extras['customerId'],
-            'customerName': widget.extras['customerName'],
-            'address': widget.extras['address'],
-            'area': widget.extras['area'],
-          },
-        ),
-      ),
+    final location = ref
+        .read(siteVisitControllerProvider.notifier)
+        .getCurrentPosition();
+
+    context.push(
+      "/merchandiser/$captureImageRoute",
+      extra: {
+        'customerId': widget.extras['customerId'],
+        'customerName': widget.extras['customerName'],
+        'customerAddress': widget.extras['address'],
+        'customerRegion': widget.extras['customerRegion'],
+        'location': "${location?.latitude},${location?.longitude}",
+      },
     );
   }
 
@@ -351,11 +399,11 @@ class _SiteVisitScreenState extends ConsumerState<SiteVisitScreen> {
         content: Text(context.localizations('siteVisit.confirmLeavePage')),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
+            onPressed: () => context.pop(false),
             child: const Text('No'),
           ),
           TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
+            onPressed: () => context.pop(true),
             child: const Text('Yes'),
           ),
         ],

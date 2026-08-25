@@ -3,7 +3,10 @@ import 'package:merchandiser/features/site_visit/application/interface/isite_vis
 import 'package:merchandiser/features/site_visit/data/dto/request/create_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_request.dart';
 import 'package:merchandiser/features/site_visit/data/dto/request/update_site_visit_note_request.dart';
+import 'package:merchandiser/features/site_visit/data/dto/request/update_customer_location_request.dart';
+
 import 'package:merchandiser/features/site_visit/data/dto/response/site_visit_response.dart';
+import 'package:merchandiser/features/site_visit/data/dto/response/update_customer_location_response.dart';
 import 'package:merchandiser/features/site_visit/data/source/remote/site_visit_api.dart';
 import 'package:common/common.dart';
 import 'package:dio/dio.dart';
@@ -53,6 +56,19 @@ final class SiteVisitRepository
   ) async {
     try {
       return await siteVisitApi.updateSiteVisitNote(body);
+    } on DioException catch (e, s) {
+      throw mapDioExceptionToFailure(e, s);
+    } on Exception catch (e, s) {
+      throw Failure(message: e.toString(), exception: e, stackTrace: s);
+    }
+  }
+
+  @override
+  Future<UpdateCustomerLocationResponse> updateCustomerLocation(
+    UpdateCustomerLocationRequest body,
+  ) async {
+    try {
+      return await siteVisitApi.updateCustomerLocation(body);
     } on DioException catch (e, s) {
       throw mapDioExceptionToFailure(e, s);
     } on Exception catch (e, s) {
